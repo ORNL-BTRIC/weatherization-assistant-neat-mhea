@@ -1,0 +1,74 @@
+MHEA 
+MHEA Retrofit Measure Savings Report       Audit Identifier:  
+
+Weather Site: ST. LOUIS, MO 
+  Job Number: 1217 
+        Note: Results have been adjusted using BILLING DATA. 
+--------------------------------------------------------------------------------- 
+                                        Annual Energy Savings             
+                      ----------------------------------------------------------- 
+Recommended               Heating       Cooling       BaseLoad         Total      
+Measures               (MMBtu)  ($)   (kWh)   ($)   (kWh)   ($)    (MMBtu) ($)    
+--------------------------------------------------------------------------------- 
+   Lighting Retrofits     0.0     0       0     0    1030   135       3.5  135 
+   Lighting Retrofits     0.0     0       0     0     679    89       2.3   89 
+Water Heater Pipe Ins     0.0     0       0     0     222     7       0.8    7 
+Water Heater Tank Ins     0.0     0       0     0     559    18       1.9   18 
+   Setback Thermostat     2.6    25       0     0       0     0       2.6   25 
+  Glass Storm Windows     0.9     9       4     1       0     0       1.0   10 
+    Add Shade Screens    -0.4    -4     578    76       0     0       1.6   72 
+Refrigerator Replacem     0.0     0       0     0    1103   144       3.8  144 
+Wall Fiberglass Batt      5.8    56     178    23       0     0       6.4   79 
+       Window Sealing     0.9     8       4     0       0     0       0.9    9 
+Roof Fiberglass Loose     4.8    46     260    34       0     0       5.6   80 
+Floor Cellulose Loose     5.3    51      26     3       0     0       5.3   54 
+  General Air Sealing     4.1    40       0     0       0     0       4.1   40 
+Door Replacement in A     0.4     4       2     0       0     0       0.4    5 
+     Door Replacement     0.2     2       3     0       0     0       0.2    2 
+       Window Sealing     4.4    42      19     2       0     0       4.4   44 
+        Note: Results have been adjusted using billing data. 
+-------------------------------------------------------------------- 
+                             Measure               Cumulative        
+                      ----------------------  ---------------------- 
+Recommended           Savings   Costs    SIR  Savings   Costs    SIR 
+Measures              ($/year)   ($)          ($/year)   ($)         
+-------------------------------------------------------------------- 
+          Repair door      0      20     0.0       0      20     0.0 
+   Lighting Retrofits    135      48     6.2     135      68     4.3 
+   Lighting Retrofits     89      39     5.9     224     106     4.9 
+Water Heater Pipe Ins      7      15     5.3     231     122     5.0 
+Water Heater Tank Ins     18      40     5.0     249     162     5.0 
+   Setback Thermostat     25      75     4.2     275     236     4.7 
+  Glass Storm Windows     10      32     3.7     284     268     4.6 
+    Add Shade Screens     72     184     3.4     356     452     4.1 
+Refrigerator Replacem    144     600     3.0     500    1052     3.5 
+Wall Fiberglass Batt      79     471     2.6     580    1524     3.2 
+       Window Sealing      9      30     2.6     589    1554     3.2 
+Roof Fiberglass Loose     80     740     1.7     668    2294     2.7 
+Floor Cellulose Loose     54     573     1.5     722    2867     2.5 
+  General Air Sealing     40     250     1.4     762    3117     2.4 
+Door Replacement in A      5     195     0.3     767    3312     2.3 
+     Door Replacement      2     210     0.1     769    3522     2.1 
+       Window Sealing     44     150     2.6     813    3672     0.0 
+          Repair flue      0      30     0.0     813    3702     0.0 
+        Note: Results have been adjusted using billing data. 
+---------------------------------------------------- 
+                                                     
+Material                             Quantity  Units  
+----------------------------------------------------- 
+                 CFL Lamp 13.0 watts     5.0  Each Bulb
+                 CFL Lamp 38.0 watts     3.0  Each Bulb
+        Water Heater Pipe Insulation     1.0    Each
+   Water Heater Tank Insulation Wrap     1.0    Each
+                  Setback Thermostat     1.0    Each
+                 Glass Storm Windows     1.0    Each
+                   Add Shade Screens    46.0    SqFt
+                       Refrigerator      1.0     Ea 
+     Wall Fiberglass Batt Insulation   658.5    SqFt
+                      Window Sealing     1.0    Each
+    Roof Fiberglass Loose Insulation    20.0     Bag
+    Floor Cellulose Loose Insulation    39.0     Bag
+                 General Air Sealing     1.0    Each
+        Door Replacement in Addition     1.0  Each Door
+                    Door Replacement     1.0  Each Door
+                      Window Sealing     5.0    Each

@@ -1,0 +1,10 @@
+#!/bin/bash
+mkdir ./output/neat/last
+mkdir ./output/neat/last/${1}
+./bin/wa_engine.so -n -f -z -s -v -d 1 \
+-i input/wa-demo/neat/${1}.json \
+-e output/neat/last/${1}/input.json \
+-c output/neat/last/${1}/report.txt \
+-u output/neat/last/${1}/measures.txt \
+-o output/neat/last/${1}/output.json \
+2>output/neat/last/${1}/diagnostic.txt

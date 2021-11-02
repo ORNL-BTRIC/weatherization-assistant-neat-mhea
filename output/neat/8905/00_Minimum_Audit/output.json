@@ -1,0 +1,421 @@
+{
+	"results":	{
+		"status":	"Okay",
+		"audit_type":	"NEAT",
+		"audit_number":	788546487,
+		"run_version":	"NEAT v8.9.0.5",
+		"no_cond_stories":	1,
+		"floor_area":	1000,
+		"run_timestamp":	"11/13/19 10:40:56",
+		"energy_calc_counter":	2,
+		"energy_delta_counter":	5,
+		"num_measure":	3,
+		"measures":	[{
+				"index":	1,
+				"measure_id":	0,
+				"material_id":	131,
+				"measure":	"Infiltration Redctn",
+				"components":	"",
+				"heating_mbtu":	0.505,
+				"heating_sav":	16.28,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0.505,
+				"savings":	16.28,
+				"cost":	100,
+				"sir":	1.421,
+				"qtym":	1,
+				"qtyl":	1,
+				"qtyi":	1,
+				"costum":	0,
+				"costul":	0,
+				"costi1":	0,
+				"costi2":	100,
+				"desci2":	"Infiltration Reduction",
+				"typei2":	2,
+				"costi3":	0,
+				"desci3":	"",
+				"typei3":	0
+			}, {
+				"index":	2,
+				"measure_id":	749807962,
+				"material_id":	16,
+				"measure":	"Wall Insulation",
+				"components":	"WL1",
+				"heating_mbtu":	0.812,
+				"heating_sav":	26.19,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0.812,
+				"savings":	26.19,
+				"cost":	403,
+				"sir":	1,
+				"qtym":	0,
+				"qtyl":	0,
+				"qtyi":	0,
+				"costum":	0,
+				"costul":	0,
+				"costi1":	0,
+				"costi2":	0,
+				"desci2":	"",
+				"typei2":	0,
+				"costi3":	0,
+				"desci3":	"",
+				"typei3":	0
+			}, {
+				"index":	3,
+				"measure_id":	-997439686,
+				"material_id":	41,
+				"measure":	"Smart Thermostat",
+				"components":	"",
+				"heating_mbtu":	0,
+				"heating_sav":	0,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0,
+				"savings":	0,
+				"cost":	75,
+				"sir":	0,
+				"qtym":	1,
+				"qtyl":	1,
+				"qtyi":	1,
+				"costum":	50,
+				"costul":	25,
+				"costi1":	0,
+				"costi2":	0,
+				"desci2":	"",
+				"typei2":	0,
+				"costi3":	0,
+				"desci3":	"",
+				"typei3":	0
+			}],
+		"num_measure_material":	3,
+		"mmaterial":	[{
+				"index":	2,
+				"order":	1,
+				"components":	"",
+				"description":	"Wall Insulation  - Blown Cellulose - 2x4 Filled",
+				"material_type_id":	1,
+				"units":	"SqFt",
+				"qty_est":	300,
+				"unit_cost_est":	0.26,
+				"comment":	""
+			}, {
+				"index":	2,
+				"order":	2,
+				"components":	"",
+				"description":	"Wall Insulation  - Blown Cellulose - 2x4 Filled",
+				"material_type_id":	10,
+				"units":	"SqFt",
+				"qty_est":	300,
+				"unit_cost_est":	0.75,
+				"comment":	""
+			}, {
+				"index":	2,
+				"order":	3,
+				"components":	"",
+				"description":	"Added Misc Cost",
+				"material_type_id":	2,
+				"units":	"Each",
+				"qty_est":	1,
+				"unit_cost_est":	100,
+				"comment":	""
+			}],
+		"num_an_sav":	3,
+		"an_sav":	[{
+				"index":	1,
+				"measure":	"Infiltration Redctn",
+				"components":	"",
+				"heating_mbtu":	0.505,
+				"heating_sav":	16.28,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0.505
+			}, {
+				"index":	2,
+				"measure":	"Wall Insulation",
+				"components":	"WL1",
+				"heating_mbtu":	0.812,
+				"heating_sav":	26.19,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0.812
+			}, {
+				"index":	3,
+				"measure":	"Smart Thermostat",
+				"components":	"",
+				"heating_mbtu":	0,
+				"heating_sav":	0,
+				"cooling_kwh":	0,
+				"cooling_sav":	0,
+				"baseload_kwh":	0,
+				"baseload_sav":	0,
+				"total_mbtu":	0
+			}],
+		"num_an_asav":	0,
+		"an_asav":	[],
+		"num_sir":	3,
+		"sir":	[{
+				"index":	1,
+				"measure":	"Infiltration Redctn",
+				"components":	"",
+				"savings":	16.28,
+				"cost":	100,
+				"sir":	1.421,
+				"ccost":	100,
+				"csir":	1.421
+			}, {
+				"index":	2,
+				"measure":	"Wall Insulation",
+				"components":	"WL1",
+				"savings":	26.19,
+				"cost":	403,
+				"sir":	1,
+				"ccost":	503,
+				"csir":	1.084
+			}, {
+				"index":	3,
+				"measure":	"Smart Thermostat",
+				"components":	"",
+				"savings":	0,
+				"cost":	75,
+				"sir":	0,
+				"ccost":	578,
+				"csir":	0.943
+			}],
+		"num_asir":	0,
+		"asir":	[],
+		"num_material":	2,
+		"material":	[{
+				"index":	1,
+				"engine_id":	16,
+				"material":	"Wall Insulation ",
+				"type":	"Blown Cellulose - 2x4 Filled",
+				"quantity":	300,
+				"units":	"SqFt",
+				"qtymat":	0,
+				"qtyhrs":	0,
+				"qtyeach":	0
+			}, {
+				"index":	2,
+				"engine_id":	41,
+				"material":	"Smart Thermostat",
+				"type":	"",
+				"quantity":	1,
+				"units":	"Each",
+				"qtymat":	0,
+				"qtyhrs":	0,
+				"qtyeach":	0
+			}],
+		"num_amaterial":	0,
+		"amaterial":	[],
+		"num_an_load":	4,
+		"an_load":	[{
+				"index":	1,
+				"name":	"Annual load (MBtu/yr)",
+				"pre_heat":	2.066,
+				"pre_cool":	10.963,
+				"post_heat":	0.748,
+				"post_cool":	8.31
+			}, {
+				"index":	2,
+				"name":	"Annual Energy (MBtu/yr)",
+				"pre_heat":	2.066,
+				"pre_cool":	0,
+				"post_heat":	0.748,
+				"post_cool":	0
+			}, {
+				"index":	3,
+				"name":	"Heat loss/gain (kBtu/hr)",
+				"pre_heat":	6.999,
+				"pre_cool":	4.178,
+				"post_heat":	3.316,
+				"post_cool":	2.9
+			}, {
+				"index":	4,
+				"name":	"Output required (kBtu/hr)(ton)",
+				"pre_heat":	8.049,
+				"pre_cool":	0.441,
+				"post_heat":	3.814,
+				"post_cool":	0.323
+			}],
+		"num_message":	4,
+		"message":	[{
+				"index":	1,
+				"msg":	"NOTE: Heat loss and Output required are only guides to sizing equipment."
+			}, {
+				"index":	2,
+				"msg":	"NOTE: See NEAT User's Manual for further sizing details."
+			}, {
+				"index":	3,
+				"msg":	"NOTE: Read cautions in NEAT User's Manual related to sizing results."
+			}, {
+				"index":	4,
+				"msg":	"NOTE: (+) in the Materials list indicates there are more related User Defined Materials."
+			}],
+		"num_manj":	18,
+		"manj":	[{
+				"index":	0,
+				"heatcool":	"heat",
+				"type":	"Wall",
+				"name":	"WL1",
+				"area_vol":	300,
+				"pre_load":	4640.94,
+				"post_load":	1429.827
+			}, {
+				"index":	1,
+				"heatcool":	"heat",
+				"type":	"Infiltration",
+				"name":	"Inf",
+				"area_vol":	8000,
+				"pre_load":	2358.145,
+				"post_load":	1886.516
+			}, {
+				"index":	2,
+				"heatcool":	"heat",
+				"type":	"Total heat loss",
+				"name":	"Tot",
+				"area_vol":	0,
+				"pre_load":	6999.085,
+				"post_load":	3316.343
+			}, {
+				"index":	3,
+				"heatcool":	"heat",
+				"type":	"Duct loss",
+				"name":	"Duct",
+				"area_vol":	0,
+				"pre_load":	1049.863,
+				"post_load":	497.451
+			}, {
+				"index":	4,
+				"heatcool":	"heat",
+				"type":	"Output required",
+				"name":	"Output",
+				"area_vol":	0,
+				"pre_load":	8048.948,
+				"post_load":	3813.794
+			}, {
+				"index":	5,
+				"heatcool":	"cool",
+				"type":	"Wall",
+				"name":	"WL1",
+				"area_vol":	300,
+				"pre_load":	1595.832,
+				"post_load":	491.66
+			}, {
+				"index":	6,
+				"heatcool":	"cool",
+				"type":	"Infiltration",
+				"name":	"Inf",
+				"area_vol":	8000,
+				"pre_load":	1106.496,
+				"post_load":	932.118
+			}, {
+				"index":	7,
+				"heatcool":	"cool",
+				"type":	"People",
+				"name":	"People",
+				"area_vol":	1,
+				"pre_load":	276,
+				"post_load":	276
+			}, {
+				"index":	8,
+				"heatcool":	"cool",
+				"type":	"Appliances",
+				"name":	"Appl",
+				"area_vol":	1,
+				"pre_load":	1200,
+				"post_load":	1200
+			}, {
+				"index":	9,
+				"heatcool":	"cool",
+				"type":	"Total Sensible",
+				"name":	"TotS",
+				"area_vol":	0,
+				"pre_load":	4178.328,
+				"post_load":	2899.778
+			}, {
+				"index":	10,
+				"heatcool":	"cool",
+				"type":	"Ducts",
+				"name":	"Ducts",
+				"area_vol":	0,
+				"pre_load":	0,
+				"post_load":	0
+			}, {
+				"index":	11,
+				"heatcool":	"cool",
+				"type":	"Total (with ducts)",
+				"name":	"TotW",
+				"area_vol":	0,
+				"pre_load":	4178.328,
+				"post_load":	2899.778
+			}, {
+				"index":	12,
+				"heatcool":	"cool",
+				"type":	"Size (tons)",
+				"name":	"Size",
+				"area_vol":	0,
+				"pre_load":	0.348,
+				"post_load":	0.242
+			}, {
+				"index":	13,
+				"heatcool":	"cool",
+				"type":	"Latent Load (inf)",
+				"name":	"LatentI",
+				"area_vol":	0,
+				"pre_load":	882.595,
+				"post_load":	743.503
+			}, {
+				"index":	14,
+				"heatcool":	"cool",
+				"type":	"Latent Load (occ)",
+				"name":	"LatentO",
+				"area_vol":	0,
+				"pre_load":	230,
+				"post_load":	230
+			}, {
+				"index":	15,
+				"heatcool":	"cool",
+				"type":	"Latent Load (tot)",
+				"name":	"LatentT",
+				"area_vol":	0,
+				"pre_load":	1112.595,
+				"post_load":	973.503
+			}, {
+				"index":	16,
+				"heatcool":	"cool",
+				"type":	"Total Load",
+				"name":	"Total",
+				"area_vol":	0,
+				"pre_load":	5290.923,
+				"post_load":	3873.281
+			}, {
+				"index":	17,
+				"heatcool":	"cool",
+				"type":	"Size (tons)",
+				"name":	"Size",
+				"area_vol":	0,
+				"pre_load":	0.441,
+				"post_load":	0.323
+			}],
+		"heat_comp_units":	"",
+		"heat_dd_base":	0,
+		"num_heat_comp":	0,
+		"heat_comp":	[],
+		"cool_comp_units":	"",
+		"cool_dd_base":	0,
+		"num_cool_comp":	0,
+		"cool_comp":	[]
+	}
+}

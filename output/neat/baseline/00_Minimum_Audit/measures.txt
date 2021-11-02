@@ -1,0 +1,41 @@
+NEAT 
+
+Audit Type: NEAT
+Audit ID: 311
+Audit Number: 1297
+Climate: KNOXVILLE, TN       
+
+
+   Recommended                                  M e a s u r e       Cumulative
+     Measure             Component          Savings  Cost   SIR    Cost    SIR
+                                             ($/yr)   ($)          ($)
+
+Infiltration Reduction                                100     -     100     -
+Wall Insulation        WL1                          31    403    1.2    503    1.0
+
+   Recommended                                   A n n u a l  S a v i n g s 
+     Measure             Component              Heating       Cooling    BaseLoad   Total
+                                             (MMBtu)   ($)   (kWh)  ($)   (kWh)  ($)   (MMBtu)
+
+Wall Insulation        WL1                          0.8    31      0     0      0     0    0.8
+
+                        Material List
+
+Material Name        Type                               Quantity
+
+Wall Insulation      Blown Cellulose - 2x4 Filled         300  SqFt
+
+
+
+                           Pre-retofit       Post-retrofit
+                        Heating  Cooling   Heating  Cooling
+
+ Annual load (MMBtu/yr)       2       12         1        8
+ Annual Energy (MMBtu/yr)     2        0         1        0
+ Heat loss/gain (kBtu/hr)    13        4         3        3
+ Output (kBtu/hr or Ton)    15      0.3         4      0.2
+
+  Design building heat loss and output required intended only as guides
+   to sizing equipment.  See NEAT User's Manual for further details.
+ NOTE: Read cautions in NEAT User's Manual related to sizing results.
+ NOTE: (+) in the Materials list indicates there are more related User Defined Materials.

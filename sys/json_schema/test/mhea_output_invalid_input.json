@@ -1,0 +1,18 @@
+{
+    "data": {
+        "causingExceptions": [
+            {
+                "causingExceptions": [],
+                "keyword": "maximum",
+                "message": "17.5 is not less or equal to 10",
+                "pointerToViolation": "#/audit/height",
+                "schemaLocation": "#/definitions/audit/properties/height"
+            }
+        ],
+        "keyword": "allOf",
+        "message": "#: only 1 subschema matches out of 2",
+        "pointerToViolation": "#",
+        "schemaLocation": "#"
+    },
+    "success": false
+}

@@ -1,0 +1,43 @@
+NEAT 
+
+Audit Type: NEAT
+Audit ID: 311
+Audit Number: 1297
+Climate: KNOXVILLE, TN       
+
+  APPROXIMATE MANUAL J COMPONENT CONTRIBUTIONS TO PEAK HEATING LOADS
+
+ Component    Area or    Pre-Retrofit   Post-Retrofit
+             Volume(Inf)     Btu/h          Btu/h
+
+     WL1       300          4641             1430
+     Inf      8000          8360             1895
+
+ Total heat loss           13001             3325
+  Duct loss                 1950              499
+
+ Output required           14951             3824
+
+
+
+  APPROXIMATE MANUAL J COMPONENT CONTRIBUTIONS TO PEAK COOLING LOADS
+
+ Component    Area or    Pre-Retrofit   Post-Retrofit
+             Volume(Inf)     Btu/h          Btu/h
+
+     WL1       300          1596              492
+     Inf      8000           932              932
+  People         1           276              276
+    Appl                    1200             1200
+
+Total (Sensible)            4004             2900
+Ducts            0             0                0
+ Total (with ducts)         4004             2900
+ Size (tons)                0.3              0.2
+
+Latent Load (inf)           744              744
+Latent Load (occ)           230              230
+Latent Load (tot)           974              974
+
+ Total Load                 4977             3873
+ Size (tons)                 0.4              0.3

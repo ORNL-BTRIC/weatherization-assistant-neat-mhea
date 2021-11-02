@@ -1,0 +1,1235 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "build_version": "v10.03.006",
+  "title": "NEAT Output",
+  "description": "National Energy Audit Tool analysis output",
+  "type": "object",
+  "additionalProperties": false,
+
+  "required": [
+    "audit_number",
+    "audit_id",
+    "no_cond_stories",
+    "floor_area",
+    "energy_calc_counter",
+    "energy_delta_counter",
+
+    "num_measure",
+    "measures",
+
+    "num_measure_material",
+    "mmaterial",
+
+    "num_an_sav",
+    "an_sav",
+
+    "num_sir",
+    "sir",
+
+    "num_material",
+    "material",
+
+    "num_an_load",
+    "an_load",
+
+    "num_message",
+    "message",
+
+    "num_manj",
+    "manj",
+
+    "num_used_fuel",
+    "used_fuel"
+  ],
+
+  "properties": {
+
+    "audit_type": {
+      "const": "NEAT"
+    },
+
+    "audit_number": {
+      "type": "integer",
+      "minimum": 1,
+      "title": "Audit Number",
+      "description": "The integer numeric identifier requried for the audit record, also mirrored in output but otherwise not used in analysis"
+    },
+    "audit_id": {
+      "type": "integer",
+      "minimum": 1,
+      "title": "Audit ID",
+      "description": "An optional integer numeric identifier for the audit, mirrored in output, but otherwise unused in analysis"
+    },
+    "no_cond_stories": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Number of conditioned stories",
+      "examples": [1, 1.5, 2]
+    },
+    "floor_area": {
+      "type": "number",
+      "minimum": 500,
+      "maximum": 5000,
+      "description": "Living space floor area (sqft)"
+    },
+
+    "energy_calc_counter": {
+      "type": "integer",
+      "description": "How many times did the bin method energy calculation/simulation get called"
+    },
+
+    "energy_delta_counter": {
+      "type": "integer",
+      "description": "How many times did the delta ua calculation get called"
+    },
+
+    "num_measure": {
+      "type": "integer",
+      "description": "The number of overall result measures (all reported measures)"
+    },
+    "measures": {
+      "$ref": "#/definitions/measures"
+    },
+
+    "num_measure_material": {
+      "type": "integer",
+      "description": "The number of overall result measure materials (all reported measures)"
+    },
+    "mmaterial": {
+      "$ref": "#/definitions/mmaterial"
+    },
+
+    "num_an_sav": {
+      "type": "integer",
+      "description": "The number of recommended measures in annual savings table"
+    },
+    "an_sav": {
+      "$ref": "#/definitions/an_sav"
+    },
+
+    "num_an_asav": {
+      "type": "integer",
+      "description": "The number of recommended measures in annual savings table, adjusted with utility billing"
+    },
+    "an_asav": {
+      "$ref": "#/definitions/an_asav"
+    },
+
+    "num_sir": {
+      "type": "integer",
+      "description": "The number of recommended measures in SIR economics table"
+    },
+    "sir": {
+      "$ref": "#/definitions/sir"
+    },
+
+    "num_asir": {
+      "type": "integer",
+      "description": "The number of recommended measures in SIR economics table, adjusted with utility billing"
+    },
+    "asir": {
+      "$ref": "#/definitions/asir"
+    },
+
+    "num_material": {
+      "type": "integer",
+      "description": "The number of records in material table"
+    },
+    "material": {
+      "$ref": "#/definitions/material"
+    },
+
+    "num_amaterial": {
+      "type": "integer",
+      "description": "The number of records in material table, adjusted with utility billing"
+    },
+    "amaterial": {
+      "$ref": "#/definitions/amaterial"
+    },
+
+    "num_an_load": {
+      "type": "integer",
+      "description": "The number of records in annual loads summary"
+    },
+    "an_load": {
+      "$ref": "#/definitions/an_load"
+    },
+
+    "num_message": {
+      "type": "integer",
+      "description": "The number of extra message strings"
+    },
+    "message": {
+      "$ref": "#/definitions/message"
+    },
+
+    "num_manj": {
+      "type": "integer",
+      "description": "The number of ASHRAE Manual J results"
+    },
+    "manj": {
+      "$ref": "#/definitions/manj"
+    },
+
+    "heat_comp_units": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "description": "Units for heating energy utility bill comparison consumption"
+    },
+    "heat_dd_base": {
+      "type": "integer",
+      "description": "Heating base temperature degree days"
+    },
+    "num_heat_comp": {
+      "type": "integer",
+      "description": "Number of heating bills in comparison"
+    },
+    "heat_comp": {
+      "$ref": "#/definitions/heat_comp"
+    },
+
+    "cool_comp_units": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 20,
+      "description": "Units for cooling energy utility bill comparison consumption"
+    },
+    "cool_dd_base": {
+      "type": "integer",
+      "description": "Cooling base temperature degree days"
+    },
+    "num_cool_comp": {
+      "type": "integer",
+      "description": "Number of cooling bills in comparison"
+    },
+    "cool_comp": {
+      "$ref": "#/definitions/cool_comp"
+    },
+
+    "num_used_fuel": {
+      "type": "integer",
+      "description": "The number fuel types were used"
+    },
+    "used_fuel": {
+      "$ref": "#/definitions/used_fuel"
+    }
+  },
+
+  "definitions": {
+
+    "measures": {
+      "type": "array",
+      "description": "The list of energy conservation measures",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "PK for the main set of measures, base 1"
+          },
+          "measure_id": {
+            "type": "integer",
+            "description": "Fixed measure id.  The index into the JSON input measure_active_flags[] array for this measure"
+          },
+          "audit_section_id": {
+            "type": ["integer", "string"],
+            "enum": [
+              64, "audit",
+               1, "wall",
+              60, "window",
+              61, "door",
+               3, "unfinished_attic",
+               4, "finished_attic",
+               6, "foundation",
+               8, "heating",
+              22, "cooling",
+              24, "ducts_and_infiltration",
+              28, "water_heating",
+              30, "refrigerator",
+              32, "lighting",
+              34, "health_and_safety",
+              36, "itemized_cost"
+            ],
+            "title": "NEAT Audit Section ID",
+            "description": "What part of the audit does this measure apply to. The IDs are listed in order of appearance in the audit"
+          },
+          "component_id": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2147483647,
+            "title": "An optional identifier string that passes through the analysis",
+            "description": "An optional identifier string used to identify an input record (e.g. Itemized Cost)"
+          }, 
+          "measure": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "description": "The name of the measure"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The list of comma separated component codes effected by the measure"
+          },
+          "heating_mmbtu": {
+            "type": "number",
+            "description": "Annual heating energy savings (MMBtu)"
+          },
+          "heating_sav": {
+            "type": "number",
+            "description": "Annual heating savings ($)"
+          },
+          "cooling_kwh": {
+            "type": "number",
+            "description": "Annual cooling energy savings (kWh)"
+          },
+          "cooling_sav": {
+            "type": "number",
+            "description": "Annual cooling savings ($)"
+          },
+          "baseload_kwh": {
+            "type": "number",
+            "description": "Annual baseload energy savings (kWh)"
+          },
+          "baseload_sav": {
+            "type": "number",
+            "description": "Annual baseload savings ($)"
+          },
+          "total_mmbtu": {
+            "type": "number",
+            "description": "Total annual energy savings (MMBtu)"
+          },
+          "savings": {
+            "type": "number",
+            "description": "Total annual savings ($)"
+          },
+          "cost": {
+            "type": "number",
+            "description": "Total initial cost ($)"
+          },
+          "sir": {
+            "type": "number",
+            "description": "Life cycle Savings to Investment Ratio"
+          },
+          "lifetime": {
+            "type": "integer",
+            "description": "lifetime of the SIR calculation for the measure (years)"
+          },
+          "qtym": {
+            "type": "number",
+            "description": "The unit quantity of the material used"
+          },
+          "qtyl": {
+            "type": "number",
+            "description": "The unit quantity of the labor used (hr)"
+          },
+          "qtyi": {
+            "type": "number",
+            "description": "The unit quantity of any associated item cost"
+          },
+          "costum": {
+            "type": "number",
+            "description": "The unit material cost ($)"
+          },
+          "costul": {
+            "type": "number",
+            "description": "The unit labor cost ($/hr)"
+          },
+          "costi1": {
+            "type": "number",
+            "description": "The unit item cost ($)"
+          },
+          "costi2": {
+            "type": "number",
+            "description": "A second added cost ($)"
+          },
+          "desci2": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Description of the costi2 item"
+          },
+          "typei2": {
+            "type": ["integer", "string"],
+            "enum": [
+               0, "none",
+               1, "insulation",
+               2, "miscellaneous_supplies",
+               3, "windows",
+               4, "heating_equipment",
+               5, "cooling_equipment",
+               6, "refrigerators",
+               7, "hot_water_equipment",
+               8, "lighting",
+               10, "labor",
+               11, "construction_materials_or_hardware",
+               12, "doors",
+               13, "health_and_safety_items",
+               100, "other",
+               101, "unspecified"
+            ],
+            "title": "Material Type ID",
+            "description": "A fixed ID describing the type of material for costi2"
+          },
+          "costi3": {
+            "type": "number",
+            "description": "A third added cost ($)"
+          },
+          "desci3": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Description of the costi3 item"
+          },
+          "typei3": {
+            "type": ["integer", "string"],
+            "enum": [
+               0, "none",
+               1, "insulation",
+               2, "miscellaneous_supplies",
+               3, "windows",
+               4, "heating_equipment",
+               5, "cooling_equipment",
+               6, "refrigerators",
+               7, "hot_water_equipment",
+               8, "lighting",
+               10, "labor",
+               11, "construction_materials_or_hardware",
+               12, "doors",
+               13, "health_and_safety_items",
+               100, "other",
+               101, "unspecified"
+            ],
+            "title": "Material Type ID",
+            "description": "A fixed ID describing the type of material for costi3"
+          }
+        },
+        "required": [
+          "index",
+          "measure_id",
+          "audit_section_id",
+          "component_id",
+          "measure",
+          "components",
+          "heating_mmbtu",
+          "heating_sav",
+          "cooling_kwh",
+          "cooling_sav",
+          "baseload_kwh",
+          "baseload_sav",
+          "total_mmbtu",
+          "savings",
+          "cost",
+          "sir",
+          "qtym",
+          "qtyl",
+          "qtyi",
+          "costum",
+          "costul",
+          "costi1",
+          "costi2",
+          "desci2",
+          "typei2",
+          "costi3",
+          "desci3",
+          "typei3"
+        ]
+      }
+    },
+
+    "mmaterial": {
+      "type": "array",
+      "description": "Some measures have their costs detailed from this measure_materials detail array.",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures[] results index PK field for the measure associated with this detail record"
+          },
+          "material_id": {
+            "type": "integer",
+            "description": "Fixed material ID from the measure_costs[] JSON input"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The list of comma separated component codes for this material detail"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The description of the material"
+          },
+          "material_type_id": {
+            "type": ["integer", "string"],
+            "description": "Fixed material type number",
+            "enum": [
+              0, "Unspecified",
+              1, "Insulation",
+              2, "Miscellaneous Supplies",
+              3, "Windows",
+              4, "Heating Equipment",
+              5, "Cooling Equipment",
+              6, "Refrigerators",
+              7, "Hot Water Equipment",
+              8, "Lighting",
+              10, "Labor",
+              11, "Construction Materials/Hardware",
+              12, "Doors",
+              13, "Health and Safety Items",
+              100, "Other"
+            ]
+          },
+          "units": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "description": "The description of the units"
+          },
+          "qty_est": {
+            "type": "number",
+            "description": "Quantity of the material, estimated"
+          },
+          "unit_cost_est": {
+            "type": "number",
+            "description": "Unit cost, estimated"
+          },
+          "comment": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Additional comments about measure material"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "material_id",
+          "material_type_id",
+          "components",
+          "description",
+          "units",
+          "qty_est",
+          "unit_cost_est",
+          "comment"
+        ]
+      }
+    },
+
+    "an_sav": {
+      "type": "array",
+      "description": "The list annual measure savings",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures[] results index PK field"
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Measure name"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The comma separated list of component codes effected"
+          },
+          "heating_mmbtu": {
+            "type": "number",
+            "description": "Annual heating energy savings (MMBtu)"
+          },
+          "heating_sav": {
+            "type": "number",
+            "description": "Annual heating savings ($)"
+          },
+          "cooling_kwh": {
+            "type": "number",
+            "description": "Annual cooling energy savings (kWh)"
+          },
+          "cooling_sav": {
+            "type": "number",
+            "description": "Annual cooling savings ($)"
+          },
+          "baseload_kwh": {
+            "type": "number",
+            "description": "Annual baseload energy savings (kWh)"
+          },
+          "baseload_sav": {
+            "type": "number",
+            "description": "Annual baseload savings ($)"
+          },
+          "total_mmbtu": {
+            "type": "number",
+            "description": "Total annual energy savings (MMBtu)"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "measure",
+          "components",
+          "heating_mmbtu",
+          "heating_sav",
+          "cooling_kwh",
+          "cooling_sav",
+          "baseload_kwh",
+          "baseload_sav",
+          "total_mmbtu"
+        ]
+      }
+    },
+
+    "an_asav": {
+      "type": "array",
+      "description": "The list annual measure savings, ADJUSTED with utility billing",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures[] results index PK field"
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Measure name"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The comma separated list of component codes effected"
+          },
+          "heating_mmbtu": {
+            "type": "number",
+            "description": "Annual heating energy savings (MMBtu)"
+          },
+          "heating_sav": {
+            "type": "number",
+            "description": "Annual heating savings ($)"
+          },
+          "cooling_kwh": {
+            "type": "number",
+            "description": "Annual cooling energy savings (kWh)"
+          },
+          "cooling_sav": {
+            "type": "number",
+            "description": "Annual cooling savings ($)"
+          },
+          "baseload_kwh": {
+            "type": "number",
+            "description": "Annual baseload energy savings (kWh)"
+          },
+          "baseload_sav": {
+            "type": "number",
+            "description": "Annual baseload savings ($)"
+          },
+          "total_mmbtu": {
+            "type": "number",
+            "description": "Total annual energy savings (MMBtu)"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "measure",
+          "components",
+          "heating_mmbtu",
+          "heating_sav",
+          "cooling_kwh",
+          "cooling_sav",
+          "baseload_kwh",
+          "baseload_sav",
+          "total_mmbtu"
+        ]
+      }
+    },
+
+    "sir": {
+      "type": "array",
+      "description": "The life cycle Savings to Investment Ratio detail",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures[] results index PK field"
+          },
+          "group": {
+            "type": ["integer", "string"],
+            "description": "Measure Group",
+            "enum": [
+              1, "Incidental Repairs",
+              2, "Energy Savings Measures",
+              3, "Health and Safety"
+            ]
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Measure name"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The comma separated list of component codes effected"
+          },
+          "savings": {
+            "type": "number",
+            "description": "Total annual heating and cooling savings ($)"
+          },
+          "cost": {
+            "type": "number",
+            "description": "Total initial costs ($)"
+          },
+          "sir": {
+            "type": "number",
+            "description": "Computed Savings to Investment Ratio"
+          },
+          "ccost": {
+            "type": "number",
+            "description": "Cummulative initial cost ($)"
+          },
+          "csir": {
+            "type": "number",
+            "description": "Cummulative life cycle SIR"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "group",
+          "measure",
+          "components",
+          "savings",
+          "cost",
+          "sir",
+          "ccost",
+          "csir"
+        ]
+      }
+    },
+
+    "asir": {
+      "type": "array",
+      "description": "The life cycle Savings to Investment Ratio detail, ADJUSTED with utility billing",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures[] results index PK field"
+          },
+          "group": {
+            "type": ["integer", "string"],
+            "description": "Measure Group",
+            "enum": [
+              1, "Incidental Repairs",
+              2, "Energy Savings Measures",
+              3, "Health and Safety"
+            ]
+          },
+          "measure": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Measure name"
+          },
+          "components": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 255,
+            "description": "The comma separated list of component codes effected"
+          },
+          "savings": {
+            "type": "number",
+            "description": "Total annual heating and cooling savings ($)"
+          },
+          "cost": {
+            "type": "number",
+            "description": "Total initial costs ($)"
+          },
+          "sir": {
+            "type": "number",
+            "description": "Computed Savings to Investment Ratio"
+          },
+          "ccost": {
+            "type": "number",
+            "description": "Cummulative cost ($)"
+          },
+          "csir": {
+            "type": "number",
+            "description": "Cummulative SIR"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "group",
+          "measure",
+          "components",
+          "savings",
+          "cost",
+          "sir",
+          "ccost",
+          "csir"
+        ]
+      }
+    },
+
+    "material": {
+      "type": "array",
+      "description": "The materials list",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures results index PK field"
+          },
+          "material_id": {
+            "type": "integer",
+            "description": "Fixed material ID from the measure_costs[] JSON input"
+          },
+          "material": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Material name"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Material type"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "How many material items"
+          },
+          "units": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "description": "Material quantity units"
+          },
+          "qtymat": {
+            "type": "number",
+            "description": "TThe quantity of the material itself"
+          },
+          "qtyhrs": {
+            "type": "number",
+            "description": "The number of labor hours associated"
+          },
+          "qtyeach": {
+            "type": "number",
+            "description": "Quantity of any associated Item Cost"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "material_id",
+          "material",
+          "type",
+          "quantity",
+          "units",
+          "qtymat",
+          "qtyhrs",
+          "qtyeach"
+        ]
+      }
+    },
+
+    "amaterial": {
+      "type": "array",
+      "description": "The materials list, ADJUSTED with utility billing",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "measure_index": {
+            "type": "integer",
+            "description": "FK into the measures results index PK field"
+          },
+          "material_id": {
+            "type": "integer",
+            "description": "Fixed material ID from the measure_costs[] JSON input"
+          },
+          "material": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Material name"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "description": "Material type"
+          },
+          "quantity": {
+            "type": "number",
+            "description": "How many material items"
+          },
+          "units": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 20,
+            "description": "Material quantity units"
+          },
+          "qtymat": {
+            "type": "number",
+            "description": "TThe quantity of the material itself"
+          },
+          "qtyhrs": {
+            "type": "number",
+            "description": "The number of labor hours associated"
+          },
+          "qtyeach": {
+            "type": "number",
+            "description": "Quantity of any associated Item Cost"
+          }
+        },
+        "required": [
+          "index",
+          "measure_index",
+          "material_id",
+          "material",
+          "type",
+          "quantity",
+          "units",
+          "qtymat",
+          "qtyhrs",
+          "qtyeach"
+        ]
+      }
+    },
+
+    "an_load": {
+      "type": "array",
+      "description": "The overall annual load list",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 40,
+            "description": "Name of the load and energy units"
+          },
+          "pre_heat": {
+            "type": "number",
+            "description": "Pre retrofit heating (kBtu/h)"
+          },
+          "pre_cool": {
+            "type": "number",
+            "description": "Pre retrofit cooling (ton)"
+          },
+          "post_heat": {
+            "type": "number",
+            "description": "Post retrofit heating (kBtu/h)"
+          },
+          "post_cool": {
+            "type": "number",
+            "description": "Post retrofit cooling (ton)"
+          }
+        },
+        "required": [
+          "index",
+          "name",
+          "pre_heat",
+          "pre_cool",
+          "post_heat",
+          "post_cool"
+        ]
+      }
+    },
+
+    "message": {
+      "type": "array",
+      "description": "The list of extra message strings from the analysis",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "msg": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 512,
+            "description": "Extra messages and notes from analysis"
+          }
+        },
+        "required": [
+          "index",
+          "msg"
+        ]
+      }
+    },
+
+    "manj": {
+      "type": "array",
+      "description": "The number of ASHRAE Manual J results",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "heatcool": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 5,
+            "description": "Heat or Cool"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 51,
+            "description": "Component type (wall, door etc..) and units for load"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 21,
+            "description": "Name of dwelling component"
+          },
+          "area_vol": {
+            "type": "number",
+            "description": "Surface area or volume of component (SqFt or Cubic Foot)"
+          },
+          "pre_load": {
+            "type": "number",
+            "description": "Pre retrofit peak load (Btu/hr or tons)"
+          },
+          "post_load": {
+            "type": "number",
+            "description": "Post retrofit peak load (Btu/hr or tons)"
+          }
+        },
+        "required": [
+          "index",
+          "heatcool",
+          "type",
+          "name",
+          "area_vol",
+          "pre_load",
+          "post_load"
+        ]
+      }
+    },
+
+    "heat_comp": {
+      "type": "array",
+      "description": "Heating utility bill comparison",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "year": {
+            "type": "integer",
+            "description": "Utility bill reading year"
+          },
+          "month": {
+            "type": "integer",
+            "description": "Utility bill reading month"
+          },
+          "day": {
+            "type": "integer",
+            "description": "Utility bill reading day"
+          },
+          "period_days": {
+            "type": "integer",
+            "description": "Utility bill reading period in days"
+          },
+          "consump_act": {
+            "type": "integer",
+            "description": "Actual consumption in units listed"
+          },
+          "consump_pred": {
+            "type": "integer",
+            "description": "Predicted consumption in units listed"
+          },
+          "dd_act": {
+            "type": ["integer", "null"],
+            "description": "Actual degree days or Null if not entered"
+          },
+          "dd_pred": {
+            "type": "integer",
+            "description": "Predicted degree days"
+          }
+        },
+        "required": [
+          "index",
+          "year",
+          "month",
+          "day",
+          "period_days",
+          "consump_act",
+          "consump_pred",
+          "dd_act",
+          "dd_pred"
+        ]
+      }
+    },
+
+    "cool_comp": {
+      "type": "array",
+      "description": "Cooling utility bill comparison",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "description": "Simple counter for this array"
+          },
+          "year": {
+            "type": "integer",
+            "description": "Utility bill reading year"
+          },
+          "month": {
+            "type": "integer",
+            "description": "Utility bill reading month"
+          },
+          "day": {
+            "type": "integer",
+            "description": "Utility bill reading day"
+          },
+          "period_days": {
+            "type": "integer",
+            "description": "Utility bill reading period in days"
+          },
+          "consump_act": {
+            "type": "integer",
+            "description": "Actual consumption in units listed"
+          },
+          "consump_pred": {
+            "type": "integer",
+            "description": "Predicted consumption in units listed"
+          },
+          "dd_act": {
+            "type": ["integer", "null"],
+            "description": "Actual degree days or Null if not entered"
+          },
+          "dd_pred": {
+            "type": "integer",
+            "description": "Predicted degree days"
+          }
+        },
+        "required": [
+          "index",
+          "year",
+          "month",
+          "day",
+          "period_days",
+          "consump_act",
+          "consump_pred",
+          "dd_act",
+          "dd_pred"
+        ]
+      }
+    },
+
+    "used_fuel": {
+      "type": "array",
+      "description": "The list of fuels used and pricing",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "fuel_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 13,
+            "description": "Name of the fuel used"
+          },
+          "fuel_cost": {
+            "type": "number",
+            "description": "Unit cost of fuel"
+          },
+          "fuel_cost_units": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 13,
+            "description": "Fuel price units"
+          },
+          "fuel_cost_per_mmbtu": {
+            "type": "number",
+            "description": "Cost per MMBtu"
+          }
+        },
+        "required": [
+          "fuel_name",
+          "fuel_cost",
+          "fuel_cost_units",
+          "fuel_cost_per_mmbtu"
+        ]
+      }
+    }
+
+  }
+}

@@ -1,0 +1,311 @@
+	Invoking the analysis engine.
+NEAT.EXE 8.9.0.6 (9/25/2018)
+                               0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+Attic Ins. R-11              0 X  X  X  X                                                                                               X                                   X          
+Attic Ins. R-19              1 X  X  X  X                                                                                               X                                   X          
+Attic Ins. R-30              2 X  X  X  X                                                                                               X                                   X          
+Attic Ins. R-38              3 X  X  X  X                                                                                               X                                   X          
+Wall Insulation              4             X                                                                                                                                           
+Sillbox Ins.                 5                X     X  X  X                                                                                                                    X       
+Foundation Ins.              6                   X  X  X  X                                                                                                                    X       
+Floor Ins. R-11              7                X  X  X  X  X                                                                                                                    X       
+Floor Ins. R-19              8                X  X  X  X  X                                                                                                                    X       
+Floor Ins. R-30              9                X  X  X  X  X                                                                                                                    X       
+Storm Windows               10                               X              X  X  X  X  X                                                        X  X                                  
+Kneewall Insulation         11                                  X  X                                                                                                                   
+Wall Ins. R-19 Batt         12                                  X  X                                                                                                                   
+Radiant Barr. Hor.          13                                        X  X                                                                                                             
+Radiant Barr. Truss         14                                        X  X                                                                                                             
+Window Shading              15                               X              X  X  X  X  X                                                                                              
+Sun Screen, Fabric          16                               X              X  X  X  X  X                                                                                              
+Sun Screen, Louvered        17                               X              X  X  X  X  X                                                                                              
+Window Films                18                               X              X  X  X  X  X                                                                                              
+Low-E Windows               19                               X              X  X  X  X  X                                                        X  X                                  
+Thermal Vent Damper         20                                                             X  X     X  X        X  X                                                     X             
+Electric Vent Damper        21                                                             X  X     X  X        X  X                                                     X             
+IID                         22                                                                   X  X           X  X                                                     X             
+Elect. Vent Dmpr./IID       23                                                             X  X  X  X  X        X  X                                                     X             
+Flame Retntn. Burners       24                                                             X  X     X  X        X  X                                                     X             
+Power Gas Burner            25                                                                            X     X  X                                                     X             
+Furnace Tuneup              26                                                                               X  X  X                                                     X             
+Replace Htg. System         27                                                             X  X  X  X  X  X  X  X  X                                                     X             
+High Eff Furnace            28                                                             X  X  X  X  X  X  X  X  X                                                                   
+Smart Thermostat            29                                                                                        X                                                                
+Replace A/C                 30                                                                                           X  X  X              X                                        
+Evaporative Cooler          31                                                                                           X  X  X              X                                        
+Install/Replace Heatpump    32                                                                                           X  X  X              X                                        
+Infiltration Redctn         33                                                                                                    X                                                    
+Duct Insulation             34                                                                                                       X                                                 
+Fill Ceiling Cavity         35 X  X  X  X                                                                                               X                                   X          
+Lighting Retrofits          36                                                                                                             X                                           
+A/C Tuneup                  37                                                                                           X  X  X              X                                        
+Window Sealing              38                               X                          X                                                        X  X                                  
+Window Replacement          39                               X                          X                                                        X  X                                  
+DWH Tank Insulation         40                                                                                                                         X              X                
+DWH Pipe Insulation         41                                                                                                                            X                            
+Low Flow Showerheads        42                                                                                                                               X                         
+Refrigerator Rplcmnt        43                                                                                                                                  X                      
+Seal Ducts                  44                                                                                                                                     X                   
+DWH Replacement             45                                                                                                                         X              X                
+High Eff Boiler             46                                                             X  X  X  X  X  X  X  X                                                        X             
+Attic Ins. R-49             47 X  X  X  X                                                                                               X                                   X          
+Floor Ins. R-38             48                X  X  X  X  X                                                                                                                    X       
+Door Replacement            49                                                                                                                                                    X    
+Cool Roof Coating           50                                                                                                                                                       X 
+
+Weather data echo
+month/tbal          40            45            50            55            57            60            65            70            75
+  Daytime heating degree hours
+   1              2153          3152          4372          5813          6465          7492          9294         11136         12994
+   2               905          1705          2786          4124          4716          5652          7305          8985         10665
+   3               168           485          1218          2267          2752          3549          5081          6798          8636
+   4                 0             5            34           183           297           532          1185          2314          3775
+   5                 0             7            64           162           208           301           544          1009          1701
+   6                 0             0             0             0             0             0             9           142           513
+   7                 0             0             0             0             0             0             0             4            53
+   8                 0             0             0             0             0             0             0             6            80
+   9                 0             0             0             0             0             3            37           263           867
+  10                 0             0            35           305           499           900          1774          2849          4208
+  11               507          1042          1760          2709          3188          3990          5500          7179          8939
+  12               954          1748          2845          4209          4852          5871          7650          9503         11363
+
+ Total            4687          8144         13114         19772         22977         28290         38379         50188         63794
+
+  Nighttime heating degree hours
+   1              3298          4555          6073          7756          8474          9574         11417         13276         15136
+   2              2170          3402          4883          6513          7185          8193          9873         11553         13233
+   3               618          1379          2554          4054          4724          5803          7657          9517         11377
+   4                55           212           613          1212          1572          2288          3801          5534          7330
+   5                 3            78           198           349           466           704          1461          2805          4523
+   6                 0             0             0            10            33            84           322           973          2288
+   7                 0             0             0             0             0             0            20           276          1487
+   8                 0             0             0             0             0             4            98           437          1491
+   9                 0             0             0            10            25            92           400          1343          2854
+  10                51           261           873          1865          2318          3099          4571          6290          8142
+  11              1349          2265          3401          4803          5422          6389          8096          9835         11620
+  12              1806          3084          4660          6362          7079          8167         10019         11879         13739
+
+ Total            9350         15236         23255         32934         37298         44397         57735         73718         93220
+ Total           14037         23380         36369         52706         60275         72687         96114        123906        157014
+ Total         584.875    974.166667      1515.375    2196.08333    2511.45833      3028.625       4004.75       5162.75       6542.25
+
+  Daytime cooling degree hours
+   1              2179          1318           678           259           167            78            20             2             0
+   2              2000          1120           521           179            99            27             0             0             0
+   3              4552          3009          1882          1071           812           493           165            22             0
+   4              8933          7138          5367          3716          3110          2265          1118           447           108
+   5             12298         10445          8642          6880          6182          5159          3542          2147           979
+   6             13963         12163         10363          8563          7843          6763          4972          3305          1876
+   7             15535         13675         11815          9955          9211          8095          6235          4379          2568
+   8             15360         13500         11640          9780          9036          7920          6060          4206          2420
+   9             13228         11428          9628          7828          7108          6031          4265          2691          1495
+  10              8982          7122          5297          3707          3157          2442          1456           671           170
+  11              4168          2903          1821           970           729           451           161            40             0
+  12              2611          1545           782           286           185            88             7             0             0
+
+ Total          103809         85366         68436         53194         47639         39812         28001         17910          9616
+
+  Nighttime cooling degree hours
+   1              1182           579           237            60            34            18             1             0             0
+   2               697           249            50             0             0             0             0             0             0
+   3              2261          1162           477           117            43             6             0             0             0
+   4              5325          3682          2283          1082           722           358            71             4             0
+   5              8521          6736          4996          3287          2660          1782           679           163            21
+   6             10434          8634          6834          5044          4347          3318          1756           607           122
+   7             11618          9758          7898          6038          5294          4178          2338           734            85
+   8             11651          9791          7931          6071          5327          4215          2449           928           122
+   9              9823          8023          6223          4433          3728          2715          1223           366            77
+  10              4929          3279          2031          1163           872           537           149             8             0
+  11              2329          1445           781           383           282           169            76            15             0
+  12              1087           505           221            63            36             8             0             0             0
+
+ Total           69857         53843         39962         27741         23345         17304          8742          2825           427
+ Total          173666        139209        108398         80935         70984         57116         36743         20735         10043
+ Total      7236.08333      5800.375    4516.58333    3372.29167    2957.66667    2379.83333    1530.95833    863.958333    418.458333
+
+Monthly total solar radiation on horizontal surface    (Btu/sqft)
+         638         878        1201        1578        1817        1889        1856        1696        1378        1156         734         566       15387
+
+
+----PRE-RETROFIT-----
+ month   cfm     cool     latent
+
+----POST-RETROFIT-----
+ month   cfm     cool     latent
+Heating/cooling solar apertures for cardinal directions
+   21.66    0.00    0.00    0.00    0.00
+   21.66    0.00    0.00    0.00    0.00
+
+       Month  Solar incident on surfs  Free heat  Total   Teff   Tbal
+              North East  South  West  from solr free ht
+
+        1   0.00  13.89  48.63  13.89      95     2468    63.6   42.6
+        2   0.00  17.78  42.27  17.78     118     2497    66.6   42.0
+        3   0.00  22.47  32.02  22.47     157     2574    76.0   42.1
+        4   0.00  26.28  17.67  26.28     228     2724    91.4   40.3
+        5   0.00  25.72   5.78  25.72     329     2930   102.7   39.9
+        6   1.32  25.15   2.06  25.15     391     3066   112.5   38.2
+        7   0.00  25.50   5.06  25.50     351     2995   113.6   38.8
+        8   0.00  27.23  17.72  27.23     263     2826   112.1   38.2
+        9   0.00  24.86  36.28  24.86     196     2690   106.1   38.2
+       10   0.00  22.63  53.99  22.63     164     2612    90.1   39.5
+       11   0.00  15.46  54.07  15.46     111     2498    74.3   41.5
+       12   0.00  12.46  50.70  12.46      88     2454    68.2   42.1
+
+ Tot/Avg    1.32 259.42 366.24 259.42    2490    32333           40.3
+
+Monthly average effective outdoor temperatures
+   63.6   66.6   76.0   91.4  102.7  112.5  113.6  112.1  106.1   90.1   74.3   68.2
+Given the following average outdoor temperatures
+   37.2   39.4   48.1   59.7   68.0   73.9   76.5   76.3   72.0   58.6   46.4   41.3
+
+Average infiltration (cfm)
+     30     29     29     23     22     17     18     17     17     20     26     28        23
+
+Building load coefficient
+   93.4   91.8   92.3   85.9   84.4   79.4   80.7   78.9   78.8   83.0   89.5   91.3      85.8
+
+Monthly balance point temperatures
+   42.6   42.0   42.1   40.3   39.9   38.2   38.8   38.2   38.2   39.5   41.5   42.1      40.3
+
+Print degree-hours at computed balance temperature
+  6426  3696  1115    65     3     0     0     0     0    51  2141  3463     16960   707
+   690   497  2188  8884 16127 21438 23544 23129 18713  8708  2466   827    127209  5300
+
+The UA for walls        =   60.91
+The UA for windows      =    0.00
+The UA for doors        =    0.00
+The UA for roof-ceiling =    0.00
+The UA for subspaces    =    0.00
+The UA for infiltration =   24.88
+
+The total conduction UA =   85.79
+
+The fractional roof/ceiling area =  1.00
+
+The annual heating load = 1.56 MBtu
+The annual cooling load = 11.07 MBtu
+The annual heating energy = 1.56 Mbtu
+The annual cooling energy = 0.00 Mbtu
+
+wall_instypead:1 wall_instypead:R/in
+ucavty:0.222 ecmvalue:11.98
+uframe:0.1271 ucav:0.06068 area:300
+nc:0 wall_exp:E wluavaluenc:60.91 uanew:22.19
+nms:0 m:1 dsaw:13.77 solar:0 solar5:4.384
+nms:0 m:2 dsaw:13.77 solar:0 solar5:5.444
+nms:0 m:3 dsaw:13.77 solar:0 solar5:7.272
+nms:0 m:4 dsaw:13.77 solar:0 solar5:10.52
+nms:0 m:5 dsaw:13.77 solar:0 solar5:15.19
+nms:0 m:6 dsaw:13.77 solar:1.322 solar5:16.72
+nms:0 m:7 dsaw:13.77 solar:0 solar5:16.21
+nms:0 m:8 dsaw:13.77 solar:0 solar5:12.15
+nms:0 m:9 dsaw:13.77 solar:0 solar5:9.033
+nms:0 m:10 dsaw:13.77 solar:0 solar5:7.573
+nms:0 m:11 dsaw:13.77 solar:0 solar5:5.107
+nms:0 m:12 dsaw:13.77 solar:0 solar5:4.055
+
+Un-interacted values immediately after call to meas()
+
+ jl   im ms[j]                                  htengysav  htdlsav clengysav   cldlsav blengysav bldlsav  dlsav     cost     btcr     npv
+
+ 0     4   1  Wall Insulation         WL1,           0.812    26.19    0.000     0.00    0.000     0.00    26.19   403.00     1.00     0.11
+ 1    29   1  Smart Thermostat                       0.036     1.15    0.000     0.00    0.000     0.00     1.15    75.00     0.19   -60.87
+ 2    33   4  Infiltration Redctn                    0.505    16.28    0.000     0.00    0.000     0.00    16.28   100.00     1.42    42.15
+
+Un-interacted values after new code to check for applicability of mand. measures
+ jl   im ms[j]                                  htengysav  htdlsav clengysav   cldlsav   dlsav  blengysav  bldlsav    cost     btcr     npv
+
+ 0     4   1  Wall Insulation         WL1,           0.812    26.19    0.000     0.00    0.000     0.00    26.19   403.00     1.00     0.11
+ 1    29   1  Smart Thermostat                       0.036     1.15    0.000     0.00    0.000     0.00     1.15    75.00     0.19   -60.87
+ 2    33   4  Infiltration Redctn                    0.505    16.28    0.000     0.00    0.000     0.00    16.28   100.00     1.42    42.15
+
+Un-interacted values after ranking of measures
+ jl il im ms[il]                                htengysav  htdlsav clengysav   cldlsav  blengysav  bldlsav  dlsav     cost     btcr     npv
+
+ 0  2 33  4   Infiltration Redctn                    0.505    16.28    0.000     0.00    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4  1   Wall Insulation         WL1,           0.812    26.19    0.000     0.00    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29  1   Smart Thermostat                       0.036     1.15    0.000     0.00    0.000     0.00     1.15    75.00     0.19   -60.87
+
+
+kbtcrp before placing mand. meas first
+  2  0  1
+ms[j] before placing mand. meas first
+  1  1  4
+kbtcr after placing mand. meas first
+  2  0  1
+
+Un-interacted values after placing mand. measures first
+ jl il im                                    htengysav  htdlsav clengysav   cldlsav   dlsav  blengysav  bldlsav    cost     btcr     npv
+
+ 0  2 33   Infiltration Redctn                    0.505    16.28    0.000     0.00    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4   Wall Insulation         WL1,           0.812    26.19    0.000     0.00    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29   Smart Thermostat                       0.036     1.15    0.000     0.00    0.000     0.00     1.15    75.00     0.19   -60.87
+
+
+    Interacted values of:          htengysav    htlcs htdlsav clengysav    cllcs  cldlsav    dlsav  dslfsav    cost    btcr  unint. npv  final npv
+
+       htload   clload   htengy   clengy
+        1.56    11.07     1.56     0.00
+
+Infiltration Redctn                    0.505     0.00    16.28    0.000     0.00     0.00    16.28   142.15   100.00   1.42    42.15    42.15
+Wall Insulation         WL1,           0.812   496.15    26.19    0.000   496.15     0.00    26.19   403.11   403.00   1.00     0.11     0.11
+
+----POST-RETROFIT-----
+
+Measure implemented at B: Wall Insulation
+       htload   clload   htengy   clengy
+        0.75     8.31     0.75     0.00
+
+Smart Thermostat                       0.000   395.74     0.00    0.000     0.00     0.00     0.00     0.00    75.00   0.00   -75.00   -75.00
+
+Measure implemented at B: Smart Thermostat
+       htload   clload   htengy   clengy
+        0.75     8.31     0.75     0.00
+
+
+Measures list before ranking interacted measures, after recombining window measures
+j, i, m, ms[i]                               htengysav  htdlsav clengysav   cldlsav   dlsav     cost     btcr     npv
+
+ 0  2 33  4   Infiltration Redctn                    0.505    16.28    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4  1   Wall Insulation         WL1            0.812    26.19    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29  1   Smart Thermostat                       0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00
+
+
+
+Interacted Measures list before placing mand meas. first after re-ranking
+j, i, m, ms[i]                               htengysav  htdlsav clengysav   cldlsav   dlsav     cost     btcr     npv
+
+ 0  2 33  4   Infiltration Redctn                    0.505    16.28    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4  1   Wall Insulation         WL1            0.812    26.19    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29  1   Smart Thermostat                       0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00
+
+
+kbtcrp before placing mand. meas first
+  2  0  1
+ms[j] before placing mand. meas first
+  1  1  4
+kbtcr after placing mand. meas first
+  2  0  1
+
+Measures list after placing mand meas. first after interacting
+j, i, m, ms[i]                               htengysav  htdlsav clengysav   cldlsav   dlsav     cost     btcr     npv
+
+ 0  2 33  4   Infiltration Redctn                    0.505    16.28    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4  1   Wall Insulation         WL1            0.812    26.19    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29  1   Smart Thermostat                       0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00
+
+
+
+Measures as seen from inside pntrecm()
+j, i, m, ms[i]                               htengysav  htdlsav clengysav   cldlsav   dlsav     cost     btcr     npv
+
+ 0  2 33  4   Infiltration Redctn                    0.505    16.28    0.000     0.00    16.28   100.00     1.42    42.15
+ 1  0  4  1   Wall Insulation         WL1            0.812    26.19    0.000     0.00    26.19   403.00     1.00     0.11
+ 2  1 29  1   Smart Thermostat                       0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00
+
+
+ path_in = 
+ path_out = output\
+ filerep = output\neattmp.rep
+ filedat = 	Engine return code 0

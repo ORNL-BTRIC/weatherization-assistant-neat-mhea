@@ -1,0 +1,63 @@
+NEAT 
+
+Audit Type: NEAT
+Audit ID: 8
+Audit Number: 1012
+Climate: ST. LOUIS, MO
+
+  APPROXIMATE MANUAL J COMPONENT CONTRIBUTIONS TO PEAK HEATING LOADS
+
+ Component    Area or    Pre-Retrofit   Post-Retrofit
+             Volume(Inf)     Btu/h          Btu/h
+
+   WL1-N       348          6422             1979
+   WL2-S       348          6422             1979
+   WL3-E       192          3543             1092
+   WL4-W       208          3839             1183
+     WD1        32          1034              786
+     WD2        32          1034             1199
+     WD3        16           517              599
+     DR1        20           415              415
+     DR2        20           415              415
+      A1      1300          7262             1782
+      F1      1300          8372             8372
+     Inf     10400          8401             5251
+
+ Total heat loss           47676            25050
+  Duct loss                    0                0
+
+ Output required           47676            25050
+
+
+
+  APPROXIMATE MANUAL J COMPONENT CONTRIBUTIONS TO PEAK COOLING LOADS
+
+ Component    Area or    Pre-Retrofit   Post-Retrofit
+             Volume(Inf)     Btu/h          Btu/h
+
+   WL1-N       348          2135              658
+   WL2-S       348          2135              658
+   WL3-E       192          1178              363
+   WL4-W       208           790              243
+     WD1        32           723              602
+     WD2        32          1107             1107
+     WD3        16           989              989
+     DR1        20           138              138
+     DR2        20           138              138
+      A1      1300          4380             1120
+      F1      1300             0                0
+     Inf     10400          3123             2088
+  People         4          1000             1000
+    Appl                    1200             1200
+
+Total (Sensible)           19035            10303
+Ducts            0          1903             1030
+ Total (with ducts)        20938            11333
+ Size (tons)                1.7              0.9
+
+Latent Load (inf)          2143             1432
+Latent Load (occ)           920              920
+Latent Load (tot)          3063             2352
+
+ Total Load                24001            13685
+ Size (tons)                 2.0              1.1

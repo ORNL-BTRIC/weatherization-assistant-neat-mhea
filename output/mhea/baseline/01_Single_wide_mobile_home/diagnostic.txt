@@ -1,0 +1,242 @@
+
+MHEA Engine Run: 
+Input From     : input/mhea/01_Single_wide_mobile_home.json
+Output To      : output/mhea/last/01_Single_wide_mobile_home/output.json
+Validate JSON INPUT with:ajv -s ./sys/json_schema/mhea_input_schema.json -d input/mhea/01_Single_wide_mobile_home.json --errors=text > ./sys/json_schema/validation.txt 2>&1
+MHEA Echo To          : output/mhea/last/01_Single_wide_mobile_home/input.json
+MHEA Compare Report To: output/mhea/last/01_Single_wide_mobile_home/report.txt
+MHEA Measure Report To: output/mhea/last/01_Single_wide_mobile_home/measures.txt
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_primary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_secondary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_replacement
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_primary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_secondary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_replacement
+Notice, Extra JSON field: usage_units FOUND IN SECTION: utility_bills_pre_retrofit_cooling
+
+BASE_CASE
+
+Annual Heating kBtu:  78661.2  Annual Cooling kBtu:  11973.1
+
+FIRST_PASS
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0  17  4 1  General Air Sealing                             11.5   979.01   250.00   10   3.92
+ 1   0  1 0  Wall Fiberglass Batt Insulatio                   8.5  1522.15   471.20   20   3.23
+ 2   1  1 0  Wall Cellulose Loose Insulatio                   8.0  1418.35   547.00   20   2.59
+ 3   2  1 0  Wall Fiberglass Loose Insulati                   8.5  1522.15   570.00   20   2.67
+ 4   3  1 0  Floor Cellulose Loose Insulati                   7.4  1146.62   573.00   20   2.00
+ 5  47  1 0  Floor Cellulose Loose Insulati                   0.7   105.19   328.00   20   0.32
+ 6   4  1 0  Floor Fiberglass Loose Insulat                   7.2  1128.49   589.00   20   1.92
+ 7  48  1 0  Floor Fiberglass Loose Insulat                   0.7   109.96   334.00   20   0.33
+ 8   5  1 0  Roof Cellulose Loose Insulatio                   6.8  1354.02   722.00   20   1.88
+ 9  49  1 0  Roof Cellulose Loose Insulatio                   2.3   449.53   428.00   20   1.05
+10   6  1 0  Roof Fiberglass Loose Insulati                   7.3  1449.33   740.00   20   1.96
+11  50  1 0  Roof Fiberglass Loose Insulati                   2.4   460.26   434.00   20   1.06
+12   8  1 0  Door Replacement                DR1              0.5    76.10   185.00   15   0.41
+13   8  2 1  Door Replacement                DR2              0.8    99.92   210.00   15   0.48
+14  53  2 1  Door Replacement in Addition    ADR1             0.6    82.03   195.00   15   0.42
+15   9  1 0  Storm Door                      DR2              0.2    17.86   130.00   10   0.14
+16  10  1 0  Replace Single Paned Windows    WD2              2.9   502.73   585.00   20   0.86
+17  10  1 0  Replace Single Paned Windows    WD3              2.3   384.57   195.00   20   1.97
+18  10  1 0  Replace Single Paned Windows    WD5              0.1    10.48    62.50   20   0.17
+19  11  1 0  Plastic Storm Windows           WD2              2.5   111.41   126.00    5   0.88
+20  11  1 0  Plastic Storm Windows           WD3              2.0    90.25    42.00    5   2.15
+21  11  1 0  Plastic Storm Windows           WD4              1.1    50.08    16.00    5   3.13
+22  11  1 0  Plastic Storm Windows           WD5              0.1     2.88     3.50    5   0.82
+23  57  1 0  Plastic Storm Windows in Addit  AWD1             0.5    21.08    80.00    5   0.26
+24  12  1 0  Glass Storm Windows             WD2              3.0   370.82   252.00   15   1.47
+25  12  1 0  Glass Storm Windows             WD3              2.3   288.14    84.00   15   3.43
+26  12  1 0  Glass Storm Windows             WD4              1.3   159.65    32.00   15   4.99
+27  12  1 0  Glass Storm Windows             WD5              0.1     9.29     7.00   15   1.33
+28  58  1 0  Glass Storm Windows in Additio  AWD1             0.7    82.97   160.00   15   0.52
+29  13  1 0  Add Awnings                     WD1,WD2,WD      -0.5   -13.75   500.00   10  -0.03
+30  14  1 0  Add Shade Screens               WD1,WD2,WD       1.0   477.89   184.00   10   2.60
+31  18  1 0  Setback Thermostat                               3.5   419.74    75.00   15   5.60
+32  19  1 0  Tune-Up Heating System                           2.6    71.45   125.00    3   0.57
+33  24 -3 0  Tune-Up Cooling System [2]                       1.5   164.96   250.00    3   0.66
+34 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+35 500  1 0  Lighting Retrofits              LT2              2.3   230.81    39.00    3   5.92
+36 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+37  40  1 0  Water Heater Tank Insulation                     1.9   199.14    40.00   13   4.98
+38  41  1 0  Water Heater Pipe Insulation                     0.7    78.98    15.00   13   5.27
+39  43 -2 1  Window Sealing                  WD1              6.1   524.73   150.00   10   3.50
+40  43  1 0  Window Sealing                  WD2              0.5    43.39    90.00   10   0.48
+41  43  1 0  Window Sealing                  WD3              1.2   104.95    30.00   10   3.50
+42  43  1 0  Window Sealing                  WD5              0.0     0.00    30.00   10   0.00
+43  55  1 0  Window Sealing in Addition      AWD1             0.0     0.00    60.00   10   0.00
+
+CUMULATIVE
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+ 2  18  1 0  Setback Thermostat                               3.5   419.74    75.00   15   5.60
+ 3  41  1 0  Water Heater Pipe Insulation                     0.8    80.02    15.00   13   5.33
+ 4  12  1 0  Glass Storm Windows             WD4              1.3   155.15    32.00   15   4.85
+ 5  40  1 0  Water Heater Tank Insulation                     1.9   201.76    40.00   13   5.04
+ 6  17  1 1  General Air Sealing                             11.0   941.51   250.00   10   3.77
+ 7  43  1 0  Window Sealing                  WD3              1.2   101.33    30.00   10   3.38
+ 8  43 -2 1  Window Sealing                  WD1              5.8   503.06   150.00   10   3.35
+ 9   0  1 0  Wall Fiberglass Batt Insulatio                   8.2  1473.45   471.20   20   3.13
+10 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+11  14  1 0  Add Shade Screens               WD1,WD2,WD       1.1   516.18   184.00   10   2.81
+12   3  1 0  Floor Cellulose Loose Insulati                   7.1  1102.25   573.00   20   1.92
+13   6  1 0  Roof Fiberglass Loose Insulati                   7.1  1399.69   740.00   20   1.89
+14  12  1 0  Glass Storm Windows             WD2              2.8   330.79   252.00   15   1.31
+15  12  1 0  Glass Storm Windows             WD5             -2.7  -322.42     7.00   15 -46.06
+16  50  1 0  Roof Fiberglass Loose Insulati                   2.3   445.85   434.00   20   1.03
+17  49  1 0  Roof Cellulose Loose Insulatio                   2.2   435.45   428.00   20   1.02
+18  11  1 0  Plastic Storm Windows           WD2              2.2    96.54   126.00    5   0.77
+19  10  1 0  Replace Single Paned Windows    WD2              0.3    73.60   585.00   20   0.13
+20  11  1 0  Plastic Storm Windows           WD5             -2.6  -118.74     3.50    5 -33.93
+21  24 -3 0  Tune-Up Cooling System [2]                       1.1   119.76   250.00    3   0.48
+22  19  1 0  Tune-Up Heating System                           1.1    30.33   125.00    3   0.24
+23  58  1 0  Glass Storm Windows in Additio  AWD1             0.6    67.57   160.00   15   0.42
+24  43  1 0  Window Sealing                  WD2             -0.2   -13.23    90.00   10  -0.15
+25   8  1 1  Door Replacement                DR2              0.3    34.83   210.00   15   0.17
+26  53  1 1  Door Replacement in Addition    ADR1             0.6    73.29   195.00   15   0.38
+27   8  1 0  Door Replacement                DR1              0.5    69.45   185.00   15   0.38
+28  47  1 0  Floor Cellulose Loose Insulati                   0.1     4.92   328.00   20   0.01
+29  57  1 0  Plastic Storm Windows in Addit  AWD1            -0.1    -6.79    80.00    5  -0.08
+30  10  1 0  Replace Single Paned Windows    WD5             -0.4   -56.12    62.50   20  -0.90
+31   9  1 0  Storm Door                      DR2              0.0    -0.04   130.00   10  -0.00
+32  43  1 0  Window Sealing                  WD5             -0.1    -4.82    30.00   10  -0.16
+33  55  1 0  Window Sealing in Addition      AWD1             0.0     0.00    60.00   10   0.00
+
+FINAL
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0 500  7 1  Repair door                                      0.0     0.00    20.00    0   0.00
+ 1 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+ 2 500  1 0  Lighting Retrofits              LT2              2.3   230.81    39.00    3   5.92
+ 3  41  1 0  Water Heater Pipe Insulation                     0.8    80.02    15.00   13   5.33
+ 4  40  1 0  Water Heater Tank Insulation                     1.9   201.76    40.00   13   5.04
+ 5  18  1 0  Setback Thermostat                               2.1   251.84    75.00   15   3.36
+ 6  12  1 0  Glass Storm Windows             WD4              0.8    95.44    32.00   15   2.98
+ 7 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+ 8  14  1 0  Add Shade Screens               WD1,WD2,WD       1.3   534.11   184.00   10   2.90
+ 9   0  1 0  Wall Fiberglass Batt Insulatio                   5.1  1005.40   471.20   20   2.13
+10  43  1 0  Window Sealing                  WD3              0.7    62.28    30.00   10   2.08
+11   6  1 0  Roof Fiberglass Loose Insulati                   4.5  1016.64   740.00   20   1.37
+12   3  1 0  Floor Cellulose Loose Insulati                   4.3   679.35   573.00   20   1.19
+13  17  1 1  General Air Sealing                              3.3   275.90   250.00   10   1.10
+14  53  1 1  Door Replacement in Addition    ADR1             0.4    45.24   195.00   15   0.23
+15   8  1 1  Door Replacement                DR2              0.2    22.57   210.00   15   0.11
+16  43 -2 1  Window Sealing                  WD1              3.5   309.20   150.00   10   2.06
+17 500 -5 1  Repair flue                                      0.0     0.00    30.00    0   0.00
+
+Annual Heating kBtu:  55535.9  Annual Cooling kBtu:   8873.9
+
+
+FUEL NAME USED:Natural Gas
+FUEL NAME USED:Electricity
+
+----mir->flgWhichPass(Adj) = FIRST_PASS w ADJUST----
+
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0  17  4 1  General Air Sealing                             11.5   979.01   250.00   10   3.92
+ 1   0  1 0  Wall Fiberglass Batt Insulatio                   8.5  1522.15   471.20   20   3.23
+ 2   1  1 0  Wall Cellulose Loose Insulatio                   8.0  1418.35   547.00   20   2.59
+ 3   2  1 0  Wall Fiberglass Loose Insulati                   8.5  1522.15   570.00   20   2.67
+ 4   3  1 0  Floor Cellulose Loose Insulati                   7.4  1146.62   573.00   20   2.00
+ 5  47  1 0  Floor Cellulose Loose Insulati                   0.7   105.19   328.00   20   0.32
+ 6   4  1 0  Floor Fiberglass Loose Insulat                   7.2  1128.49   589.00   20   1.92
+ 7  48  1 0  Floor Fiberglass Loose Insulat                   0.7   109.96   334.00   20   0.33
+ 8   5  1 0  Roof Cellulose Loose Insulatio                   6.8  1354.02   722.00   20   1.88
+ 9  49  1 0  Roof Cellulose Loose Insulatio                   2.3   449.53   428.00   20   1.05
+10   6  1 0  Roof Fiberglass Loose Insulati                   7.3  1449.33   740.00   20   1.96
+11  50  1 0  Roof Fiberglass Loose Insulati                   2.4   460.26   434.00   20   1.06
+12   8  1 0  Door Replacement                DR1              0.5    76.10   185.00   15   0.41
+13   8  2 1  Door Replacement                DR2              0.8    99.92   210.00   15   0.48
+14  53  2 1  Door Replacement in Addition    ADR1             0.6    82.03   195.00   15   0.42
+15   9  1 0  Storm Door                      DR2              0.2    17.86   130.00   10   0.14
+16  10  1 0  Replace Single Paned Windows    WD2              2.9   502.73   585.00   20   0.86
+17  10  1 0  Replace Single Paned Windows    WD3              2.3   384.57   195.00   20   1.97
+18  10  1 0  Replace Single Paned Windows    WD5              0.1    10.48    62.50   20   0.17
+19  11  1 0  Plastic Storm Windows           WD2              2.5   111.41   126.00    5   0.88
+20  11  1 0  Plastic Storm Windows           WD3              2.0    90.25    42.00    5   2.15
+21  11  1 0  Plastic Storm Windows           WD4              1.1    50.08    16.00    5   3.13
+22  11  1 0  Plastic Storm Windows           WD5              0.1     2.88     3.50    5   0.82
+23  57  1 0  Plastic Storm Windows in Addit  AWD1             0.5    21.08    80.00    5   0.26
+24  12  1 0  Glass Storm Windows             WD2              3.0   370.82   252.00   15   1.47
+25  12  1 0  Glass Storm Windows             WD3              2.3   288.14    84.00   15   3.43
+26  12  1 0  Glass Storm Windows             WD4              1.3   159.65    32.00   15   4.99
+27  12  1 0  Glass Storm Windows             WD5              0.1     9.29     7.00   15   1.33
+28  58  1 0  Glass Storm Windows in Additio  AWD1             0.7    82.97   160.00   15   0.52
+29  13  1 0  Add Awnings                     WD1,WD2,WD      -0.5   -13.75   500.00   10  -0.03
+30  14  1 0  Add Shade Screens               WD1,WD2,WD       1.0   477.89   184.00   10   2.60
+31  18  1 0  Setback Thermostat                               3.5   419.74    75.00   15   5.60
+32  19  1 0  Tune-Up Heating System                           2.6    71.45   125.00    3   0.57
+33  24 -3 0  Tune-Up Cooling System [2]                       1.5   164.96   250.00    3   0.66
+34 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+35 500  1 0  Lighting Retrofits              LT2              2.3   230.81    39.00    3   5.92
+36 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+37  40  1 0  Water Heater Tank Insulation                     1.9   199.14    40.00   13   4.98
+38  41  1 0  Water Heater Pipe Insulation                     0.7    78.98    15.00   13   5.27
+39  43 -2 1  Window Sealing                  WD1              6.1   524.73   150.00   10   3.50
+40  43  1 0  Window Sealing                  WD2              0.5    43.39    90.00   10   0.48
+41  43  1 0  Window Sealing                  WD3              1.2   104.95    30.00   10   3.50
+42  43  1 0  Window Sealing                  WD5              0.0     0.00    30.00   10   0.00
+43  55  1 0  Window Sealing in Addition      AWD1             0.0     0.00    60.00   10   0.00
+
+----mir->flgWhichPass = CUMULATIVE w ADJUST----
+
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+ 2  18  1 0  Setback Thermostat                               4.4   527.13    75.00   15   7.03
+ 3  41  1 0  Water Heater Pipe Insulation                     0.8    80.02    15.00   13   5.33
+ 4  12  1 0  Glass Storm Windows             WD4              1.6   194.42    32.00   15   6.08
+ 5  40  1 0  Water Heater Tank Insulation                     1.9   201.76    40.00   13   5.04
+ 6  17  1 1  General Air Sealing                             13.8  1180.46   250.00   10   4.72
+ 7  43  1 0  Window Sealing                  WD3              1.5   126.99    30.00   10   4.23
+ 8  43 -2 1  Window Sealing                  WD1              7.3   630.44   150.00   10   4.20
+ 9   0  1 0  Wall Fiberglass Batt Insulatio                  10.3  1828.55   471.20   20   3.88
+10 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+11  14  1 0  Add Shade Screens               WD1,WD2,WD       1.3   607.73   184.00   10   3.30
+12   3  1 0  Floor Cellulose Loose Insulati                   8.9  1381.03   573.00   20   2.41
+13   6  1 0  Roof Fiberglass Loose Insulati                   8.8  1725.89   740.00   20   2.33
+14  12  1 0  Glass Storm Windows             WD2              3.5   416.07   252.00   15   1.65
+15  12  1 0  Glass Storm Windows             WD5             -3.5  -405.54     7.00   15 -57.93
+16  50  1 0  Roof Fiberglass Loose Insulati                   2.8   550.13   434.00   20   1.27
+17  49  1 0  Roof Cellulose Loose Insulatio                   2.8   537.31   428.00   20   1.26
+18  11  1 0  Plastic Storm Windows           WD2              2.8   121.43   126.00    5   0.96
+19  10  1 0  Replace Single Paned Windows    WD2              0.4    89.63   585.00   20   0.15
+20  11  1 0  Plastic Storm Windows           WD5             -3.2  -148.48     3.50    5 -42.42
+21  24 -3 0  Tune-Up Cooling System [2]                       1.2   141.63   250.00    3   0.57
+22  19  1 0  Tune-Up Heating System                           1.4    38.08   125.00    3   0.30
+23  58  1 0  Glass Storm Windows in Additio  AWD1             0.7    85.00   160.00   15   0.53
+24  43  1 0  Window Sealing                  WD2             -0.2   -16.65    90.00   10  -0.19
+25   8  1 1  Door Replacement                DR2              0.3    43.44   210.00   15   0.21
+26  53  1 1  Door Replacement in Addition    ADR1             0.7    91.82   195.00   15   0.47
+27   8  1 0  Door Replacement                DR1              0.6    86.43   185.00   15   0.47
+28  47  1 0  Floor Cellulose Loose Insulati                   0.1     7.33   328.00   20   0.02
+29  57  1 0  Plastic Storm Windows in Addit  AWD1            -0.1    -8.20    80.00    5  -0.10
+30  10  1 0  Replace Single Paned Windows    WD5             -0.5   -70.65    62.50   20  -1.13
+31   9  1 0  Storm Door                      DR2              0.0    -0.02   130.00   10  -0.00
+32  43  1 0  Window Sealing                  WD5             -0.1    -6.03    30.00   10  -0.20
+33  55  1 0  Window Sealing in Addition      AWD1             0.0     0.00    60.00   10   0.00
+
+FINAL
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0 500  7 1  Repair door                                      0.0     0.00    20.00    0   0.00
+ 1 500  1 0  Lighting Retrofits              LT1              3.5   293.07    47.50    2   6.17
+ 2 500  1 0  Lighting Retrofits              LT2              2.3   230.81    39.00    3   5.92
+ 3  41  1 0  Water Heater Pipe Insulation                     0.8    80.02    15.00   13   5.33
+ 4  40  1 0  Water Heater Tank Insulation                     1.9   201.76    40.00   13   5.04
+ 5  18  1 0  Setback Thermostat                               2.6   316.28    75.00   15   4.22
+ 6  12  1 0  Glass Storm Windows             WD4              1.0   119.43    32.00   15   3.73
+ 7  14  1 0  Add Shade Screens               WD1,WD2,WD       1.6   630.26   184.00   10   3.43
+ 8 500  1 0  Refrigerator Replacement                         3.8  1782.10   600.00   15   2.97
+ 9   0  1 0  Wall Fiberglass Batt Insulatio                   6.4  1240.74   471.20   20   2.63
+10  43  1 0  Window Sealing                  WD3              0.9    77.94    30.00   10   2.60
+11   6  1 0  Roof Fiberglass Loose Insulati                   5.6  1244.84   740.00   20   1.68
+12   3  1 0  Floor Cellulose Loose Insulati                   5.3   849.92   573.00   20   1.48
+13  17  1 1  General Air Sealing                              4.1   346.49   250.00   10   1.39
+14  53  1 1  Door Replacement in Addition    ADR1             0.4    56.59   195.00   15   0.29
+15   8  1 1  Door Replacement                DR2              0.2    28.04   210.00   15   0.13
+16  43 -2 1  Window Sealing                  WD1              4.4   386.98   150.00   10   2.58
+17 500 -5 1  Repair flue                                      0.0     0.00    30.00    0   0.00
+
+Annual Heating kBtu:  69745.5  Annual Cooling kBtu:  10503.6
+
+
+FUEL NAME USED:Natural Gas
+FUEL NAME USED:Electricity
+Validate JSON OUTPUT with:ajv -s ./sys/json_schema/mhea_output_schema.json -d output/mhea/last/01_Single_wide_mobile_home/output.json --errors=text > ./sys/json_schema/validation.txt 2>&1

@@ -1,0 +1,166 @@
+v10.0.7 5/1/2020
+
+1) "lighting":  Note that all of the elements have changed with the exception of "code".  NEAT now supports
+a full measure specification rather than a CFL measure selection from the "measure_costs" library entries.  That means
+all of the information necessary for a lighting retrofit energy and economic analysis is included in the "lighting" 
+array.  NEAT now reports each "lighting" array entry as a separate lighting retrofit measure with separate SIR 
+analysis rather than lumping all record into a single lighting retrofit measure.  This is the same way that MHEA has
+treated lighting retrofit measures in pior versions.
+
+2) "measure_costs":  All 11 of the CFL measure cost library entries have been dropped (ids 61 - 71), so there is a 
+gap in the "measure_costs" identifiers between id:60 and id:72 with a new total record count of 120 (required) vs 131.
+
+3) "measure_costs":  Insulation material cost maximum values were corrected.  Previously they were set to 9999 which
+was too high.  They are now set to $2/sqft maximums similar to the insulation labor costs.
+
+v10.0.8 5/4/2020
+
+1) "measure_costs": Fixed a problem with some NEAT insulation costs.  The "retrofit_type" string had default values which were incorrect.  
+Those values were removed and replace with a "description" for what the "retrofit_type" string should contain.
+
+v10.0.9 5/5/2020
+
+1) "fuel_escalation_rates_by_reference": Udated the maximum year to 2020 after entering the new EIA rates.
+
+2) "utility_bills_pre_retrofit_heating_data": Removed "dgree_days" as required field.  Now it is optional.
+
+3) "utility_bills_pre_retrofit_cooling_data": Removed "dgree_days" as required field.  Now it is optional.
+
+v10.0.10 5/22/2020
+
+1) Changed the "itemized_id" element of the "itemized_costs" array to "component_id".  It remains an 80 max character string identifier that simply passed through the analysis into the "measures" array output.  It is an optional field.  If left blank or omitted, the output "measures" array will have a "component_id" element that is a zero length string.
+
+v10.0.11 6/4/2020
+
+1) Added the minItemss and maxItems specification to the meassure_active_flag array to tighten up the library specification only.  No functional change beyond the tightening of the spec.
+
+2) Added the minItemss and maxItems specification to the meassure_costs array to tighten up the library specification only.  No functional change beyond the tightening of the spec.
+
+v10.0.12 6/5/2020
+
+1) Increased the maxItems for "itemized_costs" arrayt from 50 to 60.
+
+v10.0.14 6/25/2020
+
+1) Changed foundation space type 7 from "Exposed Floor" to "Exposed Floor Sheathed" for clarification.  That is how the choice was already being calculated.
+
+2) Added the foundation space type 8, "Exposed Floor Unsheathed".
+
+3) Changed the element "sill_perim" (length of Uninsulated perimeter) to "sill_perimeter" (total length of sill perimeter) (Ft) with an average "sill_r" R-value.  Also added to the conditional field requirement logic.
+
+4) Added the element "sill_r" for the average R-value for the "sill_perimeter".
+
+5) Changed all the "foundations" if-then-required logic.
+
+6) Added "Fill Closed Floor Cavity", id 45 to the "measure_active_flag" array with UI "num" = 14.  Re-indexed all optional "num" elements >= 14 to match the index in the user interface.  Changed the array count MIN and MAX from 45 to 46
+
+7) Remove "measure_costs" ids 104 - 111 and added id 131 and 132. This is for the #232 issue change where the 2nd and 3rd user defined
+floor insulation types are now fixed blown floor fill-cavity insulation types celluose and fiberglass.  The total count for the "measure_costs" array is 114 instead of 120 records.
+
+8) Changed the "neat_insulation_types" usage = "Floor" index 2 and 3 to constant Blown Cellulose and Blown Fiberglass respectively, both with R/in units.
+
+9) Added the string descriptions "Blown Cellulose" and "Blown Fiberglass" to the numeric values of "added_floor" insulation type for foundations to account for the new default insulation types for exposed floor foundation type.  Also placed the "added_floor" element in the conditional logic for floor type to limit the selection for "added_floor" insulation types to just the allowable values.
+
+10) "measure_active_flag" element "measure_name" remains an optional input, but if included, it must match the string constant.
+
+v10.01.000  7/23/2020
+
+1) Added three new entries to the "measure_costs" to account for the possible use of Floor User Insulation types 4,5, and 6 for the Fill Floor Cavity Measure.  Total "measure_costs" array size should now be 117
+
+v10.01.001 7/29/2020
+
+1) Updated the "ducts_and_infiltration" section to correctly eliminate the Pressure Pan method that applies only to MHEA
+
+v10.02.001 8/17/2020
+
+1) Made the retrofit_option a required field for all heating systems.  Those systems like wood and coal use retrofit_option of 10 which means no retrofit action considered.
+
+v10.02.002 8/17/2020
+
+1) Update the range checks in the neat_insulation_types array to match the UI.
+
+v10.02.003 8/28/2020
+
+1) Remove "input_units" from "utility_bills_pre_retrofit_cooling" since really only kWh units make any sense for the weatherization market
+
+2) Change the description of the "usage" property in "utility_bills_pre_retrofit_cooling_data" to read only units of kWh
+
+v10.02.004 8/31/2020
+
+1) Updated the min and max ranges for all measure_cost array records.  The ranges are now all 0 - 5000 dollars eliminating some narrower range checks for per square foot costs.  The negative minimum as also been eliminated so discounting can not be done through the measure_cost records.  The negative added costs are now exlusively allowed on the input forms.  This change corresponds also to a change in the engine to disallow evaluation of measures with negative or zero initial costs.
+
+v10.02.007 9/4/2020
+
+1) Changed the maximum number of widows[] records from 24 to 18 to match MHEA windows and windows_addition arrays.
+
+v10.02.008 9/16/2020
+
+1) Change the "windows.cost_weatherize" to "windows.cost_seal"
+
+2) The "windows.retrofit_option" = 2 enumeration has changed from "Weatherize" to "Seal"
+
+v10.02.010 10/5/2020
+
+1) Updated the "water_heating" section to include the uniform_energy_factor field associated with issue #270.
+
+v10.02.011 10/9/2020
+
+1) Fixed syntax error with duplicate "if"
+
+v10.02.012 10/12/2020
+
+1) Updated the water_heater schema to NOT require the exist_gal field.  That field gets a 30g default value in the engine if left blank.
+
+v10.02.015 10/27/2020
+
+1) Updated the water_heater required field logic to match conditional inputs and conditionally required fields.  Note that the MHEA engine will apply a default EF and RE if there are no input for EF, UEF, and RE for the existing water heater.  However, the UEF of the replacement water heater is a required field.
+
+v10.02.016 11/18/2020
+
+1) Removed Attic Space (3) from the list of enumerations for walls.exposure.  All kneewalls are exclusively characterized in finished_attics.acode = 3 (kneewall) 
+
+v10.02.017 11/20/2020
+
+1) Changed itemized_cost[].component_id to a 32 bit integer from a string.
+
+v10.02.0018 12/15/2020
+
+1) Updated the range checks on unfinished_attic.area, finished_attics.area, and foundation.area increasing the maximum from 3000 to 5000 sqft to match the living space floor area maximum.
+
+v10.02.021 12/29/2020
+
+1) Removed the 0 option from NEAT and MHEA window_type.  That element is not used and should not be allowed.  For NEAT the window_type is optional, so instead of "window_type": 0 that element can/should be skipped in the input.
+
+2) Change the text enumeration for the optional frame_type 1 element to match the ORNL UI for consistency. Since the ORNL UI interface only uses the numerical values, no functional change.
+
+3) Added user insulation types 5,6,7 to the "Exposed Floor Sheathed" floor_type for foundations.
+
+4) Lighting "exist_hours_per_day" and "new_hours_per_day" minimum range changed from 1 to 0.1 hours minimum to match the pre-flight range check in the UI.
+
+5) Lighting "install_cost_per_lamp" range min/max changed from -50/50 to 0.1/200 to match the UI range check values.
+
+6) Lighting "added_cost_per_lamp" range min/max changed from -50/50 to -100/100 to match the UI range check values.
+
+7) utility_bills_pre_retrofit_cooling.period_days max changed from 40 to 365.
+
+8) "degree_days" (2 places) range check maximum changed from 3000 to 15000 to match the UI.
+
+v10.02.022 12/29/2020
+
+1) Added the "measure_name" as a required field for all measure_active_flags[].  They are all constant strings that get used in the measure output reporting.
+
+v10.02.023 12/30/2020
+
+1) Added pattern rule to all "code" elements.  The pattern disallows the comma character.  In later reporting and in code, the comma is used as a code separator.
+
+v10.02.025 01/10/2020
+
+1) Removed the optional water_heater.replace and associated conditional fields.  The engine is set up to only process a replacement if all the necessary fields are included, otherwise it silently skips consideration.  The issue is that an existing water heater can be characterized for various measures without considering replacement, so the replace (really a replacement_required field) is optional not required.
+
+v10.03.004 02/22/2021
+
+1) Added the base_temp and base_load to the list of required fields for utility_bills_pre_retrofit_heating and utility_bills_pre_retrofit_cooling.
+
+v10.03.006 05/28/2021
+
+1) Updated the maximum for fuel_escalation_rates_by_reference.year to 2021 for the new EIA fuel escalation rate data.

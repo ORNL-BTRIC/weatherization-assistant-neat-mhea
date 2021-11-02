@@ -1,0 +1,139 @@
+v10.0.7 5/1/2020
+
+1) "lighting":  Note that all of the elements have changed with the exception of "code".  MHEA now supports
+a full measure specification rather than a CFL measure selection from the "measure_costs" library entries.  That means
+all of the information necessary for a lighting retrofit energy and economic analysis is included in the "lighting" 
+array.  MHEA continues to report each "lighting" array entry as a separate lighting retrofit measure with separate SIR 
+analysis rather than lumping all record into a single lighting retrofit measure.  
+
+2) "measure_costs":  All 11 of the CFL measure cost library entries have been dropped (ids 29 - 41), so there is a 
+gap in the "measure_costs" identifiers between id:28 and id:42 with a new total record count of 50 (required) vs 61.
+
+v10.0.9 5/5/2020
+
+1) "fuel_escalation_rates_by_reference": Udated the maximum year to 2020 after entering the new EIA rates.
+
+2) "utility_bills_pre_retrofit_heating_data": Removed "dgree_days" as required field.  Now it is optional.
+
+3) "utility_bills_pre_retrofit_cooling_data": Removed "dgree_days" as required field.  Now it is optional.
+
+v10.0.10 5/22/2020
+
+1) Changed the "itemized_id" element of the "itemized_costs" array to "component_id".  It remains an 80 max character string identifier that simply passed through the analysis into the "measures" array output.  It is an optional field.  If left blank or omitted, the output "measures" array will have a "component_id" element that is a zero length string.
+
+v10.0.11 6/4/2020
+
+1) Added the minItemss and maxItems specification to the meassure_active_flag array to tighten up the library specification only.  No functional change beyond the tightening of the spec.
+
+2) Added the minItemss and maxItems specification to the meassure_costs array to tighten up the library specification only.  No functional change beyond the tightening of the spec.
+
+v10.0.12 6/5/2020
+
+1) Increase the maxItems for "itemized_costs" arrayt from 50 to 60.
+
+v10.01.001 7/29/2020
+
+1) Updated the "ducts_and_infiltration" section to correctly include the Pressure Pan method that applies only to MHEA and remove the return duct pressure readings that only apply to NEAT
+
+v 10.02.000
+
+1) Add "leakiness" as a required field to MHEA "doors" and "doors_addition"
+
+v10.02.003 8/28/2020
+
+1) Remove "input_units" from "utility_bills_pre_retrofit_cooling" since really only kWh units make any sense for the weatherization market
+
+2) Change the description of the "usage" property in "utility_bills_pre_retrofit_cooling_data" to read only units of kWh
+
+v10.02.004 8/31/2020
+
+1) Updated the min and max ranges for all measure_cost array records.  The ranges are now all 0 - 5000 dollars eliminating some narrower range checks for per square foot costs.  The negative minimum as also been eliminated so discounting can not be done through the measure_cost records.  The negative added costs are now exlusively allowed on the input forms.  This change corresponds also to a change in the engine to disallow evaluation of measures with negative or zero initial costs.
+
+v10.02.005 9/1/2020
+
+1) Change the maximum number of MHEA windows and windows_addition from 24 to 18.  This matches the maximum number of windows for NEAT.
+
+v10.02.006 9/2/2020
+
+1) Drop measure_active_flag array id 22 (door replacement) and redefine id 21 for Door Replacement in the main home (dropping the "reqiured" terminology)
+
+2) Rename the measure_cost id 8 to drop the "required" terminology
+
+v10.02.008 9/16/2020
+
+1) Change the "windows.cost_weatherize" to "windows.cost_seal" and "windows_addition.cost_weatherize" to "windows_addition.cost_seal"
+
+2) The windows.retrofit_option = 2 enumeration has changed from "Weatherize" to "Seal" for both windows and windows_addition sections.
+
+v10.02.010 10/5/2020
+
+1) Updated the "water_heating" section to include the uniform_energy_factor field associated with issue #270.
+
+v10.02.011 10/9/2020
+
+1) Fixed syntax error with duplicate "if"
+
+v10.02.012 10/12/2020
+
+1) Updated the water_heater schema to NOT require the exist_gal field.  That field gets a 30g default value in the engine if left blank.
+
+
+v10.02.014 10/14/2020
+
+1) The duct_insl field for replacement heating systems is only a required field if the duct_location is entered and != none.
+
+v10.02.015 10/27/2020
+
+1) Updated the water_heater required field logic to match conditional inputs and conditionally required fields.  Note that the MHEA engine will apply a default EF and RE if there are no input for EF, UEF, and RE for the existing water heater.  However, the UEF of the replacement water heater is a required field.
+
+v10.02.017 11/20/2020
+
+1) Changed itemized_cost[].component_id to a 32 bit integer from a string.
+
+v10.02.019 12/15/2020
+
+1) Changed maximum percent cathedral ceiling from 50 to 100 for main home.
+
+v10.02.021 12/29/2020
+
+1) Removed the 0 option from NEAT and MHEA window_type.  That element is not used and should not be allowed.  For NEAT the window_type is optional, so instead of "window_type": 0 that element can/should be skipped in the input.
+
+2) Change the text enumeration for the optional frame_type 1 element to match the ORNL UI for consistency. Since the ORNL UI interface only uses the numerical values, no functional change.
+
+3) Removed the 0th enumeration from "duct_location", "clg_duct_location", "duct_insl", and "clg_duct_insl" enumerations for both heating and cooling (and replacements).  Instead of an element with a 0 selected, these elements should be omitted from the JSON.
+
+4) Lighting "exist_hours_per_day" and "new_hours_per_day" minimum range changed from 1 to 0.1 hours minimum to match the pre-flight range check in the UI.
+
+5) Lighting "install_cost_per_lamp" range min/max changed from -50/50 to 0.1/200 to match the UI range check values.
+
+6) Lighting "added_cost_per_lamp" range min/max changed from -50/50 to -100/100 to match the UI range check values.
+
+7) utility_bills_pre_retrofit_cooling.period_days max changed from 40 to 365.
+
+8) "degree_days" (2 places) range check maximum changed from 3000 to 15000 to match the UI.
+
+v10.02.022 12/29/2020
+
+1) Added the "measure_name" as a required field for all measure_active_flags[].  They are all constant strings that get used in the measure output reporting.
+
+2) Updated all measure_active_flags[].measure_name fields to be constant strings and required.  This way, all the measure names are set by the input rather than by magic strings from the engine.
+
+v10.02.023 12/30/2020
+
+1) Added pattern rule to all "code" elements.  The pattern disallows the comma character.  In later reporting and in code, the comma is used as a code separator.
+
+v10.02.025 01/10/2020
+
+1) Removed the optional water_heater.replace and associated conditional fields.  The engine is set up to only process a replacement if all the necessary fields are included, otherwise it silently skips consideration.  The issue is that an existing water heater can be characterized for various measures without considering replacement, so the replace (really a replacement_required field) is optional not required.
+
+v10.03.004 02/22/2021
+
+1) Added the base_temp and base_load to the list of required fields for utility_bills_pre_retrofit_heating and utility_bills_pre_retrofit_cooling.
+
+v10.03.006 05/28/2021
+
+1) Updated the maximum for fuel_escalation_rates_by_reference.year to 2021 for the new EIA fuel escalation rate data.
+
+v11.00.000 10/22/2021
+
+1) AJV-CLI failing for duplicate door leakiness references. Pull door leakiness out to a common definition and reference it. No impact on the validation otherwise, as it is effectively just a syntax change rather than actual schema change.

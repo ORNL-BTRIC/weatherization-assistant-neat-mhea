@@ -1,0 +1,5345 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "build_version": "v10.03.006",
+  "title": "MHEA Input",
+  "description": "Manufactured Energy Audit Tool audit data input",
+  "type": "object",
+  "additionalProperties": true,
+
+  "required": [
+    "audit",
+    "weather_location",
+    "walls",
+    "windows",
+    "doors",
+    "ceiling",
+    "floor",
+    "heating_primary",
+    "ducts_and_infiltration",
+
+    "fuel_costs",
+    "measure_active_flags",
+    "measure_costs",
+    "key_parameters"
+  ],
+
+  "oneOf": [
+    {"required": ["fuel_escalation_rates_by_reference"]},
+    {"required": ["fuel_escalation_rates"]}
+  ],
+
+  "properties": {
+
+    "audit": {
+      "$ref": "#/definitions/audit"
+    },    
+    "weather_location": {
+      "$ref": "#/definitions/weather_location"
+    },
+
+    "walls": {
+      "$ref": "#/definitions/walls"
+    },
+    "windows": {
+      "$ref": "#/definitions/windows"
+    },
+    "doors": {
+      "$ref": "#/definitions/doors"
+    },
+    "ceiling": {
+      "$ref": "#/definitions/ceiling"
+    },
+    "floor": {
+      "$ref": "#/definitions/floor"
+    },
+
+    "walls_addition": {
+      "$ref": "#/definitions/walls_addition"
+    },
+    "windows_addition": {
+      "$ref": "#/definitions/windows_addition"
+    },
+    "doors_addition": {
+      "$ref": "#/definitions/doors_addition"
+    },
+    "ceiling_addition": {
+      "$ref": "#/definitions/ceiling_addition"
+    },
+    "floor_addition": {
+      "$ref": "#/definitions/floor_addition"
+    },
+
+    "heating_primary": {
+      "$ref": "#/definitions/heating_primary"
+    },
+    "heating_secondary": {
+      "$ref": "#/definitions/heating_secondary"
+    },
+    "heating_replacement": {
+      "$ref": "#/definitions/heating_replacement"
+    },
+
+    "cooling_primary": {
+      "$ref": "#/definitions/cooling_primary"
+    },
+    "cooling_secondary": {
+      "$ref": "#/definitions/cooling_secondary"
+    },
+    "cooling_replacement": {
+      "$ref": "#/definitions/cooling_replacement"
+    },
+
+    "ducts_and_infiltration": {
+      "$ref": "#/definitions/ducts_and_infiltration"
+    },
+
+    "water_heating": {
+      "$ref": "#/definitions/water_heating"
+    },
+    "refrigerators": {
+      "$ref": "#/definitions/refrigerators"
+    },
+    "lighting": {
+      "$ref": "#/definitions/lighting"
+    },
+    "itemized_costs": {
+      "$ref": "#/definitions/itemized_costs"
+    },
+
+    "utility_bills_pre_retrofit_heating": {
+      "$ref": "#/definitions/utility_bills_pre_retrofit_heating"
+    },
+    "utility_bills_pre_retrofit_heating_data": {
+      "$ref": "#/definitions/utility_bills_pre_retrofit_heating_data"
+    },
+    "utility_bills_pre_retrofit_cooling": {
+      "$ref": "#/definitions/utility_bills_pre_retrofit_cooling"
+    },
+    "utility_bills_pre_retrofit_cooling_data": {
+      "$ref": "#/definitions/utility_bills_pre_retrofit_cooling_data"
+    },
+
+    "fuel_costs": {
+      "$ref": "#/definitions/fuel_costs"
+    },
+    "fuel_escalation_rates_by_reference": {
+      "$ref": "#/definitions/fuel_escalation_rates_by_reference"
+    },
+    "fuel_escalation_rates": {
+      "$ref": "#/definitions/fuel_escalation_rates"
+    },
+    "measure_active_flags": {
+      "$ref": "#/definitions/measure_active_flags"
+    },
+    "measure_costs": {
+      "$ref": "#/definitions/measure_costs"
+    },
+    "key_parameters": {
+      "$ref": "#/definitions/key_parameters"
+    },
+    "leakiness": {
+      "$ref": "#/definitions/leakiness"
+    }
+  },
+
+  "definitions": 
+  {
+
+    "leakiness": {
+      "type": ["integer", "string"],
+      "enum": [
+        1, "Tight",
+        2, "Medium",
+        3, "Loose"
+      ],
+      "title": "Leakiness",
+      "description": "Leakiness of door"
+    },
+
+    "audit": {
+      "type": "object",
+      "title": "Audit Information",
+      "description": "General top level audit information.",
+      "additionalProperties": true,
+      "$comment": "The additionalProperties setting should limit any personally identifying information (PII) from the API",
+      "properties": {
+        "audit_type": {
+          "type": "string",
+          "title": "The audit type",
+          "description": "Should say MHEA",
+          "examples": ["MHEA"],
+          "pattern": "^MHEA$"
+        },
+        "audit_id": {
+          "type": "integer",
+          "minimum": 1,
+          "title": "Audit ID",
+          "description": "Required integer numeric identifier for the audit, mirrored in output, but otherwise unused in analysis",
+          "examples": [2344561]
+        },
+        "audit_number": {
+          "type": "integer",
+          "minimum": 1,
+          "title": "Audit Number",
+          "description": "An optional supplemental integer numeric identifier requried for the audit record, also mirrored in output but otherwise not used in analysis",
+          "examples": [123456789]
+        },
+        "avg_no_occupants": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9,
+          "title": "The average number of occupants",
+          "description": "The average number of occupants in the dwelling",
+          "examples": [3]
+        },
+        "length": {
+          "type": "number",
+          "minimum": 30,
+          "maximum": 100,
+          "title": "Length (ft)",
+          "description": "The long dimension of the home in (ft)"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 50,
+          "title": "Width (ft)",
+          "description": "The short dimension of the home in (ft)"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 6,
+          "maximum": 10,
+          "title": "Exterior Wall Height (ft)",
+          "description": "The height of the home, assumed single story in  (ft)"
+        },
+        "wind_shielding": {
+          "$id": "#/audit/wind_shielding",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Well Shielded",
+            2, "Normal Shielding",
+            3, "Exposed"
+          ],
+          "title": "Wind Shielding ",
+          "description": "How well is the home shielded from prevailing winds"
+        },
+        "leakiness": {
+          "$id": "#/audit/leakiness",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Tight",
+            2, "Medium",
+            3, "Loose"
+          ],
+          "title": "Home Leakiness",
+          "description": "General home leakiness estimate"
+        },
+        "water_heater_closet": {
+          "type": "boolean",
+          "title": "Outdoor Water Heater Closet",
+          "description": "Does the door to the water heater closet open to the outdoors",
+          "examples": [true, false]
+        },
+        "do_billing_adjust": {
+          "type": "boolean",
+          "title": "Billing Adjustment",
+          "description": "Should run include utility billing adjustment",
+          "examples": [true, false]
+        }
+      },
+      "required": [
+        "audit_type",
+        "audit_id",
+        "avg_no_occupants",
+        "length",
+        "width",
+        "height",
+        "wind_shielding",
+        "leakiness"
+      ]
+    },
+
+
+    "weather_location": {
+      "type": "object",
+      "title": "Weather Station Selection",
+      "description": "Information on the weather station file to use",
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2,
+          "title": "State Code",
+          "description": "The two letter code for the state"
+        },
+        "city": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 25,
+          "title": "City",
+          "description": "The name of the city"
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 12,
+          "title": "File Name",
+          "description": "Name of the weather file in the form xxxxxxxx.wx, Must match one of the 255 available files in the sys/weather path",
+          "examples": ["ABILENTX.WX"]
+        }
+      },
+      "required": [
+        "state",
+        "file"
+      ]
+    },
+
+
+    "walls": {
+      "type": "object",
+      "title": "walls",
+      "description": "The wall characteristics of the manufactured/mobile home",
+      "properties": {
+        "stud_size": {
+          "type": ["integer", "string"],
+          "enum": [
+            1, "2x2",
+            2, "2x3",
+            3, "2x4",
+            4, "2x6"
+          ],
+          "title": "Stud Size",
+          "description": "The size of the studs used in the Wall construction"
+        },
+        "home_orientation": {
+          "$id": "#/wall/home_orientation",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "North",
+            2, "South",
+            3, "East",
+            4, "West"
+          ],
+          "title": "Orientation",
+          "description": "The orientation of the line perpendicular to the long wall of the home"
+        },
+        "wall_vent": {
+          "$id": "#/walls/wall_vent",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Vented",
+            2, "Not Vented"
+          ],
+          "title": "Wall Ventilation",
+          "description": "The type of wall ventilation"
+        },
+        "batt_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Batt/Blanket (in)",
+          "description": "The thickness of existing batt or blanket insulation in (in)"
+        },
+        "loose_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Loose Fill (in)",
+          "description": "The thickness of existing loose insulation in (in)"
+        },
+        "foam_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Foam Core (in)",
+          "description": "The thickness of existing foam core insulation in (in)"
+        },
+        "uninsulatable_area": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5000,
+          "title": "Uninsulatable Wall Area (sqft)",
+          "description": "The area of the wall that can not be insulated (sqft)"
+        },
+        "porch_length": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "title": "Carport or Porch Roof Length (ft)",
+          "description": "The length of the carport or porch roof (ft). Zero if no porch or carport.",
+          "$comment": "This property should appear before porch_orientation in the JSON object."
+        },
+        "porch_width": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "title": "Carport or Porch Roof Width (ft)",
+          "description": "The width of the carport or porch roof (ft). Zero if no porch or carport.",
+          "$comment": "This property should appear before porch_orientation in the JSON object."
+        },
+        "porch_orientation": {
+          "$id": "#/wall/porch_orientation",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "North",
+            2, "South",
+            3, "East",
+            4, "West"
+          ],
+          "title": "Carport or Porch Orientation",
+          "description": "The orientation of the line perpendicular to the long side of the carport or porch"
+        },
+        "add_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Added Insulation Cost ($)",
+          "description": "Additional cost of adding insulation to the walls"
+        }
+      },
+
+      "required": [
+        "stud_size",
+        "home_orientation",
+        "wall_vent",
+        "batt_insl",
+        "loose_insl",
+        "foam_insl",
+        "porch_length",
+        "porch_width"
+      ],
+
+      "allOf": [{
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"porch_length": {"const": 0 }}},
+              {"properties": {"porch_width": {"const": 0 }}}
+            ]
+          }
+        },
+        "then": {
+          "required": ["porch_orientation"]
+        }
+      }]
+    },
+
+    "windows": {
+      "type": "array",
+      "title": "Windows",
+      "description": "The list of windows in the building shell",
+      "minItems": 0,
+      "maxItems": 18,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "title": "Window Code",
+            "description": "The short unique code for this window, no commas",
+            "examples": ["WD1"],
+            "pattern": "^[^,]+$"
+          },
+          "window_type": {
+            "$id": "#/windows/window_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Jalousie",
+              2, "Awning",
+              3, "Slider",
+              4, "Fixed",
+              5, "Door Window",
+              6, "Sliding Glass Door",
+              7, "Skylight"
+            ],
+            "title": "Window Type",
+            "description": "The window type"
+          },
+          "frame_type": {
+            "$id": "#/windows/frame_type",
+            "type": ["integer", "string"],
+            "enum": [ 0,
+              1, "Wood, Vinyl, or Fiberglass",
+              2, "Metal",
+              3, "Improved Metal"
+            ],
+            "title": "Frame Type",
+            "description": "The window frame type"
+          },
+          "glazing_type": {
+            "$id": "#/windows/glazing_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Single Pane",
+              3, "Single with Glass Storm",
+              5, "Single with Plastic Storm",
+              2, "Double Pane",
+              4, "Double with Glass Storm",
+              6, "Double with Plastic Storm"
+            ],
+            "title": "Glazing Type",
+            "description": "The window glazing type"
+          },
+          "int_shading": {
+            "$id": "#/windows/int_shading",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Drapes",
+              2, "Blinds or Shades",
+              3, "Drapes with Blinds or Shades",
+              4, "None"
+            ],
+            "title": "Interior Shading",
+            "description": "The type of interior shading for the window"
+          },
+          "ext_shading": {
+            "$id": "#/windows/ext_shading",
+            "type": ["integer", "string"],
+            "enum": [
+              3, "Awning",
+              4, "Carport or Porch",
+              1, "Low E Film",
+              2, "Sun Screen",
+              5, "None"
+            ],
+            "title": "Exterior Shading",
+            "description": "The type of exterior shading for the window"
+          },
+          "leak": {
+            "$id": "#/windows/leak",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Very Tight",
+              2, "Tight",
+              3, "Medium",
+              4, "Loose",
+              5, "Very Loose"
+            ],
+            "title": "Leakiness",
+            "description": "General window and frame leakiness estimate"
+          },
+          "width": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 90,
+            "title": "Width (in)",
+            "description": "Width in inches"
+          },
+          "height": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 90,
+            "title": "Height (in)",
+            "description": "Height in inches"
+          },
+          "num_n": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing North",
+            "description": "Number of identical windows of this type facing North"
+          },
+          "num_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing South",
+            "description": "Number of identical windows of this type facing South"
+          },
+          "num_e": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing East",
+            "description": "Number of identical windows of this type facing East"
+          },
+          "num_w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing West",
+            "description": "Number of identical windows of this type facing West"
+          },
+          "retrofit_option": {
+            "$id": "#/windows/retrofit_option",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Evaluate All",
+              2, "Seal",
+              3, "Replace",
+              4, "Add Glass Storm",
+              5, "Add Plastic Storm",
+              6, "Evaluate None"
+            ],
+            "title": "Retrofit Options",
+            "description": "Window retrofit options"
+          },
+          "inc_sir": {
+            "type": "boolean",
+            "title": "Include in SIR",
+            "description": "Include this window in overall Savings to Investment Ratio"
+          },
+          "cost_seal": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Weatherization ($/window)",
+            "description": "Additional per window cost to seal"
+          },
+          "cost_replace": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Replacement ($/window)",
+            "description": "Additional per window cost to replace"
+          },
+          "cost_add_glass_storm": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Glass Storm ($/window)",
+            "description": "Additional per window cost to add glass storm window"
+          },
+          "cost_add_plastic_storm": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Plastic Storm ($/window)",
+            "description": "Additional per window cost to add plastic storm window"
+          }
+        },
+        "required": [
+          "code",
+          "window_type",
+          "glazing_type",
+          "int_shading",
+          "ext_shading",
+          "leak",
+          "width",
+          "height",
+          "num_n",
+          "num_s",
+          "num_e",
+          "num_w",
+          "retrofit_option"
+        ]
+      }
+    },
+
+    "doors": {
+      "type": "array",
+      "title": "Doors",
+      "description": "The list of doors in the building shell",
+      "minItems": 0,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "title": "Door Code",
+            "description": "The short unique code for this door, no commas",
+            "examples": ["DR1"],
+            "pattern": "^[^,]+$"
+          },
+          "door_type": {
+            "$id": "#/doors/door_type",
+            "type": ["integer", "string"],
+            "enum": [
+              2, "Hollow Core Wood",
+              1, "Solid Core Wood",
+              3, "Standard Manufactured Home Door",
+              4, "Insulated Steel"
+            ],
+            "title": "Door Type",
+            "description": "Type of door"
+          },
+          "leakiness": {
+            "$id": "#/definitions/leakiness"
+          },
+          "storm": {
+            "type": "boolean",
+            "title": "Storm Door Present",
+            "description": "Is there a storm door present",
+            "examples": [true, false]
+          },
+          "width": {
+            "type": "number",
+            "minimum": 24,
+            "maximum": 40,
+            "title": "Width (in)",
+            "description": "Width of door (in)"
+          },
+          "height": {
+            "type": "number",
+            "minimum": 70,
+            "maximum": 90,
+            "title": "Height)",
+            "description": "Height of door (in)"
+          },
+          "num_n": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing North",
+            "description": "Number of identical doors of this type facing North"
+          },
+          "num_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing South",
+            "description": "Number of identical doors of this type facing South"
+          },
+          "num_e": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing East",
+            "description": "Number of identical doors of this type facing East"
+          },
+          "num_w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing West",
+            "description": "Number of identical doors of this type facing West"
+          },
+          "replace": {
+            "type": "boolean",
+            "title": "Replacement Door Required",
+            "description": "Require replacement door measure",
+            "examples": [true, false]
+          },
+          "inc_sir": {
+            "type": "boolean",
+            "title": "Include in SIR",
+            "description": "Include this door replacement in overall SIR",
+            "examples": [true, false]
+          },
+          "cost_replace": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Additional Cost ($/door)",
+            "description": "Additional replacement cost per door"
+          }
+        },
+        "required": [
+          "code",
+          "door_type",
+          "leakiness",
+          "width",
+          "height",
+          "num_n",
+          "num_s",
+          "num_e",
+          "num_w"
+        ]
+      }
+    },
+
+    "ceiling": {
+      "type": "object",
+      "title": "Ceiling and Roof",
+      "description": "The ceiling/roof information for the home",
+      "properties": {
+        "roof_type": {
+          "$id": "#/ceiling/roof_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Flat",
+            2, "Bowstring",
+            3, "Pitched"
+          ],
+          "title": "Roof Type",
+          "description": "The type of roof/ceiling construction",
+          "$comment": "This property should appear first in the JSON object."
+        },
+        "roof_color": {
+          "$id": "#/ceiling/roof_color",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "White, Reflective, or Shaded",
+            2, "Normal or Weathered"
+          ],
+          "title": "Roof Color",
+          "description": "The color of the roof"
+        },
+        "joist_size": {
+          "$id": "#/ceiling/joist_size",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "2 x 4",
+            2, "2 x 6",
+            3, "2 x 8"
+          ],
+          "title": "Joist Size",
+          "description": "Roof/ceiling joist size"
+        },
+        "ceiling_height": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 30,
+          "title": "Height of Bowstring Roof at Center (in)",
+          "description": "The height of the pitched or bowstring roof measured from the ceiling to the peak of the roof (in)"
+        },
+        "pitch_add_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Insulation to Add at Center (in)",
+          "description": "The amount of insulation to add to Pitched Roof attic space (in)"
+        },
+        "mineral_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Existing Insulation Batt/Blanket (in)",
+          "description": "Thickness of batt or blanket ceiling insulation (in)"
+        },
+        "loose_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Existing Insulation Loose Fill (in)",
+          "description": "Thickness of loose or fill insulation (in)"
+        },
+        "rigid_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Existing Insulation Foam Core (in)",
+          "description": "Thickness of foam core insulation (in)"
+        },
+        "cathedral_ceiling": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "title": "Cathedral Ceiling (%)",
+          "description": "Percent of the ceiling area that is cathedral/vaulted (%)",
+          "$comment": "This property should appear before the step_wall property in the JSON object"
+        },
+        "step_wall": {
+          "$id": "#/ceiling/step_wall",
+          "type": ["integer", "string"],
+          "enum": [ 0,
+            1, "North",
+            2, "South",
+            3, "East",
+            4, "West",
+            5, "No Step Wall"
+          ],
+          "title": "Step Wall Orientation",
+          "description": "The orientation of cathedral ceiling step wall"
+        },
+        "add_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Additional Cost ($)",
+          "description": "Additional cost of added Insulation"
+        }
+      },
+      "required": [
+        "roof_type",
+        "roof_color",
+        "cathedral_ceiling"
+      ],
+
+      "allOf": [{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"roof_type": {"const": 1 }}},
+            {"properties": {"roof_type": {"const": "Flat" }}}
+          ]
+        },
+        "then": {
+          "required": ["joist_size"],
+          "if": {
+            "not": {
+              "properties": {"cathedral_ceiling": {"const": 0 }}
+            }
+          },
+          "then": {
+            "required": ["step_wall"]
+          }
+        }
+
+      },{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"roof_type": {"const": 2 }}},
+            {"properties": {"roof_type": {"const": "Bowstring" }}}
+          ]
+        },
+        "then": {
+          "required": ["ceiling_height"]
+        }
+
+      },{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"roof_type": {"const": 3 }}},
+            {"properties": {"roof_type": {"const": "Pitched" }}}
+          ]
+        },
+        "then": {
+          "required": ["pitch_add_insl"],
+          "if": {
+            "not": {
+              "properties": {"cathedral_ceiling": {"const": 0 }}
+            }
+          },
+          "then": {
+            "required": ["step_wall"]
+          }
+        }
+
+      }]
+    },
+
+   "floor": {
+      "type": "object",
+      "title": "Floor information",
+      "description": "The floor and belly information for the home",
+      "properties": {
+        "skirt": {
+          "type": "boolean",
+          "title": "Skirt Present",
+          "description": "Does the home have a skirt",
+          "examples": [true, false]
+        },
+        "wing_joist_size": {
+          "$id": "#/floor/wing_joist_size",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "2 x 4",
+            2, "2 x 6",
+            3, "2 x 8"
+          ],
+          "title": "Floor Wing Joist Size",
+          "description": "Size of the wing floor joists"
+        },
+        "wing_loose_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Loose Insulation Thickness (in)",
+          "description": "Thickness of loose insulation in the wing (in)"
+        },
+        "wing_insl_location": {
+          "$id": "#/floor/wing_insl_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Attached to Flooring",
+            2, "Between Joists",
+            3, "Attached Under Joists",
+            5, "None"
+          ],
+          "title": "Wing Batt/Blanket Insulation Location",
+          "description": "Location of the insulation in the wing"
+        },
+        "wing_mineral_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Batt/Blanket Thickness (in)",
+          "description": "Thickness of the batt or blanket insulation in the wing (in)"
+        },
+        "belly_joist_size": {
+          "$id": "#/floor/belly_joist_size",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "2 x 4",
+            2, "2 x 6",
+            3, "2 x 8"
+          ],
+          "title": "Floor Belly Joist Size",
+          "description": "Size of the belly floor joists"
+        },
+        "belly_cavity": {
+          "$id": "#/floor/belly_cavity",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Square",
+            2, "Rounded",
+            3, "Flat"
+          ],
+          "title": "Belly Cavity Configuration",
+          "description": "Belly cavity configuration"
+        },
+        "belly_condition": {
+          "$id": "#/floor/belly_condition",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Good",
+            2, "Average",
+            3, "Poor"
+          ],
+          "title": "Condition of Belly",
+          "description": "Belly condition"
+        },
+        "belly_depth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 48,
+          "title": "Maximum Depth of Belly Cavity (in)",
+          "description": "Depth of belly cavity (in)"
+        },
+        "belly_loose_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Loose Insulation Thickness (in)",
+          "description": "Thickness of loose insulation in the belly (in)"
+        },
+        "belly_insl_location": {
+          "$id": "#/floor/belly_insl_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Attached to Flooring",
+            2, "Between Joists",
+            3, "Attached Under Joists",
+            4, "Draped Below Joists",
+            5, "None"
+          ],
+          "title": "Belly Batt/Blanket Insulation Location",
+          "description": "Location of the insulation in the wing"
+        },
+        "belly_mineral_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20,
+          "title": "Batt/Blanket Thickness (in)",
+          "description": "Thickness of the batt or blanket insulation in the belly (in)"
+        },
+        "add_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Floor Additional Cost ($)",
+          "description": "Additional cost for adding insulation (exclusive of actual insulation material and labor costs)"
+        }
+      },
+      "required": [
+        "wing_joist_size",
+        "wing_insl_location",
+        "wing_loose_insl",
+        "belly_joist_size",
+        "belly_cavity",
+        "belly_condition",
+        "belly_depth",
+        "belly_insl_location",
+        "belly_loose_insl"
+      ],
+
+      "allOf": [{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"wing_insl_location": {"const": 5 }}},
+              {"properties": {"wing_insl_location": {"const": "None" }}}
+            ]
+          }
+        },
+        "then": {
+          "required":[
+            "wing_mineral_insl"
+          ]
+        }
+
+      },{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"belly_insl_location": {"const": 5 }}},
+              {"properties": {"belly_insl_location": {"const": "None" }}}
+            ]
+          }
+        },
+        "then": {
+          "required":[
+            "belly_mineral_insl"
+          ]
+        }
+
+      }]
+    },
+
+
+    "walls_addition": {
+      "type": "object",
+      "title": "walls",
+      "description": "The wall characteristics of the manufactured/mobile home",
+      "properties": {
+        "stud_size": {
+          "$id": "#/walls_addition/stud_size",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "2x2",
+            2, "2x3",
+            3, "2x4",
+            4, "2x6"
+          ],
+          "title": "Stud Size",
+          "description": "The size of the studs used in the Wall construction"
+        },
+        "orientation": {
+          "$id": "#/walls_addition/orientation",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "North",
+            2, "South",
+            3, "East",
+            4, "West"
+          ],
+          "title": "Addition Orientation",
+          "description": "The orientation of the line perpendicular one long wall of the addition"
+        },
+        "wall_vent": {
+          "$id": "#/walls_addition/wall_vent",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Vented",
+            2, "Not Vented"
+          ],
+          "title": "Wall Ventilation",
+          "description": "The type of wall ventilation"
+        },
+        "batt_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Batt/Blanket (in)",
+          "description": "The thickness of existing batt or blanket insulation in (in)"
+        },
+        "loose_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Loose Fill (in)",
+          "description": "The thickness of existing loose insulation in (in)"
+        },
+        "foam_insl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "title": "Existing Insulation Foam Core (in)",
+          "description": "The thickness of existing foam core insulation in (in)"
+        },
+        "wall_config": {
+          "$id": "#/walls_addition/wall_config",
+          "type": ["integer", "string"],
+          "enum": [
+          1, "Maximum Wall Height at Interior Wall",
+          2, "Maximum Wall Height in Center of Addition",
+          3, "All Addition Walls the Same Height"
+          ],
+          "title": "Wall Configuration",
+          "description": "Configuration of the addition walls"
+        },
+        "height_max": {
+          "type": "number",
+          "minimum": 6,
+          "maximum": 10,
+          "title": "Max Height (ft)",
+          "description": "The maximum interior wall height (ft)"
+        },
+        "height_min": {
+          "type": "number",
+          "minimum": 6,
+          "maximum": 10,
+          "title": "Min Height (ft)",
+          "description": "The minimum interior wall height (ft)"
+        },
+        "add_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Added Insulation Cost ($)",
+          "description": "Additional cost of adding insulation to the walls"
+        }
+      },
+      "required": [
+        "stud_size",
+        "orientation",
+        "wall_vent",
+        "batt_insl",
+        "loose_insl",
+        "foam_insl",
+        "wall_config",
+        "height_max",
+        "height_min"
+      ]
+    },
+
+    "windows_addition": {
+      "type": "array",
+      "title": "Windows",
+      "description": "The list of windows in the building addition",
+      "minItems": 0,
+      "maxItems": 18,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "title": "Window Code",
+            "description": "The short unique code for this window, no commas",
+            "examples": ["WD1"],
+            "pattern": "^[^,]+$"
+          },
+          "window_type": {
+            "$id": "#/windows_addition/window_type",
+            "type": ["integer", "string"],
+            "enum": [
+              0,
+              1, "Jalousie",
+              2, "Awning",
+              3, "Slider",
+              4, "Fixed",
+              5, "Door Window",
+              6, "Sliding Glass Door",
+              7, "Skylight"
+            ],
+            "title": "Window Type",
+            "description": "The window type"
+          },
+          "frame_type": {
+            "$id": "#/windows_addition/frame_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Wood, Vinyl, or Fiberglass",
+              2, "Metal",
+              3, "Improved Metal"
+            ],
+            "title": "Frame Type",
+            "description": "The window frame type"
+          },
+          "glazing_type": {
+            "$id": "#/windows_addition/glazing_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Single Pane",
+              3, "Single with Glass Storm",
+              5, "Single with Plastic Storm",
+              2, "Double Pane",
+              4, "Double with Glass Storm",
+              6, "Double with Plastic Storm"
+            ],
+            "title": "Glazing Type",
+            "description": "The window glazing type"
+          },
+          "int_shading": {
+            "$id": "#/windows_addition/int_shading",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Drapes",
+              2, "Blinds or Shades",
+              3, "Drapes with Blinds or Shades",
+              4, "None"
+            ],
+            "title": "Interior Shading",
+            "description": "The type of interior shading for the window"
+          },
+          "ext_shading": {
+            "$id": "#/windows_addition/ext_shading",
+            "type": ["integer", "string"],
+            "enum": [
+              3, "Awning",
+              4, "Carport or Porch",
+              1, "Low E Film",
+              2, "Sun Screen",
+              5, "None"
+            ],
+            "title": "Exterior Shading",
+            "description": "The type of exterior shading for the window"
+          },
+          "leak": {
+            "$id": "#/windows_addition/leak",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Very Tight",
+              2, "Tight",
+              3, "Medium",
+              4, "Loose",
+              5, "Very Loose"
+            ],
+            "title": "Leakiness",
+            "description": "General window and frame leakiness estimate"
+          },
+          "width": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 90,
+            "title": "Width (in)",
+            "description": "Width in inches"
+          },
+          "height": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 90,
+            "title": "Height (in)",
+            "description": "Height in inches"
+          },
+          "num_n": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing North",
+            "description": "Number of identical windows of this type facing North"
+          },
+          "num_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing South",
+            "description": "Number of identical windows of this type facing South"
+          },
+          "num_e": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing East",
+            "description": "Number of identical windows of this type facing East"
+          },
+          "num_w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing West",
+            "description": "Number of identical windows of this type facing West"
+          },
+          "retrofit_option": {
+            "$id": "#/windows_addition/retrofit_option",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Evaluate All",
+              2, "Seal",
+              3, "Replace",
+              4, "Add Glass Storm",
+              5, "Add Plastic Storm",
+              6, "Evaluate None"
+            ],
+            "title": "Retrofit Options",
+            "description": "Window retrofit options"
+          },
+          "inc_sir": {
+            "type": "boolean",
+            "title": "Include in SIR",
+            "description": "Include this window in overall Savings to Investment Ratio"
+          },
+          "cost_seal": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Weatherization ($/window)",
+            "description": "Additional per window cost to seal"
+          },
+          "cost_replace": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Replacement ($/window)",
+            "description": "Additional per window cost to replace"
+          },
+          "cost_add_glass_storm": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Glass Storm ($/window)",
+            "description": "Additional per window cost to add glass storm window"
+          },
+          "cost_add_plastic_storm": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Plastic Storm ($/window)",
+            "description": "Additional per window cost to add plastic storm window"
+          }
+        },
+        "required": [
+          "code",
+          "window_type",
+          "glazing_type",
+          "int_shading",
+          "ext_shading",
+          "leak",
+          "width",
+          "height",
+          "num_n",
+          "num_s",
+          "num_e",
+          "num_w",
+          "retrofit_option"
+        ]
+      }
+    },
+
+    "doors_addition": {
+      "type": "array",
+      "title": "Doors",
+      "description": "The list of doors in any home additions",
+      "minItems": 0,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "title": "Door Code",
+            "description": "The short unique code for this door, no commas",
+            "examples": ["DR1"],
+            "pattern": "^[^,]+$"
+          },
+          "door_type": {
+            "$id": "#/doors_addition/door_type",
+            "type": ["integer", "string"],
+            "enum": [
+              2, "Hollow Core Wood",
+              1, "Solid Core Wood",
+              3, "Standard Manufactured Home Door",
+              4, "Insulated Steel"
+            ],
+            "title": "Door Type",
+            "description": "Type of door"
+          },
+          "leakiness": {
+            "$id": "#/deifnitions/leakiness"
+          },
+          "storm": {
+            "type": "boolean",
+            "title": "Storm Door Present",
+            "description": "Is there a storm door present",
+            "examples": [true, false]
+          },
+          "width": {
+            "type": "number",
+            "minimum": 24,
+            "maximum": 40,
+            "title": "Width (in)",
+            "description": "Width of door (in)"
+          },
+          "height": {
+            "type": "number",
+            "minimum": 70,
+            "maximum": 90,
+            "title": "Height)",
+            "description": "Height of door (in)"
+          },
+          "num_n": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing North",
+            "description": "Number of identical doors of this type facing North"
+          },
+          "num_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing South",
+            "description": "Number of identical doors of this type facing South"
+          },
+          "num_e": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing East",
+            "description": "Number of identical doors of this type facing East"
+          },
+          "num_w": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 9,
+            "title": "Number Facing West",
+            "description": "Number of identical doors of this type facing West"
+          },
+          "cost_replace": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Additional Cost ($/door)",
+            "description": "Additional replacement cost per door"
+          }
+        },
+        "required": [
+          "code",
+          "door_type",
+          "leakiness",
+          "width",
+          "height",
+          "num_n",
+          "num_s",
+          "num_e",
+          "num_w"
+        ]
+      }
+    },
+
+    "ceiling_addition": {
+      "type": "object",
+      "title": "Ceiling and Roof",
+      "description": "The ceiling/roof information for the home",
+      "items": {
+        "type": "object",
+        "properties": {
+          "joist_size": {
+            "$id": "#/ceiling_addition/joist_size",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "2 x 4",
+              2, "2 x 6",
+              3, "2 x 8"
+            ],
+            "title": "Joist Size",
+            "description": "Roof/ceiling joist size"
+          },
+          "roof_color": {
+            "$id": "#/ceiling_addition/roof_color",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "White, Reflective, or Shaded",
+              2, "Normal or Weathered"
+            ],
+            "title": "Roof Color",
+            "description": "The color of the roof"
+          },
+          "mineral_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "title": "Existing Insulation Batt/Blanket (in)",
+            "description": "Thickness of batt or blanket ceiling insulation (in)"
+          },
+          "loose_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "title": "Existing Insulation Loose Fill (in)",
+            "description": "Thickness of loose or fill insulation (in)"
+          },
+          "rigid_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "title": "Existing Insulation Foam Core (in)",
+            "description": "Thickness of foam core insulation (in)"
+          },
+          "add_cost": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Additional Cost ($)",
+            "description": "Additional cost of added Insulation"
+          }
+        },
+        "required": [
+          "joist_size",
+          "roof_color"
+        ]
+      }
+    },
+
+    "floor_addition": {
+      "type": "object",
+      "title": "Floor information",
+      "description": "The floor and belly information for the home",
+      "items": {
+        "type": "object",
+        "properties": {
+          "add_floor_type": {
+            "$id": "#/floor_addition/add_floor_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Crawl Space",
+              2, "Slab on Grade",
+              3, "Exposed Floor"
+            ],
+            "title": "Floor Type",
+            "description": "Type of addition floor"
+          },
+          "joist_size": {
+            "$id": "#/floor_addition/joist_size",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "2 x 4",
+              2, "2 x 6",
+              3, "2 x 8"
+            ],
+            "title": "Joist Size",
+            "description": "Roof/ceiling joist size"
+          },
+          "insl_location": {
+            "$id": "#/floor_addition/insl_location",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Attached to Flooring",
+              2, "Between Joists",
+              3, "Attached Under Joists",
+              5, "None"
+            ],
+            "title": "Batt/Blanket Insulation Location",
+            "description": "Location of the insulation in the addition"
+          },
+          "length": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 100,
+            "title": "Length (ft)",
+            "description": "Length of the long wall of the addition"
+          },
+          "width": {
+            "type": "number",
+            "minimum": 4,
+            "maximum": 25,
+            "title": "Width (ft)",
+            "description": "Width of the addition"
+          },
+          "mineral_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "title": "Existing Insulation Batt/Blanket (in)",
+            "description": "Thickness of batt or blanket floor insulation (in)"
+          },
+          "loose_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 20,
+            "title": "Existing Insulation Loose Fill (in)",
+            "description": "Thickness of loose or fill insulation in addition floor(in)"
+          },
+          "avail_insl": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 12,
+            "title": "Depth Available for Added Insulation(in)",
+            "description": "Space available for added insulation (in)"
+          }
+        },
+        "required": [
+          "add_floor_type",
+          "joist_size",
+          "insl_location",
+          "length",
+          "width",
+          "loose_insl",
+          "avail_insl"
+        ],
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"insl_location": {"const": 5 }}},
+              {"properties": {"insl_location": {"const": "None" }}}
+            ]
+          }
+        },
+        "then": {
+          "required":[
+            "mineral_insl"
+          ]
+        }
+      }
+    },
+
+
+    "heating_primary": {
+      "type": "object",
+      "title": "Primary heating system",
+      "description": "The heating system providing the majority of heat to the home",
+      "properties": {
+        "equip_type": {
+          "$id": "#/heating_primary/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Furnace",
+            2, "Heat Pump",
+            3, "Space Heater",
+            4, "None"
+          ],
+          "title": "Heating Equipment Type",
+          "description": "Type of the primary heating system"
+        },
+        "fuel_type": {
+          "$id": "#/heating_primary/fuel_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Natural Gas",
+            2, "Fuel Oil",
+            3, "Electricity",
+            4, "Propane",
+            5, "Wood",
+            6, "Coal",
+            7, "Kerosene",
+            8, "Other"
+          ],
+          "title": "Fuel",
+          "description": "Type of fuel for the heating system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 200,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the heating system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/heating_primary/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Steady State",
+            2, "AFUE",
+            4, "HSPF",
+            3, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the heating system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_percent": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Steady State Efficiency (%)",
+          "description": "Steady state efficiency of the heating system (%)"
+        },
+        "efficiency_hspf": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Seasonal Performance Factor",
+          "description": "Efficiency of the heating system (HSPF)"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Coefficient of Performance",
+          "description": "Efficiency of the heating system (COP)"
+        },
+        "duct_location": {
+          "$id": "#/heating_primary/duct_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Floor",
+            2, "Ceiling",
+            3, "None"
+          ],
+          "title": "Location",
+          "description": "Location of heating supply duct"
+        },
+        "duct_insl": {
+          "$id": "#/heating_primary/duct_insl",
+          "type": ["integer", "string"],
+          "enum": [ 
+            1, "Above Duct",
+            2, "Below Duct",
+            3, "Around Duct or Ductboard",
+            4, "No Insulation"
+          ],
+          "title": "Duct Insulation Location",
+          "description": "Location of heating supply duct insulation"
+        },
+        "percent_heated": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100,
+          "title": "Heat Supplied (%)",
+          "description": "Percent of heating load provided by this system"
+        },
+        "smart_thermostat": {
+          "type": "boolean",
+          "title": "Programmable Thermostat",
+          "description": "Is there a setback thermostat?"
+        },
+        "tuneup": {
+          "type": "boolean",
+          "title": "Tune-up Mandatory",
+          "description": "Is a system tune-up mandatory?"
+        },
+        "inc_sir": {
+          "type": "boolean",
+          "title": "Include Tune-up Cost in SIR",
+          "description": "Include this heating system tune-up in the overall SIR",
+          "examples": [true, false]
+        }
+      },
+      "required": [
+        "equip_type",
+        "fuel_type",
+        "eff_units",
+        "duct_location",
+        "percent_heated"
+      ],
+
+      "allOf": [{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"duct_location": {"const": 3 }}},
+              {"properties": {"duct_location": {"const": "None" }}}
+            ]
+          }
+        },
+        "then": {
+          "required":[
+            "duct_insl"
+          ]
+        }
+
+      },{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"fuel_type": {"const": 5 }}},
+              {"properties": {"fuel_type": {"const": "Wood" }}},
+              {"properties": {"fuel_type": {"const": 6 }}},
+              {"properties": {"fuel_type": {"const": "Coal"}}}
+            ]
+          }
+        },
+        "then": {
+          "required":[
+            "capacity"
+          ]
+        }
+
+      },{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"eff_units": {"const": 1 }}},
+            {"properties": {"eff_units": {"const": "Steady State" }}},
+            {"properties": {"eff_units": {"const": 2 }}},
+            {"properties": {"eff_units": {"const": "AFUE"}}}
+          ]
+        },
+        "then": {
+          "required":[
+            "efficiency_percent"
+          ]
+        }
+
+      },{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"eff_units": {"const": 4 }}},
+            {"properties": {"eff_units": {"const": "HSPF" }}}
+          ]
+        },
+        "then": {
+          "required":[
+            "efficiency_hspf"
+          ]
+        }
+
+      },{
+
+        "if": {
+          "anyOf": [
+            {"properties": {"eff_units": {"const": 3 }}},
+            {"properties": {"eff_units": {"const": "COP" }}}
+          ]
+        },
+        "then": {
+          "required":[
+            "efficiency_cop"
+          ]
+        }
+
+      }]
+    },
+
+    "heating_secondary": {
+      "type": "object",
+      "title": "Secondary heating system",
+      "description": "A second system providing heat to the home.  Optionally used if percent_heated of primary is < 100%",
+      "properties": {
+        "equip_type": {
+          "$id": "#/heating_secondary/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Furnace",
+            2, "Heat Pump",
+            3, "Space Heater",
+            4, "None"
+          ],
+          "title": "Heating Equipment Type",
+          "description": "Type of the primary heating system"
+        },
+        "fuel_type": {
+          "$id": "#/heating_secondary/fuel_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Natural Gas",
+            2, "Fuel Oil",
+            3, "Electricity",
+            4, "Propane",
+            5, "Wood",
+            6, "Coal",
+            7, "Kerosene",
+            8, "Other"
+          ],
+          "title": "Fuel",
+          "description": "Type of fuel for the heating system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 200,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the heating system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/heating_secondary/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Steady State",
+            2, "AFUE",
+            4, "HSPF",
+            3, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the heating system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_percent": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Steady State Efficiency (%)",
+          "description": "Steady state efficiency of the heating system (%)"
+        },
+        "efficiency_hspf": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Seasonal Performance Factor",
+          "description": "Efficiency of the heating system (HSPF)"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Coefficient of Performance",
+          "description": "Efficiency of the heating system (COP)"
+        }
+      },
+      "required": [
+        "equip_type"
+      ],
+
+      "if": {
+        "not": {
+          "anyOf": [
+            {"properties": {"equip_type": {"const": 4 }}},
+            {"properties": {"equip_type": {"const": "None" }}}
+          ]
+        }
+      },
+      "then": {
+        "required":[
+          "fuel_type",
+          "eff_units"
+        ],
+
+        "allOf": [{
+
+          "if": {
+            "not": {
+              "anyOf": [
+                {"properties": {"fuel_type": {"const": 5 }}},
+                {"properties": {"fuel_type": {"const": "Wood" }}},
+                {"properties": {"fuel_type": {"const": 6 }}},
+                {"properties": {"fuel_type": {"const": "Coal"}}}
+              ]
+            }
+          },
+          "then": {
+            "required":[
+              "capacity"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 1 }}},
+              {"properties": {"eff_units": {"const": "Steady State" }}},
+              {"properties": {"eff_units": {"const": 2 }}},
+              {"properties": {"eff_units": {"const": "AFUE"}}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_percent"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 4 }}},
+              {"properties": {"eff_units": {"const": "HSPF" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_hspf"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 3 }}},
+              {"properties": {"eff_units": {"const": "COP" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_cop"
+            ]
+          }
+
+        }]
+      }
+    },
+
+    "heating_replacement": {
+      "type": "object",
+      "title": "Replacment heating system",
+      "description": "The replacement heating system, if any",
+      "properties": {
+        "equip_type": {
+          "$id": "#/heating_replacement/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Furnace",
+            2, "Heat Pump",
+            3, "Space Heater",
+            4, "None"
+          ],
+          "title": "Heating Equipment Type",
+          "description": "Type of the primary heating system"
+        },
+        "fuel_type": {
+          "$id": "#/heating_replacement/fuel_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Natural Gas",
+            2, "Fuel Oil",
+            3, "Electricity",
+            4, "Propane",
+            5, "Wood",
+            6, "Coal",
+            7, "Kerosene",
+            8, "Other"
+          ],
+          "title": "Fuel",
+          "description": "Type of fuel for the heating system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 3,
+          "maximum": 200,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the heating system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/heating_replacement/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Steady State",
+            2, "AFUE",
+            4, "HSPF",
+            3, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the heating system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_percent": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Steady State Efficiency (%)",
+          "description": "Steady state efficiency of the heating system (%)"
+        },
+        "efficiency_hspf": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Seasonal Performance Factor",
+          "description": "Efficiency of the heating system (HSPF)"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 100,
+          "title": "Heating Coefficient of Performance",
+          "description": "Efficiency of the heating system (COP)"
+        },
+        "duct_location": {
+          "$id": "#/heating_replacement/duct_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Floor",
+            2, "Ceiling",
+            3, "None"
+          ],
+          "title": "Location",
+          "description": "Location of heating supply duct"
+        },
+        "duct_insl": {
+          "$id": "#/heating_replacement/duct_insl",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Above Duct",
+            2, "Below Duct",
+            3, "Around Duct or Ductboard",
+            4, "No Insulation"
+          ],
+          "title": "Duct Insulation Location",
+          "description": "Location of heating supply duct insulation"
+        },
+        "replacement": {
+          "type": "boolean",
+          "title": "Replacement Required",
+          "description": "The heating system replacement is required"
+        },
+        "incl_costs": {
+          "type": "boolean",
+          "title": "Replacement System Include in SIR",
+          "description": "Include this heating system replacement in the overall SIR",
+          "examples": [true, false]
+        },
+        "labor_cost": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "title": "Labor Cost ($)",
+          "description": "The labor cost for system replacement ($)"
+        },
+        "material_cost": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "title": "Material Cost ($)",
+          "description": "The material cost for system replacement ($)"
+        }
+      },
+      "required": [
+        "equip_type"
+      ],
+
+      "if": {
+        "not": {
+          "anyOf": [
+            {"properties": {"equip_type": {"const": 4 }}},
+            {"properties": {"equip_type": {"const": "None" }}}
+          ]
+        }
+      },
+      "then": {
+        "required":[
+          "fuel_type",
+          "capacity",
+          "eff_units",
+          "duct_location",
+          "labor_cost",
+          "material_cost"
+        ],
+
+        "allOf": [{
+
+          "if": {
+            "not": {
+              "anyOf": [
+                {"properties": {"duct_location": {"const": 3 }}},
+                {"properties": {"duct_location": {"const": "None" }}}
+              ]
+            }
+          },
+          "then": {
+            "required":[
+              "duct_insl"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 1 }}},
+              {"properties": {"eff_units": {"const": "Steady State" }}},
+              {"properties": {"eff_units": {"const": 2 }}},
+              {"properties": {"eff_units": {"const": "AFUE"}}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_percent"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 4 }}},
+              {"properties": {"eff_units": {"const": "HSPF" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_hspf"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 3 }}},
+              {"properties": {"eff_units": {"const": "COP" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_cop"
+            ]
+          }
+        }]
+      }
+    },
+
+
+   "cooling_primary": {
+      "type": "object",
+      "title": "Primary Cooling System",
+      "description": "The primary cooling system information",
+      "properties": {
+        "equip_type": {
+          "$id": "#/cooling_primary/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "Central Air Conditioner",
+            3, "Window or Room Air Conditioner",
+            4, "Heat Pump",
+            1, "Evaporative Cooler",
+            5, "None"
+          ],
+          "title": "Equipment Type",
+          "description": "Type of cooling system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 4,
+          "maximum": 60,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the cooling system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/cooling_primary/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "EER",
+            3, "SEER",
+            1, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the cooling system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_eer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "EER",
+          "description": "Rated EER of cooling system"
+        },
+        "efficiency_seer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "SEER",
+          "description": "Rated SEER of cooling system"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "COP",
+          "description": "Rated COP of cooling system"
+        },
+        "duct_location": {
+          "$id": "#/cooling_primary/duct_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Floor",
+            2, "Ceiling",
+            3, "None"
+          ],
+          "title": "Location",
+          "description": "Location of cooling supply duct"
+        },
+        "duct_insl": {
+          "$id": "#/cooling_primary/duct_insl",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Above Duct",
+            2, "Below Duct",
+            3, "Around Duct or Ductboard",
+            4, "No Insulation"
+          ],
+          "title": "Duct Insulation Location",
+          "description": "Location of cooling supply duct insulation"
+        },
+        "percent_area_room_ac": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100,
+          "title": "Floor Area Cooled (%)",
+          "description": "Percent of floor area cooled by this system"
+        },
+        "tuneup": {
+          "type": "boolean",
+          "title": "Tune-up Mandatory",
+          "description": "Is a system tune-up mandatory?"
+        },
+        "inc_sir": {
+          "type": "boolean",
+          "title": "Include Tune-up Cost in SIR",
+          "description": "Include this cooling system tune-up in the overall SIR",
+          "examples": [true, false]
+        }
+      },
+      "required": [
+        "equip_type"
+      ],
+
+      "if": {
+        "not": {
+          "anyOf": [
+            {"properties": {"equip_type": {"const": 1 }}},
+            {"properties": {"equip_type": {"const": "Evaporative Cooler" }}},
+            {"properties": {"equip_type": {"const": 5 }}},
+            {"properties": {"equip_type": {"const": "None" }}}
+          ]
+        }
+      },
+      "then": {
+        "required":[
+          "capacity",
+          "eff_units",
+          "percent_area_room_ac"
+        ],
+
+        "allOf": [{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"equip_type": {"const": 2 }}},
+              {"properties": {"equip_type": {"const": "Central Air Conditioner" }}},
+              {"properties": {"equip_type": {"const": 4 }}},
+              {"properties": {"equip_type": {"const": "Heat Pump" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "duct_location"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "not": {
+              "anyOf": [
+                {"properties": {"duct_location": {"const": 3 }}},
+                {"properties": {"duct_location": {"const": "None" }}}
+              ]
+            }
+          },
+          "then": {
+            "required":[
+              "duct_insl"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 2 }}},
+              {"properties": {"eff_units": {"const": "EER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_eer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 3 }}},
+              {"properties": {"eff_units": {"const": "SEER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_seer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 1 }}},
+              {"properties": {"eff_units": {"const": "COP" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_cop"
+            ]
+          }
+        }]
+      }
+    },
+
+    "cooling_secondary": {
+      "type": "object",
+      "title": "Primary Cooling System",
+      "description": "The primary cooling system information",
+      "properties": {
+        "equip_type": {
+          "$id": "#/cooling_secondary/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "Central Air Conditioner",
+            3, "Window or Room Air Conditioner",
+            4, "Heat Pump",
+            1, "Evaporative Cooler",
+            5, "None"
+          ],
+          "title": "Equipment Type",
+          "description": "Type of cooling system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 4,
+          "maximum": 60,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the cooling system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/cooling_secondary/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "EER",
+            3, "SEER",
+            1, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the cooling system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_eer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "EER",
+          "description": "Rated EER of cooling system"
+        },
+        "efficiency_seer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "SEER",
+          "description": "Rated SEER of cooling system"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "COP",
+          "description": "Rated COP of cooling system"
+        },
+        "percent_area_room_ac": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100,
+          "title": "Floor Area Cooled (%)",
+          "description": "Percent of floor area cooled by this system"
+        }
+      },
+      "required": [
+        "equip_type"
+      ],
+
+      "if": {
+        "not": {
+          "anyOf": [
+            {"properties": {"equip_type": {"const": 1 }}},
+            {"properties": {"equip_type": {"const": "Evaporative Cooler" }}},
+            {"properties": {"equip_type": {"const": 5 }}},
+            {"properties": {"equip_type": {"const": "None" }}}
+          ]
+        }
+      },
+      "then": {
+        "required":[
+          "capacity",
+          "eff_units"
+        ],
+
+        "allOf": [{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 2 }}},
+              {"properties": {"eff_units": {"const": "EER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_eer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 3 }}},
+              {"properties": {"eff_units": {"const": "SEER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_seer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 1 }}},
+              {"properties": {"eff_units": {"const": "COP" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_cop"
+            ]
+          }
+        }]
+
+      }
+    },
+
+    "cooling_replacement": {
+      "type": "object",
+      "title": "Primary Cooling System",
+      "description": "The primary cooling system information",
+      "properties": {
+        "equip_type": {
+          "$id": "#/cooling_replacement/equip_type",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "Central Air Conditioner",
+            3, "Window or Room Air Conditioner",
+            4, "Heat Pump",
+            1, "Evaporative Cooler",
+            5, "None"
+          ],
+          "title": "Equipment Type",
+          "description": "Type of cooling system"
+        },
+        "capacity": {
+          "type": "number",
+          "minimum": 4,
+          "maximum": 60,
+          "title": "Capacity (kBtu/hr)",
+          "description": "The rated capacity of the cooling system (kBtu/hr)"
+        },
+        "eff_units": {
+          "$id": "#/cooling_replacement/eff_units",
+          "type": ["integer", "string"],
+          "enum": [
+            2, "EER",
+            3, "SEER",
+            1, "COP"
+          ],
+          "title": "Efficiency Units",
+          "description": "Units for the cooling system efficiency. MUST appear before the efficiency_* field in the JSON object"
+        },
+        "efficiency_eer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "EER",
+          "description": "Rated EER of cooling system"
+        },
+        "efficiency_seer": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "SEER",
+          "description": "Rated SEER of cooling system"
+        },
+        "efficiency_cop": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 25,
+          "title": "COP",
+          "description": "Rated COP of cooling system"
+        },
+        "clg_duct_location": {
+          "$id": "#/cooling_replacement/clg_duct_location",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Floor",
+            2, "Ceiling",
+            3, "None"
+          ],
+          "title": "Location",
+          "description": "Location of cooling supply duct"
+        },
+        "clg_duct_insl": {
+          "$id": "#/cooling_replacement/clg_duct_insl",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Above Duct",
+            2, "Below Duct",
+            3, "Around Duct or Ductboard",
+            4, "No Insulation"
+          ],
+          "title": "Duct Insulation Location",
+          "description": "Location of cooling supply duct insulation"
+        },
+        "replacement": {
+          "type": "boolean",
+          "title": "Replacement Required",
+          "description": "The heating system replacement is required"
+        },
+        "incl_costs": {
+          "type": "boolean",
+          "title": "Replacement System Include in SIR",
+          "description": "Include this heating system replacement in the overall SIR",
+          "examples": [true, false]
+        },
+        "labor_cost": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "title": "Labor Cost ($)",
+          "description": "The labor cost for system replacement ($)"
+        },
+        "material_cost": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "title": "Material Cost ($)",
+          "description": "The material cost for system replacement ($)"
+        }
+      },
+      "required": [
+        "equip_type"
+      ],
+
+      "if": {
+        "not": {
+          "anyOf": [
+            {"properties": {"equip_type": {"const": 1 }}},
+            {"properties": {"equip_type": {"const": "Evaporative Cooler" }}},
+            {"properties": {"equip_type": {"const": 5 }}},
+            {"properties": {"equip_type": {"const": "None" }}}
+          ]
+        }
+      },
+      "then": {
+        "required":[
+          "capacity",
+          "eff_units",
+          "labor_cost",
+          "material_cost"
+        ],
+
+        "allOf": [{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"equip_type": {"const": 2 }}},
+              {"properties": {"equip_type": {"const": "Central Air Conditioner" }}},
+              {"properties": {"equip_type": {"const": 4 }}},
+              {"properties": {"equip_type": {"const": "Heat Pump" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "clg_duct_location"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "not": {
+              "anyOf": [
+                {"properties": {"clg_duct_location": {"const": 3 }}},
+                {"properties": {"clg_duct_location": {"const": "None" }}}
+              ]
+            }
+          },
+          "then": {
+            "required":[
+              "clg_duct_insl"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 2 }}},
+              {"properties": {"eff_units": {"const": "EER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_eer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 3 }}},
+              {"properties": {"eff_units": {"const": "SEER" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_seer"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"eff_units": {"const": 1 }}},
+              {"properties": {"eff_units": {"const": "COP" }}}
+            ]
+          },
+          "then": {
+            "required":[
+              "efficiency_cop"
+            ]
+          }
+        }]
+      }
+    },
+
+
+    "ducts_and_infiltration": {
+      "type": "object",
+      "title": "Air and Duct Leakage",
+      "description": "Overall house leakage and duct leakage information",
+
+      "properties": {
+        "evaluate_duct_sealing": {
+          "type": "boolean",
+          "title": "Evaluate Duct Sealing",
+          "description": "Use one of the three methods to evaluate the effects of duct sealing"
+        },
+        "duct_seal_method": {
+          "$id": "#/ducts_and_infiltration/duct_seal_method",
+          "type": ["integer", "string"],
+          "enum": [
+            0, 5, "None",
+            1, "Whole House Blower Door Measurements",
+            2, "Blower Door Subtraction Measurements",
+            3, "Duct Blower Measurements",
+            4, "Presure Pan Measurements"
+          ],
+          "title": "Duct Leakage Method",
+          "description": "Infiltration/Duct Leakage Reduction Method"
+        },
+        "pre_inf_cfm": {
+          "type": "number",
+          "minimum": 300,
+          "maximum": 15000,
+          "title": "Existing Air Leakage Rate (cfm)",
+          "description": "Air Leakage Rate (cfm) Before Weatherization (Existing)"
+        },
+        "pre_inf_pa": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 70,
+          "title": "Existing Air Leakage Pressure (pa)",
+          "description": "at House Pressure Difference (Pa) Before Weatherization (Existing)"
+        },
+        "post_duct_seal_cfm": {
+          "type": "number",
+          "minimum": 300,
+          "maximum": 15000,
+          "title": "Existing, Post Duct Sealing Air Leakage Rate (cfm)",
+          "description": "Air Leakage Rate (cfm) After Duct Sealing and Before Other Weatherization (Target or Actual)"
+        },
+        "post_duct_seal_pa": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 70,
+          "title": "Existing, Post Duct Sealing Air Leakage Pressure (pa)",
+          "description": "at House Pressure Difference (Pa) After Duct Sealing and Before Other Weatherization (Target or Actual)"
+        },
+        "post_inf_cfm": {
+          "type": "number",
+          "minimum": 300,
+          "maximum": 15000,
+          "title": "Post Reduction Air Leakage Rate (cfm)",
+          "description": "Air Leakage Rate (cfm) After Weatherization (Target or Actual)"
+        },
+        "post_inf_pa": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 70,
+          "title": "Post Reduction Air Leakage Pressure (pa)",
+          "description": "at House Pressure Difference (Pa) After Weatherization (Target or Actual)"
+        },
+        "pre_duct_seal_supply_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 90,
+          "title": "Pre Duct Sealing Supply Duct Pressure (pa)",
+          "description": "Supply (Pa) Before Duct Sealing"
+        },
+        "post_duct_seal_supply_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 90,
+          "title": "Post Duct Sealing Supply Duct Pressure (pa)",
+          "description": "Supply (Pa) After Duct Sealing"
+        },
+        "pre_duct_seal_close_cfm": {
+          "type": "number",
+          "minimum": 300,
+          "maximum": 15000,
+          "title": "Existing, Grills Sealed, Pre Duct Sealing Air Leakage Rate (cfm)",
+          "description": "Air Leakage Rate (cfm) With Registers/Grills Sealed Before Weatherization (Existing)"
+        },
+        "pre_duct_seal_close_pa": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 70,
+          "title": "Existing, Grills Sealed, Pre Duct Sealing Air Leakage Pressure (pa)",
+          "description": "at House Pressure Difference (Pa) With Registers/Grills Sealed Before Weatherization (Existing)"
+        },
+        "pre_duct_seal_close_diff_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 70,
+          "title": "Existing, Grills Sealed, Pre Duct Sealing Duct to House Differential Pressure (pa)",
+          "description": "Duct to House Pressure Difference (Pa) With Registers/Grills Sealed Before Weatherization (Existing)"
+        },
+        "post_duct_seal_close_cfm": {
+          "type": "number",
+          "minimum": 300,
+          "maximum": 15000,
+          "title": "Existing, Grills Sealed, Post Duct Sealing Air Leakage Rate (cfm)",
+          "description": "Air Leakage Rate (cfm) With Registers/Grills Sealed After Duct Sealing and Before Other Weatherization (Target or Actual)"
+        },
+        "post_duct_seal_close_pa": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 70,
+          "title": "Existing, Grills Sealed, Post Duct Sealing Air Leakage Pressure (pa)",
+          "description": "at House Pressure Difference (Pa) With Registers/Grills Sealed After Duct Sealing and Before Other Weatherization (Target or Actual)"
+        },
+        "post_duct_seal_close_diff_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 70,
+          "title": "Existing, Grills Sealed, Post Duct Sealing Duct to House Differential Pressure (pa)",
+          "description": "Duct to House Pressure Difference (Pa) With Registers/Grills Sealed After Duct Sealing and Before Other Weatherization (Target or Actual)"
+        },
+        "pre_duct_seal_tot_cfm": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 1000,
+          "title": "Pre Duct Sealing Duct Blower Total Rate (cfm)",
+          "description": "Fan Flow (cfm) Before Duct Sealing (Existing) Total"
+        },
+        "pre_duct_seal_tot_duct_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 60,
+          "title": "Pre Duct Sealing Duct Blower Pressure (pa)",
+          "description": "at Duct Pressure (Pa) Before Duct Sealing (Existing) Total"
+        },
+        "pre_duct_seal_out_cfm": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 1000,
+          "title": "Pre Duct Sealing Duct Blower Outside Rate (cfm)",
+          "description": "Fan Flow (cfm) Before Duct Sealing (Existing) Outside *"
+        },
+        "pre_duct_seal_out_duct_pa": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 150,
+          "title": "Pre Duct Sealing Duct Blower Outside Pressure (pa)",
+          "description": "at Duct Pressure (Pa) Before Duct Sealing (Existing) Outside * / (MHEA) Sum of Pressure Pan Measurements (Pa)"
+        },
+        "post_duct_seal_tot_cfm": {
+          "type": "number",
+          "minimum": 10 ,
+          "maximum": 1000,
+          "title": "Post Duct Sealing Duct Blower Total Rate (cfm)",
+          "description": "Fan Flow (cfm) After Duct Sealing (Target or Actual) Total"
+        },
+        "post_duct_seal_tot_duct_pa": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 60,
+          "title": "Post Duct Sealing Duct Blower Pressure (pa)",
+          "description": "at Duct Pressure (Pa) After Duct Sealing (Target or Actual) Total"
+        },
+        "post_duct_seal_out_cfm": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 1000,
+          "title": "Post Duct Sealing Duct Blower Outside Rate (cfm)",
+          "description": "Fan Flow (cfm) After Duct Sealing (Target or Actual) Outside *"
+        },
+        "post_duct_seal_out_duct_pa": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 150,
+          "title": "Post Duct Sealing Duct Blower Outside Pressure (pa)",
+          "description": "at Duct Pressure (Pa) After Duct Sealing (Target or Actual) Outside * / (MHEA) Sum of Pressure Pan Measurements (Pa)"
+        },
+        "air_leak_red_cost": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 10000,
+          "title": "Infiltration Reduction Cost ($)",
+          "description": "Infiltration Reduction ($)"
+        },
+        "duct_seal_cost": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 10000,
+          "title": "Duct Sealing Cost ($)",
+          "description": "Duct Sealing ($)"
+        }
+
+      },
+      "required": [
+        "evaluate_duct_sealing",
+        "post_inf_cfm",
+        "post_inf_pa"
+      ],
+
+      "if": {
+        "properties": {"evaluate_duct_sealing": {"const": true }}
+      },
+      "then": {
+        "required": ["duct_seal_method"],
+
+        "allOf": [{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"duct_seal_method": {"const": 1 }}},
+              {"properties": {"duct_seal_method": {"const": "Whole House Blower Door Measurements"}}}
+            ]
+          },
+          "then": {
+            "required": [
+              "pre_inf_cfm",
+              "pre_inf_pa",
+              "post_duct_seal_cfm",
+              "post_duct_seal_pa",
+              "post_inf_cfm",
+              "post_inf_pa",
+              "pre_duct_seal_supply_pa",
+              "post_duct_seal_supply_pa",
+              "air_leak_red_cost",
+              "duct_seal_cost"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"duct_seal_method": {"const": 2 }}},
+              {"properties": {"duct_seal_method": {"const": "Blower Door Subtraction Measurements"}}}
+            ]
+          },
+          "then": {
+            "required": [
+              "pre_inf_cfm",
+              "pre_inf_pa",
+              "post_duct_seal_cfm",
+              "post_duct_seal_pa",
+              "post_inf_cfm",
+              "post_inf_pa",
+              "pre_duct_seal_supply_pa",
+              "post_duct_seal_supply_pa",
+              "pre_duct_seal_close_cfm",
+              "pre_duct_seal_close_pa",
+              "pre_duct_seal_close_diff_pa",
+              "post_duct_seal_close_cfm",
+              "post_duct_seal_close_pa",
+              "post_duct_seal_close_diff_pa",
+              "air_leak_red_cost",
+              "duct_seal_cost"
+            ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"duct_seal_method": {"const": 3 }}},
+              {"properties": {"duct_seal_method": {"const": "Duct Blower Measurements"}}}
+            ]
+          },
+          "then": {
+            "required": [
+              "pre_inf_cfm",
+              "pre_inf_pa",
+              "post_inf_cfm",
+              "post_inf_pa",
+              "pre_duct_seal_supply_pa",
+              "post_duct_seal_supply_pa",
+              "pre_duct_seal_close_pa",
+              "post_duct_seal_close_pa",
+              "pre_duct_seal_tot_cfm",
+              "pre_duct_seal_tot_duct_pa",
+              "pre_duct_seal_out_cfm",
+              "pre_duct_seal_out_duct_pa",
+              "post_duct_seal_tot_cfm",
+              "post_duct_seal_tot_duct_pa",
+              "post_duct_seal_out_cfm",
+              "post_duct_seal_out_duct_pa",
+              "air_leak_red_cost",
+              "duct_seal_cost"
+           ]
+          }
+
+        },{
+
+          "if": {
+            "anyOf": [
+              {"properties": {"duct_seal_method": {"const": 4 }}},
+              {"properties": {"duct_seal_method": {"const": "Presure Pan Measurements"}}}
+            ]
+          },
+          "then": {
+            "required": [
+              "pre_inf_cfm",
+              "pre_inf_pa",
+              "post_inf_cfm",
+              "post_inf_pa",
+              "pre_duct_seal_supply_pa",
+              "post_duct_seal_supply_pa",
+              "pre_duct_seal_out_duct_pa",
+              "post_duct_seal_out_duct_pa",
+              "air_leak_red_cost",
+              "duct_seal_cost"
+            ]
+          }
+
+        }]
+      }
+    },
+
+
+    "water_heating": {
+      "type": "object",
+      "title": "Water Heating",
+      "description": "Domestic water heating information",
+      "properties": {
+        "exist_fuel_type_id": {
+          "$id": "#/water_heating/exist_fuel_type_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Natural Gas",
+            3, "Electricity",
+            4, "Propane"
+          ],
+          "title": "Existing Water Heater Fuel Type",
+          "description": "Type of fuel for the existing water heater"
+        },
+        "exist_tank_location_id": {
+          "$id": "#/water_heating/exist_tank_location_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Heated Space",
+            2, "Unconditioned Space",
+            3, "Unintentionally Heated Space"
+          ],
+          "title": "Existing Water Heater Location",
+          "description": "Location for the existing water heater"
+        },
+        "exist_type": {
+          "$id": "#/water_heating/exist_type",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Storage",
+            2, "Heat Pump",
+            3, "Tankless/Instantaneous"
+          ],
+          "title": "Existing Water Heater Type",
+          "description": "What is the basic type of water heater"
+        },
+        "exist_gal": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 100,
+          "title": "Size (gal)",
+          "description": "Capacity of existing water heater (gal)"
+        },
+        "exist_energy_factor": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Energy Factor",
+          "description": "Energy Factor (EF) of existing water heater"
+        },
+        "exist_uniform_energy_factor": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Uniform Energy Factor",
+          "description": "The Uniform Energy Factor (UEF) of existing water heater"
+        },
+        "exist_recovery_efficiency": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Recovery Efficiency (%)",
+          "description": "Recovery Efficiency (RE) of existing water heater (%)"
+        },
+        "exist_input_units_id": {
+          "$id": "#/water_heating/exist_input_units_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "kBTU",
+            2, "kW"
+          ],
+          "title": "Existing Water Heater Input Units",
+          "description": "Input rating units for the existing water heater"
+        },
+        "exist_input": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 150,
+          "title": "Input Rating (kW or kBtu)",
+          "description": "Input Rating of existing water heater (kW or kBtu)"
+        },
+        "exist_tank_wrap": {
+          "type": "boolean",
+          "title": "Water Heater Tank Wrap Present",
+          "description": "Does the existing tank have an insulating wrap"
+        },
+        "exist_rvalue": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 25,
+          "title": "Existing Water Heater R-Value",
+          "description": "The R-value of the existing water heater tank"
+        },
+        "exist_insul_thick": {
+          "type": "number",
+          "minimum": 0.1,
+          "maximum": 6,
+          "title": "Existing Water Heater Insulation Thickness (in)",
+          "description": "The thickness of the existing water heater tank Insulation (in)"
+        },
+        "exist_insul_type_id": {
+          "$id": "#/water_heating/exist_insul_type_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Fiberglass",
+            2, "Polyurethane"
+          ],
+          "title": "Existing Water Heater Insulation Type",
+          "description": "Insulation type for the existing water heater"
+        },
+        "exist_pipe_insul": {
+          "type": "boolean",
+          "title": "Water Heater Pipe Wrap Present",
+          "description": "Is the first 5' of hot water supply pipe insulated?"
+        },
+        "shower_heads": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 5,
+          "title": "Number of Shower Heads",
+          "description": "The number of shower heads in the home"
+        },
+        "shower_usage_per_day": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 90,
+          "title": "Shower Usage (min/day)",
+          "description": "Minutes of shower usage per day"
+        },
+        "shower_gpm": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 9,
+          "title": "Average Shower Head Flow (gpm per shower head)",
+          "description": "The average flow for all shower heads (gpm per shower head)"
+        },
+
+        "replace": {
+          "type": "boolean",
+          "title": "Water Heater Replacement Required",
+          "description": "Replacement of the existing water heater is required"
+        },
+        "inc_sir": {
+          "type": "boolean",
+          "title": "Include in SIR",
+          "description": "The replacement should be included in the cumulative SIR"
+        },
+        "replace_manufacturer": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 60,
+          "title": "Replacement Water Heater Manufacturer",
+          "description": "The name of the water heater replacement manufacturer"
+        },
+        "replace_model": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 60,
+          "title": "Replacement Water Heater Model",
+          "description": "The model number of the water heater replacement"
+        },
+        "replace_fuel_type_id": {
+          "$id": "#/water_heating/replace_fuel_type_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Natural Gas",
+            3, "Electricity",
+            4, "Propane"
+          ],
+          "title": "Replacement Water Heater Fuel Type",
+          "description": "Type of fuel for the replacement water heater"
+        },
+        "replace_type": {
+          "$id": "#/water_heating/replace_type",
+          "type": ["integer", "string"],
+          "enum": [
+            0, "None",
+            1, "Storage",
+            2, "Heat Pump",
+            3, "Tankless/Instantaneous"
+          ],
+          "title": "Replacement Water Heater Type",
+          "description": "What is the basic type of water heater to use as a replacement"
+        },
+        "replace_gal": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 100,
+          "title": "Size (gal)",
+          "description": "Capacity of replacement water heater (gal)"
+        },
+        "replace_energy_factor": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Energy Factor",
+          "description": "Energy Factor (EF) of replacement water heater"
+        },
+        "replace_uniform_energy_factor": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Energy Factor",
+          "description": "Uniform Energy Factor (UEF) of replacement water heater"
+        },
+        "replace_recovery_efficiency": {
+          "type": "number",
+          "minimum": 0.4,
+          "maximum": 4,
+          "title": "Recovery Efficiency (%)",
+          "description": "Recovery Efficiency (RE) of replacement water heater (%)"
+        },
+        "replace_input_units_id": {
+          "$id": "#/water_heating/replace_input_units_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "kBTU",
+            2, "kW"
+          ],
+          "title": "Replacement Water Heater Input Units",
+          "description": "Input rating units for the replacement water heater"
+        },
+        "replace_input": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 150,
+          "title": "Input Rating (kW or kBtu)",
+          "description": "Input Rating of replacement water heater (kW or kBtu)"
+        },
+        "replace_life": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 30,
+          "title": "Replacement Lifetime (yr)",
+          "description": "Lifetime of the replacement water heater (yr)"
+        },
+        "replace_install_cost": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 3000,
+          "title": "Replacement Installation Cost ($)",
+          "description": "Cost of the replacement water heater (material only) ($)"
+        },
+        "replace_added_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Replacement Additional Cost ($)",
+          "description": "Labor, recycling, and other costs ($)"
+        }
+
+      },
+      "required": [
+        "exist_type",
+        "exist_fuel_type_id",
+        "exist_tank_location_id"
+      ],
+
+      "allOf": [{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"exist_type": {"const": 3 }}},
+              {"properties": {"exist_type": {"const": "Tankless/Instantaneous"}}}
+            ]
+          }
+        },
+        "then": {
+          "required": ["exist_tank_wrap"],
+          "if": {
+            "properties": {"exist_tank_wrap": {"const": false }}
+          },
+          "then": {
+            "oneOf": [
+              {"required": ["exist_rvalue"] },
+              {"required": ["exist_insul_thick", "exist_insul_type_id"] }
+            ]
+          }
+        }
+
+      },{
+
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"replace_type": {"const": 0 }}},
+              {"properties": {"replace_type": {"const": 3 }}},
+              {"properties": {"replace_type": {"const": "Tankless/Instantaneous"}}}
+            ]
+          }
+        },
+        "then": {
+          "required": [ "replace_gal" ]
+        }
+
+      }]
+
+    },
+
+   "refrigerators": {
+      "type": "object",
+      "title": "Refrigeration",
+      "description": "Refrigerator information",
+      "properties": {
+        "location_id": {
+          "$id": "#/refrigerators/location_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Heated Space",
+            2, "Unconditioned Space",
+            3, "Unintentionally Heated Space"
+          ],
+          "title": "Location of the Refrigerator",
+          "description": "Location of the refrigerator"
+        },
+        "label_kwh_per_year": {
+          "type": "number",
+          "minimum": 100,
+          "maximum": 3000,
+          "title": "Label Annual Consumption (kWh/yr)",
+          "description": "The consumption of the existing refrigerator (kWh/yr)"
+        },
+        "label_year_id": {
+          "$id": "#/refrigerators/label_year_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Less than 5 years",
+            2, "5 to 9 years",
+            3, "10 to 14 years",
+            4, "15 or  more years"
+          ],
+          "title": "Age of Existing Refrigerator",
+          "description": "Select the age range for the existing refrigerator"
+        },
+        "door_seal_condition_id": {
+          "$id": "#/refrigerators/door_seal_condition_id",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Good",
+            2, "Fair - Some Wear",
+            3, "Poor - Gaps Visible"
+          ],
+          "title": "Door Seal Condition",
+          "description": "What is the condition of the Refrigerator Door Seal"
+        },
+        "meter_energy_reading": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 10,
+          "title": "Metered Energy Consumption (kWh)",
+          "description": "The energy consumed by the existing refrigerator over the metering interval (kWh)"
+        },
+        "meter_energy_interval": {
+          "type": "number",
+          "minimum": 30,
+          "maximum": 1440,
+          "title": "Metering Interval (min)",
+          "description": "The number of minutes in the metering interval (min)"
+        },
+        "meter_temperature": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 120,
+          "title": "Metering Ambient Temperature (F)",
+          "description": "The temperature near the refrigerator if located in unconditioned space (F)"
+        },
+        "meter_manual_defrost": {
+          "type": "boolean",
+          "title": "Meter Interval Includes Manual Defrost",
+          "description": "Does the metering interval include a manual defrost cycle"
+        },
+        "meter_includes_defrost": {
+          "type": "boolean",
+          "title": "Meter Interval Includes Defrost",
+          "description": "Does the metering interval include a defrost cycle.  Warning: metering accuracty is likely low if true"
+        },
+        "replace_manufacturer": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 60,
+          "title": "Replacement Refrigerator Manufacturer",
+          "description": "The name of the refrigerator replacement manufacturer"
+        },
+        "replace_model": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 60,
+          "title": "Replacement Refrigerator Model",
+          "description": "The model number of the refrigerator replacement"
+        },
+        "replace_kwh_per_year": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 3000,
+          "title": "Label Annual Consumption for Replacement (kWh/yr)",
+          "description": "The consumption of the new refrigerator (kWh/yr)"
+        },
+        "replace_life": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 30,
+          "title": "Replacement Lifetime (yr)",
+          "description": "Lifetime of the new refrigerator (yr)"
+        },
+        "replace_install_cost": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 3000,
+          "title": "Replacement Installation Cost ($)",
+          "description": "Cost of the new refrigerator (material only) ($)"
+        },
+        "replace_added_cost": {
+          "type": "number",
+          "minimum": -500,
+          "maximum": 500,
+          "title": "Replacement Additional Cost ($)",
+          "description": "Labor, recycling, and other costs ($)"
+        }
+
+      },
+      "required": [
+        "location_id",
+        "replace_kwh_per_year",
+        "replace_life",
+        "replace_install_cost"
+      ],
+
+      "oneOf": [{
+        "required": [
+          "label_kwh_per_year",
+          "label_year_id",
+          "door_seal_condition_id"
+        ]
+      },{
+        "required": [
+          "meter_energy_reading",
+          "meter_energy_interval",
+          "meter_manual_defrost",
+          "meter_includes_defrost"
+        ],
+        "if": {
+          "not": {
+            "anyOf": [
+              {"properties": {"location_id": {"const": 1 }}},
+              {"properties": {"location_id": {"const": "Heated Space"}}}
+            ]
+          }
+        },
+        "then": {
+          "required": [ "meter_temperature" ]
+        }
+      }]
+    },
+
+    "lighting": {
+      "type": "array",
+      "title": "Lighting Systems",
+      "description": "The list of lighting systems in the home",
+      "minItems": 0,
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "title": "Lighting System Code",
+            "description": "The short unique code for this lighting system, no commas",
+            "examples": ["LT1"],
+            "pattern": "^[^,]+$"
+          },
+          "exist_lamp_type": {
+            "$id": "#/lighting/exist_lamp_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Incandescent",
+              2, "Halogen",
+              3, "Fluorescent",
+              4, "CFL",
+              5, "LED",
+              100, "Other"
+            ],
+            "title": "Existing Lighting System Lamp Type",
+            "description": "Type of existing lamps"
+          },
+          "exist_lamp_count": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 50,
+            "title": "Number of Existing Lamps",
+            "description": "Number of existing lamps of this type in the home"
+          },
+          "exist_lamp_watts": {
+            "type": "number",
+            "minimum": 10,
+            "maximum": 250,
+            "title": "Size (watts)",
+            "description": "Wattage of existing lamps (watts/lamp)"
+          },  
+          "exist_hours_per_day": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 24,
+            "title": "Usage (hrs/day)",
+            "description": "Number hours per day the existing lamp is in use"
+          },
+          "new_lamp_type": {
+            "$id": "#/lighting/new_lamp_type",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Incandescent",
+              2, "Halogen",
+              3, "Fluorescent",
+              4, "CFL",
+              5, "LED",
+              100, "Other"
+            ],
+            "title": "Existing Lighting System Lamp Type",
+            "description": "Type of new lamps"
+          },
+          "new_lamp_count": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 50,
+            "title": "Number of Existing Lamps",
+            "description": "Number of new lamps of this type in the home"
+          },
+          "new_lamp_watts": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 250,
+            "title": "Size (watts)",
+            "description": "Wattage of new lamps (watts/lamp)"
+          },  
+          "new_hours_per_day": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 24,
+            "title": "Usage (hrs/day)",
+            "description": "Number hours per day the new lamp is in use"
+          },
+          "new_lifetime_hrs": {
+            "type": "number",
+            "minimum": 500,
+            "maximum": 100000,
+            "title": "Lifetime (hrs)",
+            "description": "The expected lifetime of the new lamp (hrs)"
+          },
+          "install_cost_per_lamp": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 200,
+            "title": "Installation Cost ($/lamp)",
+            "description": "Cost to install the new lamp ($/lamp)"
+          },
+          "added_cost_per_lamp": {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100,
+            "title": "Added Cost ($/lamp)",
+            "description": "Added Cost to install the new lamp ($/lamp)"
+          },
+          "added_cost": {
+            "type": "number",
+            "minimum": -500,
+            "maximum": 500,
+            "title": "Added Cost ($)",
+            "description": "Added Cost to install the new lamps ($)"
+          }
+        },
+        "required": [
+          "exist_lamp_type", 
+          "exist_lamp_count",
+          "exist_lamp_watts",
+          "exist_hours_per_day",
+          "new_lamp_type", 
+          "new_lamp_count",
+          "new_lamp_watts",
+          "new_hours_per_day",
+          "install_cost_per_lamp"
+          ] 
+      }
+    },
+
+    "itemized_costs": {
+      "type": "array",
+      "title": "Itemized Costs",
+      "description": "The list of itemized costs for the retrofit",
+      "minItems": 0,
+      "maxItems": 60,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "measure": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "title": "The Itemized Cost Measure",
+            "description": "The name of the itemized cost measure (must be unique for this job)"
+          },
+          "component_id": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 2147483647,
+            "title": "Itemized Cost Record ID",
+            "description": "An optional identifier to reference for this itemized measure. Pass through. 32 bit integer"
+          },  
+          "cost": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5000,
+            "title": "Cost ($)",
+            "description": "The cost of the itemized measure"
+          },
+          "inc_sir": {
+            "type": "boolean",
+            "title": "Include in SIR",
+            "description": "Should this measure cost be included in the cumulative SIR" 
+          },
+          "material": {
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 80,
+            "title": "The Itemized Measure Material",
+            "description": "Additional description of materials and costs involved"
+          },
+          "units": {
+            "$id": "#/itemized_costs/units",
+            "type": ["integer", "string"],
+            "enum": [
+              3, "kWh",
+              2, "MMBtu",
+              1, "Therms"
+            ],
+            "title": "Energy Savings Units",
+            "description": "The units for energy savings"
+          },
+          "savings": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10000,
+            "title": "Annual Energy Savings in stated units",
+            "description": "The annual energy savings in the units specified"
+          },
+          "fuel": {
+            "$id": "#/itemized_costs/fuel",
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Natural Gas",
+              2, "Fuel Oil",
+              3, "Electricity",
+              4, "Propane",
+              5, "Wood",
+              6, "Coal",
+              7, "Kerosene",
+              8, "Other",
+              9, "Primary Heating Fuel",
+              10, "Water Heating Fuel"
+            ],
+            "title": "Fuel Saved",
+            "description": "Type of fuel saved in this itemized measure"
+          },
+          "life": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 30,
+            "title": "Lifetime (yr)",
+            "description": "Lifetime of the itemized cost measure"
+          }
+        },
+
+        "required": [
+          "measure",
+          "cost",
+          "inc_sir",
+          "savings"
+        ],
+
+        "if": {
+          "not": {"properties": {"savings": {"const": 0}}}
+        },
+        "then": {
+          "required": [
+            "fuel",
+            "life"
+          ]
+        }
+
+      }
+    },
+
+
+    "utility_bills_pre_retrofit_heating": {
+      "type": "object",
+      "title": "Utility Bills for Heating",
+      "description": "Pre-retrofit heating utility billing information",
+      "properties": {
+        "usage_units": {
+          "$id": "#/utility_bills_pre_retrofit_heating/usage_units",
+          "type": ["integer", "string"],
+          "enum": [
+            1, "Therms",
+            2, "kWh"
+          ],
+          "title": "Units",
+          "description": "The units for heating bills"
+        },
+        "period_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 365,
+          "title": "Days in First Period",
+          "description": "The number of days in the first billing period"
+        },
+        "base_temp": {
+          "type": "number",
+          "minimum": 55,
+          "maximum": 75,
+          "title": "Degree Days Base Temperature (F)",
+          "description": "Degree day base temperature to use in calculations (F)"
+        },
+        "base_load": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "title": "Base Load",
+          "description": "Base load in the selected units"
+        }
+      },
+      "required": [
+        "usage_units",
+        "period_days",
+        "base_temp",
+        "base_load"
+      ]
+    },
+
+    "utility_bills_pre_retrofit_heating_data": {
+      "type": "array",
+      "title": "Heating Bill Records",
+      "description": "The list of pre-retrofit heating bills",
+      "minItems": 0,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "minimum": 1999,
+            "maximum": 2030,
+            "title": "Billing Year",
+            "description": "The year for the heating bill"
+          },
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "title": "Billing Month",
+            "description": "The month for the heating bill"
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31,
+            "title": "Billing Day",
+            "description": "The day of the month for the heating bill"
+          },
+          "usage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5000,
+            "title": "Usage",
+            "description": "The billing usage in selected units"
+          },
+          "degree_days": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 15000,
+            "title": "Degree Days",
+            "description": "The degree days in the selected base temperature"
+          }
+        },
+        "required": [
+          "year",
+          "month",
+          "day",
+          "usage"
+        ]
+      }
+    },
+
+    "utility_bills_pre_retrofit_cooling": {
+      "type": "object",
+      "title": "Utility Bills for Cooling",
+      "description": "Pre-retrofit cooling utility billing information",
+      "properties": {
+        "period_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 365,
+          "title": "Days in First Period",
+          "description": "The number of days in the first billing period"
+        },
+        "base_temp": {
+          "type": "number",
+          "minimum": 55,
+          "maximum": 75,
+          "title": "Degree Days Base Temperature (F)",
+          "description": "Degree day base temperature to use in calculations (F)"
+        },
+        "base_load": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000,
+          "title": "Base Load",
+          "description": "Base load in the selected units"
+        }
+      },
+      "required": [
+        "period_days",
+        "base_temp",
+        "base_load"
+      ]
+    },
+
+    "utility_bills_pre_retrofit_cooling_data": {
+      "type": "array",
+      "title": "Cooling Bill Records",
+      "description": "The list of pre-retrofit cooling bills",
+      "minItems": 0,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "minimum": 1999,
+            "maximum": 2030,
+            "title": "Billing Year",
+            "description": "The year for the heating bill"
+          },
+          "month": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12,
+            "title": "Billing Month",
+            "description": "The month for the cooling bill"
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 31,
+            "title": "Billing Day",
+            "description": "The day of the month for the cooling bill"
+          },
+          "usage": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5000,
+            "title": "Usage",
+            "description": "The billing usage in kWh"
+          },
+          "degree_days": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 15000,
+            "title": "Degree Days",
+            "description": "The degree days in the selected base temperature"
+          }
+        },
+        "required": [
+          "year",
+          "month",
+          "day",
+          "usage"
+        ]
+      }
+    },
+
+    "fuel_costs": {
+      "type": "object",
+      "title": "Fuel Cost and Heat Content",
+      "description": "Fuel costs and heat content of each fuel",
+      "additionalItems": false,
+      "properties": {
+        "natural_gas": {
+          "type": "number",
+          "minimum": 5,
+          "maximum": 30,
+          "title": "Natural Gas ($/1000 cuft)",
+          "description": "The cost of natural gas in dollars per 1000 cubic feet"
+        },
+        "oil": {
+          "type": "number",
+          "minimum": 0.50,
+          "maximum": 10,
+          "title": "Fuel Oil ($/gal)",
+          "description": "The cost of fuel oil in dollars per gallon"
+        },
+        "electric": {
+          "type": "number",
+          "minimum": 0.02,
+          "maximum": 2.0,
+          "title": "Electricity ($/kWh)",
+          "description": "The cost of electricty in dollars per kWn"
+        },
+        "propane": {
+          "type": "number",
+          "minimum": 0.50,
+          "maximum": 8,
+          "title": "Propane ($/gal)",
+          "description": "The cost of propane in dollars per gallon"
+        },
+        "wood": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 400,
+          "title": "Cord Wood ($/chord)",
+          "description": "The cost of wood in dollars per 4x4x8 chord"
+        },
+        "coal": {
+          "type": "number",
+          "minimum": 20,
+          "maximum": 400,
+          "title": "Coal ($/ton)",
+          "description": "The cost of coal in dollars per ton"
+        },
+        "kerosene": {
+          "type": "number",
+          "minimum": 0.50,
+          "maximum": 10,
+          "title": "Kerosene ($/gal)",
+          "description": "The cost of kerosene in dollars per gallon"
+        },
+        "other": {
+          "type": "number",
+          "minimum": 2,
+          "maximum": 10,
+          "title": "Other ($/MMBtu)",
+          "description": "The cost of other fuel in dollars per million Btu"
+        },
+        "natural_gas_heat": {
+          "type": "number",
+          "minimum": 0.8,
+          "maximum": 1.5,
+          "title": "Natural Gas Heat Content (MMBtu/1000 cuft)",
+          "description": "The heat content of natural gas in MMBtu per 1000 cubic feet"
+        },
+        "oil_heat": {
+          "type": "number",
+          "minimum": 0.10,
+          "maximum": 0.20,
+          "title": "Fuel Oil Heat Content (MMBtu/gal)",
+          "description": "The heat content of fuel oil in MMBtu per gallon"
+        },
+        "electric_heat": {
+          "type": "number",
+          "const": 0.003413,
+          "title": "Electricity Heat Content (MMBtu/kWh)",
+          "description": "The heat content of electricty in MMBtu per kWn (constant)"
+        },
+        "propane_heat": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 0.15,
+          "title": "Propane Heat Content (MMBtu/gal)",
+          "description": "The heat content of propane in dollars per gallon"
+        },
+        "wood_heat": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 50,
+          "title": "Cord Wood Heat Content (MMBtu/chord)",
+          "description": "The heat content of wood in MMBtu per 4x4x8 chord"
+        },
+        "coal_heat": {
+          "type": "number",
+          "minimum": 10,
+          "maximum": 50,
+          "title": "Coal Heat Content (MMBtu/ton)",
+          "description": "The heat content of coal in MMBtu per ton"
+        },
+        "kerosene_heat": {
+          "type": "number",
+          "minimum": 0.10,
+          "maximum": 0.20,
+          "title": "Kerosene Heat Content (MMBtu/gal)",
+          "description": "The heat content of kerosene in MMBtu per gallon"
+        },
+        "other_heat": {
+          "type": "number",
+          "const": 1,
+          "title": "Other Heat Content (MMBtu/MMBtu)",
+          "description": "The heat content of other fuel in MMBtu per million Btu (constant)"
+        }
+      },
+      "required": [
+        "electric",
+        "electric_heat"
+      ]
+    },
+
+    "fuel_escalation_rates_by_reference": {
+      "type": "object",
+      "title": "Fuel Escalation Rates by Reference",
+      "description": "Reference the EIA fuel escalation rates by referens, alternately enter fer section",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "minimum": 2011,
+          "maximum": 2021,
+          "title": "The EIA Year to Reference",
+          "description": "This is the four digit year of the EIA escalation rates to reference"
+        },
+        "state": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2,
+          "title": "State Code",
+          "description": "The two letter code for the state"
+        },
+        "region": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "title": "The EIA Region to Reference",
+          "description": "This is the region for the given year, region 5 = US average"
+        }
+      },
+      "anyOf": [
+        {"required": ["year", "region"]},
+        {"required": ["year", "state"]}
+      ]
+    },
+
+    "fuel_escalation_rates": {
+      "type": "array",
+      "title": "Fuel Escalation Costs",
+      "description": "The complete set of fuel escalation factors, alternately enter the rer section",
+      "minItems": 8,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "properties": {
+          "fuel_type_id": {
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Natural Gas",
+              2, "Fuel Oil",
+              3, "Electricity",
+              4, "Propane",
+              5, "Wood",
+              6, "Coal",
+              7, "Kerosene",
+              8, "Other"
+            ],
+            "title": "Fuel Type ID",
+            "description": "MUST appear first in the field list. Use ONLY the ID numbers, the strings are in the enum just for reference"
+          },
+          "fuel_name": {
+            "type": ["integer", "string"],
+            "enum": [
+              1, "Natural Gas",
+              2, "Fuel Oil",
+              3, "Electricity",
+              4, "Propane",
+              5, "Wood",
+              6, "Coal",
+              7, "Kerosene",
+              8, "Other"
+            ],
+            "title": "Fuel Name",
+            "description": "Use ONLY the fuel name string, the IDs are in the enum just for reference"
+          },
+          "rate": {
+            "type": "array",
+            "minItems": 31,
+            "maxItems": 31,
+            "items": {
+              "type": "number",
+              "minimum": 0.5,
+              "maximum": 10.0
+            }
+          }
+        },
+        "required": [
+          "fuel_type_id",
+          "fuel_name",
+          "rate"
+        ]
+      }
+    },
+
+    "measure_active_flags": {
+      "type": "array",
+      "title": "Measure Enable/Disable Flags",
+      "description": "The list of true/false flags for each possible considered measure",
+      "uniqueItems": true,
+      "minItems": 48,
+      "maxItems": 48,
+      "items": [{
+          "properties": {
+            "num": {"const": 39, "description": "Index number of measure from MHEA user interface, included schema just for reference, not required"},
+            "id": {"const": 0, "description": "MUST appear before other fields. The identifier used/required by the MHEA analsysis engine"},
+            "measure_name": {"const": "Replace Heating System"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+         },{
+          "properties": {
+            "num": {"const": 1},
+            "id": {"const": 1},
+            "measure_name": {"const": "Seal Ducts"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 2},
+            "id": {"const": 2},
+            "measure_name": {"const": "General Air Sealing"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 3},
+            "id": {"const": 3},
+            "measure_name": {"const": "Wall Fiberglass Batt Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 4},
+            "id": {"const": 4},
+            "measure_name": {"const": "Wall Fiberglass Batt Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 5},
+            "id": {"const": 5},
+            "measure_name": {"const": "Wall Cellulose Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 6},
+            "id": {"const": 6},
+            "measure_name": {"const": "Wall Cellulose Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 7},
+            "id": {"const": 7},
+            "measure_name": {"const": "Wall Fiberglass Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 8},
+            "id": {"const": 8},
+            "measure_name": {"const": "Wall Fiberglass Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 9},
+            "id": {"const": 9},
+            "measure_name": {"const": "Floor Cellulose Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 10},
+            "id": {"const": 10},
+            "measure_name": {"const": "Floor Cellulose Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 11},
+            "id": {"const": 11},
+            "measure_name": {"const": "Floor Fiberglass Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 12},
+            "id": {"const": 12},
+            "measure_name": {"const": "Floor Fiberglass Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 13},
+            "id": {"const": 13},
+            "measure_name": {"const": "Roof Cellulose Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 14},
+            "id": {"const": 14},
+            "measure_name": {"const": "Roof Cellulose Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 15},
+            "id": {"const": 15},
+            "measure_name": {"const": "Roof Fiberglass Loose Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 16},
+            "id": {"const": 16},
+            "measure_name": {"const": "Roof Fiberglass Loose Insulation in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 17},
+            "id": {"const": 17},
+            "measure_name": {"const": "Add Skirting"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 18},
+            "id": {"const": 18},
+            "measure_name": {"const": "Add Skirting on Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 19},
+            "id": {"const": 19},
+            "measure_name": {"const": "White Roof Coating"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 20},
+            "id": {"const": 20},
+            "measure_name": {"const": "White Roof Coating in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 21},
+            "id": {"const": 21},
+            "measure_name": {"const": "Door Replacement"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 22},
+            "id": {"const": 23},
+            "measure_name": {"const": "Door Replacement in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 23},
+            "id": {"const": 24},
+            "measure_name": {"const": "Storm Door"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 24},
+            "id": {"const": 25},
+            "measure_name": {"const": "Storm Door in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 27},
+            "id": {"const": 26},
+            "measure_name": {"const": "Replace Single Paned Windows"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 28},
+            "id": {"const": 27},
+            "measure_name": {"const": "Replace Single Paned Windows in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 29},
+            "id": {"const": 28},
+            "measure_name": {"const": "Plastic Storm Windows"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 30},
+            "id": {"const": 29},
+            "measure_name": {"const": "Plastic Storm Windows in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 31},
+            "id": {"const": 30},
+            "measure_name": {"const": "Glass Storm Windows"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 32},
+            "id": {"const": 31},
+            "measure_name": {"const": "Glass Storm Windows in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 33},
+            "id": {"const": 32},
+            "measure_name": {"const": "Add Awnings"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 34},
+            "id": {"const": 33},
+            "measure_name": {"const": "Add Awnings in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 35},
+            "id": {"const": 34},
+            "measure_name": {"const": "Add Shade Screens"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 36},
+            "id": {"const": 35},
+            "measure_name": {"const": "Add Shade Screens in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 37},
+            "id": {"const": 36},
+            "measure_name": {"const": "Setback Thermostat"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 38},
+            "id": {"const": 37},
+            "measure_name": {"const": "Tune-Up Heating System"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 40},
+            "id": {"const": 38},
+            "measure_name": {"const": "Evaporative Cooling"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 41},
+            "id": {"const": 39},
+            "measure_name": {"const": "Tune-Up Cooling System"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 42},
+            "id": {"const": 40},
+            "measure_name": {"const": "Replace DX Cooling Equipment"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 43},
+            "id": {"const": 41},
+            "measure_name": {"const": "Lighting Retrofits"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 44},
+            "id": {"const": 42},
+            "measure_name": {"const": "Refrigerator Replacement"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 45},
+            "id": {"const": 43},
+            "measure_name": {"const": "Water Heater Tank Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 46},
+            "id": {"const": 44},
+            "measure_name": {"const": "Water Heater Pipe Insulation"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 47},
+            "id": {"const": 45},
+            "measure_name": {"const": "Low Flow Showerheads"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 48},
+            "id": {"const": 46},
+            "measure_name": {"const": "Water Heater Replacement"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 25},
+            "id": {"const": 47},
+            "measure_name": {"const": "Window Sealing"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        },{
+          "properties": {
+            "num": {"const": 26},
+            "id": {"const": 48},
+            "measure_name": {"const": "Window Sealing in Addition"},
+            "active": {"type": "boolean"}
+          },
+          "required": ["id", "active", "measure_name"]
+        }
+      ]
+    },
+
+    "measure_costs": {
+      "type": "array",
+      "title": "Measure Cost Details",
+      "description": "The detailed costing information for each setup library measure",
+      "uniqueItems": true,
+      "minItems": 50,
+      "maxItems": 50,
+      "items": [{
+          "properties": {
+            "num": {"const": 3, "description": "Index number of measure cost from MHEA user interface, included here just for reference, not required"},
+            "id": {"const": 0, "description": "MUST appear before the rest of the fields. The identifier used/required by the MHEA analsysis engine."},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Wall Fiberglass Batt Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 50000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000,  "$comment" : "ALL extra costs are added as a singleton to the overall cost so units are Each/Measure for extra"}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 5},
+            "id": {"const": 1},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Wall Cellulose Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 7},
+            "id": {"const": 2},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Wall Fiberglass Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 9},
+            "id": {"const": 3},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Floor Cellulose Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 11},
+            "id": {"const": 4},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Floor Fiberglass Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 13},
+            "id": {"const": 5},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Roof Cellulose Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 15},
+            "id": {"const": 6},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Roof Fiberglass Loose Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 30},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 17},
+            "id": {"const": 7},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Add Skirting"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 21},
+            "id": {"const": 8},
+            "units": {"const": "Each Door"},
+            "retro_name": {"const": "Door Replacement"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 24},
+            "id": {"const": 9},
+            "units": {"const": "Each Door"},
+            "retro_name": {"const": "Storm Door"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 26},
+            "id": {"const": 10},
+            "units": {"const": "United Inch"},
+            "retro_name": {"const": "Replace Single Paned Windows"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 28},
+            "id": {"const": 11},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Plastic Storm Windows"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 2.5},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 30},
+            "id": {"const": 12},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Glass Storm Windows"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 32},
+            "id": {"const": 13},
+            "units": {"const": "Each Window"},
+            "retro_name": {"const": "Add Awnings"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 34},
+            "id": {"const": 14},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Add Shade Screens"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 19},
+            "id": {"const": 15},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "White Roof Coating"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 7},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 1},
+            "id": {"const": 16},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Seal Ducts"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000, "$comment" : "Just setup costs"}
+          },
+          "required": ["id", "retro_name", "life", "material"]
+        },{
+          "properties": {
+            "num": {"const": 2},
+            "id": {"const": 17},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "General Air Sealing"},
+            "retrofit_type": {"type": ["string", "null"], "maxLength": 50},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000, "$comment" : "Just setup costs"}
+          },
+          "required": ["id", "retro_name", "life", "material"]
+        },{
+          "properties": {
+            "num": {"const": 36},
+            "id": {"const": 18},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Setback Thermostat"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 37},
+            "id": {"const": 19},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Tune-Up Heating System"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 3},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 0},
+            "id": {"const": 20, "description": "Costs come from audit heating form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const":  "Heating System (Electric)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 18}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 0},
+            "id": {"const": 21, "description": "Costs come from audit heating form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Heating System (Gas)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 18}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 0},
+            "id": {"const": 22, "description": "Costs come from audit heating form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Heating System (Oil/Kerosene)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 18}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 0},
+            "id": {"const": 23, "description": "Costs come from audit heating form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Heating System (Propane)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 18}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 39},
+            "id": {"const": 24},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Tune-Up Cooling System"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 3},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 38},
+            "id": {"const": 25},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Evaporative Cooling"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 40},
+            "id": {"const": 26, "description": "Costs come from audit cooling form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "DX Cooling Equipment (Central)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 40},
+            "id": {"const": 27, "description": "Costs come from audit cooling form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "DX Cooling Equipment (Heat Pump)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 40},
+            "id": {"const": 28, "description": "Costs come from audit cooling form, only retro_name and life used"},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "DX Cooling Equipment (Room AC)"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15}
+          },
+          "required": ["id", "retro_name", "life"]
+        },{
+          "properties": {
+            "num": {"const": 43},
+            "id": {"const": 40},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Water Heater Tank Insulation Wrap"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 13},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 44},
+            "id": {"const": 41},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Water Heater Pipe Insulation"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 13},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 45},
+            "id": {"const": 42},
+            "units": {"const": "Each"},
+            "retro_name": {"const": "Low Flow Showerheads"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 47},
+            "id": {"const": 43},
+            "units": {"const": "Each Window"},
+            "retro_name": {"const": "Window Sealing"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 4},
+            "id": {"const": 44},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Wall Fiberglass Batt Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 6},
+            "id": {"const": 45},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Wall Cellulose Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 8},
+            "id": {"const": 46},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Wall Fiberglass Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 10},
+            "id": {"const": 47},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Floor Cellulose Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 12},
+            "id": {"const": 48},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Floor Fiberglass Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 14},
+            "id": {"const": 49},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Roof Cellulose Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 16},
+            "id": {"const": 50},
+            "units": {"const": "Bag"},
+            "retro_name": {"const": "Roof Fiberglass Loose Insulation in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 18},
+            "id": {"const": 51},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Add Skirting on Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 20},
+            "id": {"const": 52},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "White Roof Coating in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 23},
+            "id": {"const": 53},
+            "units": {"const": "Each Door"},
+            "retro_name": {"const": "Door Replacement in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 25},
+            "id": {"const": 54},
+            "units": {"const": "Each Door"},
+            "retro_name": {"const": "Storm Door in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 48},
+            "id": {"const": 55},
+            "units": {"const": "Each Window"},
+            "retro_name": {"const": "Window Sealing in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 27},
+            "id": {"const": 56},
+            "units": {"const": "United Inch"},
+            "retro_name": {"const": "Replace Single Paned Windows in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 20},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 29},
+            "id": {"const": 57},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Plastic Storm Windows in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 5},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 31},
+            "id": {"const": 58},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Glass Storm Windows in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 33},
+            "id": {"const": 59},
+            "units": {"const": "Each Window"},
+            "retro_name": {"const": "Add Awnings in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 15},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        },{
+          "properties": {
+            "num": {"const": 35},
+            "id": {"const": 60},
+            "units": {"const": "SqFt"},
+            "retro_name": {"const": "Add Shade Screens in Addition"},
+            "life": {"type": "number", "minimum": 1, "maximum": 30, "default": 10},
+            "material": {"type": "number", "minimum": 0, "maximum": 5000},
+            "labor": {"type": "number", "minimum": 0, "maximum": 5000},
+            "extra": {"type": "number", "minimum": 0, "maximum": 5000}
+          },
+          "required": ["id", "retro_name", "life", "material", "labor", "extra"]
+        }
+
+      ]
+    },
+
+    "key_parameters": {
+      "type": "object",
+      "title": "Key Parameters",
+      "description": "Top level energy and economic parameters from setup library",
+      "additionalProperties": false,
+      "properties": {
+        "real_discount_rate":                            {"type": "number", "minimum": 0,    "maximum": 10,       "description": "%"},
+        "minimum_acceptable_sir":                        {"type": "number", "minimum": 0,    "maximum": 10,       "description": "Factor"},
+        "spending_limit":                                {"type": "number", "minimum": 0,    "maximum": 10000,    "description": "Dollars"},
+
+        "heating_setpoint_day":                          {"type": "number", "minimum": 50,    "maximum": 80,    "description": "deg F"},
+        "heating_setpoint_night":                        {"type": "number", "minimum": 50,    "maximum": 80,    "description": "deg F"},
+        "cooling_setpoint_day":                          {"type": "number", "minimum": 50,    "maximum": 90,    "description": "deg F"},
+        "cooling_setpoint_night":                        {"type": "number", "minimum": 50,    "maximum": 90,    "description": "deg F"},
+        "thermostat_setback_amount":                     {"type": "number", "minimum": 0,     "maximum": 10,    "description": "deg F"},
+        "length_of_night_thermostat_setback":            {"type": "number", "minimum": 0,     "maximum": 10,    "description": "Hours"},
+
+        "bag_size_for_loose_fiberglass_insulation":      {"type": "number", "minimum": 0,    "maximum": 50,    "description": "Lb"},
+        "density_of_loose_fiberglass_insulation":        {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Lb/cuft"},
+        "bag_size_for_loose_cellulose_insulation":       {"type": "number", "minimum": 0,    "maximum": 50,    "description": "Lb"},
+        "density_of_loose_cellulose_insulation":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Lb/cuft"},
+
+        "interior_wall_r_value_winter":                  {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "interior_wall_r_value_summer":                  {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "interior_ceiling_r_value_winter":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "interior_ceiling_r_value_summer":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "interior_floor_r_value_winter":                 {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "interior_floor_r_value_summer":                 {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "outside_wall_r_value_winter":                   {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "outside_wall_r_value_summer":                   {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "loose_insulation_r_value_per_inch":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu-in"},
+        "batt_blanket_insulation_r_value_per_inch":      {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu-in"},
+        "rigid_insulation_r_value_per_inch":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu-in"},
+        "foamcore_insulation_r_value_per_inch":          {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu-in"},
+
+        "home_leakiness_loose":                          {"type": "number", "minimum": 0,    "maximum": 5000,    "description": "cfm"},
+        "home_leakiness_medium":                         {"type": "number", "minimum": 0,    "maximum": 5000,    "description": "cfm"},
+        "home_leakiness_tight":                          {"type": "number", "minimum": 0,    "maximum": 5000,    "description": "cfm"},
+        "free_heat_from_interior_sources_day":           {"type": "number", "minimum": 0,    "maximum": 5000,    "description": "Btu/hr"},
+        "free_heat_from_interior_sources_night":         {"type": "number", "minimum": 0,    "maximum": 5000,    "description": "Btu/hr"},
+
+        "duct_sealing_distribution_loss_reduction":      {"type": "number", "minimum": 0,    "maximum": 80,    "description": "%"},
+        "duct_insulation_dist_loss_reduction":           {"type": "number", "minimum": 0,    "maximum": 80,    "description": "%"},
+        "evaporative_cooler_actual_saturating_eff":      {"type": "number", "minimum": 0,    "maximum": 100,    "description": "%"},
+        "saturating_eff_for_evaporative_tune_up":        {"type": "number", "minimum": 0,    "maximum": 100,    "description": "%"},
+        "saturating_eff_for_evaporative_rplcmnt":        {"type": "number", "minimum": 0,    "maximum": 100,    "description": "%"},
+        "cooling_system_fan_power":                      {"type": "number", "minimum": 0,    "maximum": 200,    "description": "Watts"},
+
+        "door_u_value_wood_with_hollow_core":            {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "door_u_value_wood_with_solid_core":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "door_u_value_standard_mfg_home_door":           {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "u_value_of_replacement_door":                   {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_glazing_winter":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_glazing_summer":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_glazing_winter":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_glazing_summer":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_glass_storm_winter":           {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_glass_storm_summer":           {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_glass_storm_winter":           {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_glass_storm_summer":           {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_plastic_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_1_plastic_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_plastic_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "window_u_value_2_plastic_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_glazing_winter":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_glazing_summer":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_glazing_winter":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_glazing_summer":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_glass_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_glass_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_glass_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_glass_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_plstc_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_1_plstc_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_plstc_storm_winter":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+        "skylight_u_value_2_plstc_storm_summer":         {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Btu/F-sqft-hr"},
+
+        "window_shading_r_value_drapes":                 {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "window_shading_r_value_blinds_shades":          {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "window_shading_r_value_drapes_shades":          {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "sun_screen_solar_trans_reduction_summer":       {"type": "number", "minimum": 0,    "maximum": 100,    "description": "%"},
+        "sun_screen_solar_trans_reduction_winter":       {"type": "number", "minimum": 0,    "maximum": 100,    "description": "%"},
+        "ratio_of_awning_depth_to_window_height":        {"type": "number", "minimum": 0,    "maximum": 10,    "description": "Factor"},
+
+        "low_flow_shower_head_flow_rate":                {"type": "number", "minimum": 0,    "maximum": 10,    "description": "gal/min"},
+        "water_heater_wrap_added_r_value":               {"type": "number", "minimum": 0,    "maximum": 10,    "description": "F-sqft-hr/Btu"},
+        "refrigerator_defrost_cycle_energy":             {"type": "number", "minimum": 0,    "maximum": 10,    "description": "kWh"}
+      },
+      "required": [
+        "real_discount_rate",                           
+        "minimum_acceptable_sir",                       
+        "spending_limit",                               
+        "heating_setpoint_day",                         
+        "heating_setpoint_night",                       
+        "cooling_setpoint_day",                         
+        "cooling_setpoint_night",                       
+        "thermostat_setback_amount",                    
+        "length_of_night_thermostat_setback",           
+        "bag_size_for_loose_fiberglass_insulation",     
+        "density_of_loose_fiberglass_insulation",       
+        "bag_size_for_loose_cellulose_insulation",      
+        "density_of_loose_cellulose_insulation",        
+        "interior_wall_r_value_winter",                 
+        "interior_wall_r_value_summer",                 
+        "interior_ceiling_r_value_winter",              
+        "interior_ceiling_r_value_summer",              
+        "interior_floor_r_value_winter",                
+        "interior_floor_r_value_summer",                
+        "outside_wall_r_value_winter",                  
+        "outside_wall_r_value_summer",                  
+        "loose_insulation_r_value_per_inch",            
+        "batt_blanket_insulation_r_value_per_inch",     
+        "rigid_insulation_r_value_per_inch",            
+        "foamcore_insulation_r_value_per_inch",         
+        "home_leakiness_loose",                         
+        "home_leakiness_medium",                        
+        "home_leakiness_tight",                         
+        "free_heat_from_interior_sources_day",          
+        "free_heat_from_interior_sources_night",        
+        "duct_sealing_distribution_loss_reduction",     
+        "duct_insulation_dist_loss_reduction",          
+        "evaporative_cooler_actual_saturating_eff",     
+        "saturating_eff_for_evaporative_tune_up",       
+        "saturating_eff_for_evaporative_rplcmnt",       
+        "cooling_system_fan_power",                     
+        "door_u_value_wood_with_hollow_core",           
+        "door_u_value_wood_with_solid_core",            
+        "door_u_value_standard_mfg_home_door",          
+        "u_value_of_replacement_door",                  
+        "window_u_value_1_glazing_winter",              
+        "window_u_value_1_glazing_summer",              
+        "window_u_value_2_glazing_winter",              
+        "window_u_value_2_glazing_summer",              
+        "window_u_value_1_glass_storm_winter",          
+        "window_u_value_1_glass_storm_summer",          
+        "window_u_value_2_glass_storm_winter",          
+        "window_u_value_2_glass_storm_summer",          
+        "window_u_value_1_plastic_storm_winter",        
+        "window_u_value_1_plastic_storm_summer",        
+        "window_u_value_2_plastic_storm_winter",        
+        "window_u_value_2_plastic_storm_summer",        
+        "skylight_u_value_1_glazing_winter",            
+        "skylight_u_value_1_glazing_summer",            
+        "skylight_u_value_2_glazing_winter",            
+        "skylight_u_value_2_glazing_summer",            
+        "skylight_u_value_1_glass_storm_winter",        
+        "skylight_u_value_1_glass_storm_summer",        
+        "skylight_u_value_2_glass_storm_winter",        
+        "skylight_u_value_2_glass_storm_summer",        
+        "skylight_u_value_1_plstc_storm_winter",        
+        "skylight_u_value_1_plstc_storm_summer",        
+        "skylight_u_value_2_plstc_storm_winter",        
+        "skylight_u_value_2_plstc_storm_summer",        
+        "window_shading_r_value_drapes",                
+        "window_shading_r_value_blinds_shades",         
+        "window_shading_r_value_drapes_shades",         
+        "sun_screen_solar_trans_reduction_summer",      
+        "sun_screen_solar_trans_reduction_winter",      
+        "ratio_of_awning_depth_to_window_height",       
+        "low_flow_shower_head_flow_rate",               
+        "water_heater_wrap_added_r_value",              
+        "refrigerator_defrost_cycle_energy"         
+      ]
+    }
+
+  }
+}

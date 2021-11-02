@@ -1,0 +1,18 @@
+{
+    "data": {
+        "causingExceptions": [
+            {
+                "causingExceptions": [],
+                "keyword": "maximum",
+                "message": "14 is not less or equal to 9",
+                "pointerToViolation": "#/audit/avg_no_occupants",
+                "schemaLocation": "#/definitions/audit/properties/avg_no_occupants"
+            }
+        ],
+        "keyword": "allOf",
+        "message": "#: only 1 subschema matches out of 2",
+        "pointerToViolation": "#",
+        "schemaLocation": "#"
+    },
+    "success": false
+}
