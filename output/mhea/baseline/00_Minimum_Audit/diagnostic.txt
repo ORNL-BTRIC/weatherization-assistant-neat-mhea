@@ -1,0 +1,60 @@
+
+MHEA Engine Run: 
+Input From     : input/mhea/00_Minimum_Audit.json
+Output To      : output/mhea/last/00_Minimum_Audit/output.json
+Validate JSON INPUT with:ajv -s ./sys/json_schema/mhea_input_schema.json -d input/mhea/00_Minimum_Audit.json --errors=text > ./sys/json_schema/validation.txt 2>&1
+MHEA Echo To          : output/mhea/last/00_Minimum_Audit/input.json
+MHEA Compare Report To: output/mhea/last/00_Minimum_Audit/report.txt
+MHEA Measure Report To: output/mhea/last/00_Minimum_Audit/measures.txt
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_primary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_secondary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating_replacement
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_primary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_secondary
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling_replacement
+
+BASE_CASE
+
+Annual Heating kBtu:  93406.6  Annual Cooling kBtu:      0.0
+
+FIRST_PASS
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0   3  1 0  Floor Cellulose Loose Insulati                  23.0  3484.21  1049.00   20   3.32
+ 1   4  1 0  Floor Fiberglass Loose Insulat                  22.8  3446.33   776.00   20   4.44
+ 2   5  1 0  Roof Cellulose Loose Insulatio                  33.2  5026.55   736.00   20   6.83
+ 3   6  1 0  Roof Fiberglass Loose Insulati                  31.5  4777.98   689.00   20   6.93
+ 4   7  1 0  Add Skirting                                     1.4   112.97   525.00   10   0.22
+ 5   8  1 0  Door Replacement                DR               0.8   101.35   185.00   15   0.55
+ 6   9  1 0  Storm Door                      DR               0.3    22.17   130.00   10   0.17
+ 7  10  1 0  Replace Single Paned Windows    W1               1.5   231.84   395.00   20   0.59
+ 8  11  1 0  Plastic Storm Windows           W1               1.4    59.33    85.00    5   0.70
+ 9  12  1 0  Glass Storm Windows             W1               1.7   200.51   170.00   15   1.18
+10  18  1 0  Setback Thermostat                               3.6   434.96    75.00   15   5.80
+11  19 -3 1  Tune-Up Heating System                           0.0     0.00   125.00    3   0.00
+12  43  1 0  Window Sealing                  W1               0.3    26.61    60.00   10   0.44
+
+CUMULATIVE
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0   6  1 0  Roof Fiberglass Loose Insulati                  31.5  4777.98   689.00   20   6.93
+ 1  18  1 0  Setback Thermostat                               2.7   319.19    75.00   15   4.26
+ 2   4  1 0  Floor Fiberglass Loose Insulat                  22.1  3343.03   776.00   20   4.31
+ 3  12  1 0  Glass Storm Windows             W1               1.6   192.19   170.00   15   1.13
+ 4  11  1 0  Plastic Storm Windows           W1              -0.3   -13.53    85.00    5  -0.16
+ 5  10  1 0  Replace Single Paned Windows    W1               0.2    25.84   395.00   20   0.07
+ 6   8  1 0  Door Replacement                DR              -0.7   -78.42   185.00   15  -0.42
+ 7  43  1 0  Window Sealing                  W1              -0.5   -42.41    60.00   10  -0.71
+ 8   9  1 0  Storm Door                      DR              -0.1    -4.37   130.00   10  -0.03
+ 9  19 -3 1  Tune-Up Heating System                          -0.3    -8.28   125.00    3  -0.07
+
+FINAL
+ i  mat p r                                                  esav     dsav    icost life    sir
+ 0   6  1 0  Roof Fiberglass Loose Insulati                  18.9  2866.79   689.00   20   4.16
+ 1   4  1 0  Floor Fiberglass Loose Insulat                  13.2  2005.82   776.00   20   2.58
+ 2  18  1 0  Setback Thermostat                               1.6   191.51    75.00   15   2.55
+ 3  19 -3 1  Tune-Up Heating System                          -0.2    -4.97   125.00    3  -0.04
+
+Annual Heating kBtu:  59823.1  Annual Cooling kBtu:      0.0
+
+
+FUEL NAME USED:Natural Gas
+Validate JSON OUTPUT with:ajv -s ./sys/json_schema/mhea_output_schema.json -d output/mhea/last/00_Minimum_Audit/output.json --errors=text > ./sys/json_schema/validation.txt 2>&1

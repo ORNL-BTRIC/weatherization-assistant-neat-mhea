@@ -1,0 +1,2409 @@
+{
+  "audit": {
+    "audit_type": "NEAT",
+    "audit_id": 8,
+    "audit_number": 1012,
+    "do_billing_adjust": false,
+    "no_cond_stories": 1,
+    "floor_area": 1300,
+    "avg_no_occupants": 4
+  },
+  "walls": [
+    {
+      "code": "WL1-N",
+      "stud_size": 3,
+      "orient": 1,
+      "exposure": 1,
+      "ext_type": 1,
+      "wall_type": 2,
+      "area": 400,
+      "exist_insulation": 1,
+      "added_insulation": 2,
+      "add_cost": 0,
+      "measure_number": 1
+    },
+    {
+      "code": "WL2-S",
+      "stud_size": 3,
+      "orient": 2,
+      "exposure": 1,
+      "ext_type": 1,
+      "wall_type": 2,
+      "area": 400,
+      "exist_insulation": 1,
+      "added_insulation": 2,
+      "add_cost": 0,
+      "measure_number": 1
+    },
+    {
+      "code": "WL3-E",
+      "stud_size": 3,
+      "orient": 3,
+      "exposure": 1,
+      "ext_type": 1,
+      "wall_type": 2,
+      "area": 208,
+      "exist_insulation": 1,
+      "added_insulation": 2,
+      "add_cost": 0,
+      "measure_number": 1
+    },
+    {
+      "code": "WL4-W",
+      "stud_size": 3,
+      "orient": 4,
+      "exposure": 2,
+      "ext_type": 1,
+      "wall_type": 2,
+      "area": 208,
+      "exist_insulation": 1,
+      "added_insulation": 2,
+      "add_cost": 0,
+      "measure_number": 1
+    }
+  ],
+  "windows": [
+    {
+      "code": "WD1",
+      "frame_type": 1,
+      "window_type": 2,
+      "glazing_type": 3,
+      "int_shading": 1,
+      "shade": 0,
+      "leak": 3,
+      "width": 24,
+      "height": 48,
+      "wall": "WL1-N",
+      "number": 4,
+      "retrofit_option": 1,
+      "inc_sir": false,
+      "cost_seal": 0,
+      "cost_replace": 0,
+      "cost_add_storm": 0,
+      "cost_low_e": 0
+    },
+    {
+      "code": "WD2",
+      "frame_type": 1,
+      "window_type": 2,
+      "glazing_type": 3,
+      "int_shading": 1,
+      "shade": 20,
+      "leak": 3,
+      "width": 24,
+      "height": 48,
+      "wall": "WL2-S",
+      "number": 4,
+      "retrofit_option": 1,
+      "inc_sir": false,
+      "cost_seal": 0,
+      "cost_replace": 0,
+      "cost_add_storm": 0,
+      "cost_low_e": 0
+    },
+    {
+      "code": "WD3",
+      "frame_type": 1,
+      "window_type": 2,
+      "glazing_type": 3,
+      "int_shading": 1,
+      "shade": 20,
+      "leak": 3,
+      "width": 24,
+      "height": 48,
+      "wall": "WL3-E",
+      "number": 2,
+      "retrofit_option": 1,
+      "inc_sir": false,
+      "cost_seal": 0,
+      "cost_replace": 0,
+      "cost_add_storm": 0,
+      "cost_low_e": 0
+    }
+  ],
+  "doors": [
+    {
+      "wall": "WL1-N",
+      "number": 1,
+      "door_type": 2,
+      "area": 20,
+      "condition": 1,
+      "code": "DR1",
+      "leakiness": 2,
+      "replace": false,
+      "inc_sir": false,
+      "cost": 0
+    },
+    {
+      "wall": "WL2-S",
+      "number": 1,
+      "door_type": 2,
+      "area": 20,
+      "condition": 1,
+      "code": "DR2",
+      "leakiness": 2,
+      "replace": false,
+      "inc_sir": false,
+      "cost": 0
+    }
+  ],
+  "unfinished_attics": [
+    {
+      "code": "A1",
+      "attic_type": 1,
+      "area": 1300,
+      "exist_insulation": 2,
+      "ins_depth": 3,
+      "added_insulation": 2,
+      "measure_number": 1,
+      "roof_color": 2
+    }
+  ],
+  "foundations": [
+    {
+      "code": "F1",
+      "space_type": 5,
+      "area": 1300,
+      "perim_length": 152
+    }
+  ],
+  "legacy_cooling": [
+    {
+      "code": "AC1",
+      "system_type": 1,
+      "size": 36,
+      "area_cooled": 1300,
+      "seer": 10,
+      "replace": false,
+      "tune_up": false,
+      "inc_sir": false
+    }
+  ],
+  "legacy_heating": [
+    {
+      "code": "HS1",
+      "system_type": 6,
+      "fuel_type": 3,
+      "location": 1,
+      "primary": true,
+      "replace_system": false,
+      "percent_heat_supplied": 100,
+      "input_units": 2,
+      "output_capacity": 80,
+      "smart_thermostat": false,
+      "vent_damper_present": false,
+      "vent_damper_recommended": false,
+      "pilot_light_present": false,
+      "pilot_light_on_summer": false,
+      "intermittent_ignition": false,
+      "retention_head_burner": false,
+      "retention_head_recommended": false,
+      "power_burner": false,
+      "retrofit_option": 6,
+      "inc_sir": false,
+      "duct_location": 3,
+      "duct_type1": 3,
+      "duct_type2": 3,
+      "duct_type3": 3
+    }
+  ],
+  "hvac_system": [
+    {
+      "code": "HS1",
+      "id": 8,
+      "system_type": 5,
+      "year_installed": 2011,
+      "fuel": 3,
+      "heat_pump_backup_fuel": 0,
+      "location": 1,
+      "pilot_light": false,
+      "iid": false,
+      "atmospheric_combustion": false,
+      "pilot_light_summer": false,
+      "vent_damper": false,
+      "efficiency_method": 2,
+      "heat_efficiency_units": 3,
+      "heat_efficiency": 100,
+      "heat_output_capacity_units": 1,
+      "heat_output_capacity": 80,
+      "heat_setback_used": false,
+      "smart_thermostat_evaluate": false,
+      "smart_thermostat_required": false,
+      "smart_thermostat_inc_sir": false,
+      "tuneup_evaluate": false,
+      "tuneup_required": false,
+      "tuneup_inc_sir": false,
+      "replace_evaluate": false,
+      "replace_required": false,
+      "replace_inc_sir": false,
+      "also_replaces_hvac_ids": ""
+    },
+    {
+      "code": "AC1",
+      "id": 9,
+      "system_type": 9,
+      "fuel": 3,
+      "heat_pump_backup_fuel": 0,
+      "pilot_light": false,
+      "iid": false,
+      "atmospheric_combustion": false,
+      "pilot_light_summer": false,
+      "vent_damper": false,
+      "efficiency_method": 2,
+      "cool_efficiency_units": 1,
+      "cool_efficiency": 10,
+      "cool_output_capacity_units": 1,
+      "cool_output_capacity": 36,
+      "heat_setback_used": false,
+      "smart_thermostat_evaluate": false,
+      "smart_thermostat_required": false,
+      "smart_thermostat_inc_sir": false,
+      "tuneup_evaluate": false,
+      "tuneup_required": false,
+      "tuneup_inc_sir": false,
+      "replace_evaluate": false,
+      "replace_required": false,
+      "replace_inc_sir": false,
+      "also_replaces_hvac_ids": ""
+    }
+  ],
+  "heating": [
+    {
+      "code": "HS1",
+      "system_type": 7,
+      "fuel_type": 3,
+      "location": 1,
+      "primary": true,
+      "replace_system": false,
+      "percent_heat_supplied": 100,
+      "input_units": 2,
+      "output_capacity": 80,
+      "steady_state_eff": 100,
+      "condition": 2,
+      "smart_thermostat": false,
+      "vent_damper_present": false,
+      "vent_damper_recommended": false,
+      "pilot_light_present": false,
+      "pilot_light_on_summer": false,
+      "intermittent_ignition": false,
+      "retention_head_burner": false,
+      "retention_head_recommended": false,
+      "power_burner": false,
+      "retrofit_option": 10,
+      "inc_sir": false,
+      "duct_location": 3,
+      "duct_type1": 3,
+      "duct_type2": 3,
+      "duct_type3": 3,
+      "conversion_comments": "Duct information now included, the new system allows for more than 3, area consolidated into one rectangular section.This includes when default duct area is used.  Duct only applicable for Supply and NOT Conditioned Spaces.Need to code replace system for cross over between HVAC and also replaces"
+    }
+  ],
+  "cooling": [
+    {
+      "code": "AC1",
+      "system_type": 1,
+      "size": 36,
+      "area_cooled": 1300,
+      "seer": 10,
+      "replace": false,
+      "tune_up": false,
+      "inc_sir": false,
+      "conversion_comments": "inc_sir is based on whether or not tuneup or replace required is selected, should be mutually exclusive.cooling output capacity used the cool_efficiency_unit of SEER. This is a temporary same number until the proper coversions are done.  Pushed to give a starting position.Need to code replace system for cross over between HVAC and also replaces"
+    }
+  ],
+  "ducts_and_infiltration": {
+    "evaluate_duct_sealing": false,
+    "duct_seal_method": 5,
+    "air_leak_red_cost": 200,
+    "pre_inf_cfm": 4000,
+    "pre_inf_pa": 50,
+    "post_inf_cfm": 2500,
+    "post_inf_pa": 50
+  },
+  "water_heating": {
+    "exist_tank_location_id": 1,
+    "exist_fuel_type_id": 3,
+    "exist_type": 1,
+    "exist_gal": 40,
+    "exist_insul_type_id": 1,
+    "exist_insul_thick": 1.5,
+    "exist_pipe_insul": false,
+    "exist_tank_wrap": false,
+    "shower_heads": 1,
+    "shower_usage_per_day": 10,
+    "shower_gpm": 3.2,
+    "replace_life": 13,
+    "replace_added_cost": 0,
+    "replace": false,
+    "inc_sir": false
+  },
+  "refrigerators": {
+    "location_id": 1,
+    "label_year_id": 4,
+    "door_seal_condition_id": 2,
+    "label_kwh_per_year": 1107,
+    "meter_manual_defrost": false,
+    "meter_includes_defrost": false,
+    "replace_manufacturer": "ADMIRAL",
+    "replace_model": "AT19",
+    "replace_kwh_per_year": 600,
+    "replace_life": 15,
+    "replace_install_cost": 700,
+    "replace_added_cost": 25
+  },
+  "itemized_costs": [
+    {
+      "component_id": 4,
+      "measure": "Install Dryer Vent",
+      "cost": 150,
+      "inc_sir": true,
+      "material": "Dryer Vent and Ducting",
+      "savings": 0
+    },
+    {
+      "component_id": 5,
+      "measure": "Install Sash Lock",
+      "cost": 9.5,
+      "inc_sir": true,
+      "material": "Sash Lock (+)",
+      "savings": 0
+    },
+    {
+      "component_id": 6,
+      "measure": "Install Smoke Detector",
+      "cost": 20,
+      "inc_sir": false,
+      "material": "Smoke alarm (+)",
+      "savings": 0
+    }
+  ],
+  "weather_location": {
+    "state": "MO",
+    "city": "ST. LOUIS",
+    "file": "STLOUIMO.WX"
+  },
+  "fuel_costs": {
+    "electric": 0.1309,
+    "electric_heat": 0.003413
+  },
+  "fuel_escalation_rates": [
+    {
+      "fuel_type_id": 1,
+      "fuel_name": "Natural Gas",
+      "rate": [
+        1,
+        1,
+        1,
+        0.99,
+        0.99,
+        1,
+        1.02,
+        1.04,
+        1.05,
+        1.06,
+        1.08,
+        1.09,
+        1.09,
+        1.1,
+        1.11,
+        1.11,
+        1.12,
+        1.12,
+        1.13,
+        1.13,
+        1.13,
+        1.14,
+        1.14,
+        1.15,
+        1.15,
+        1.15,
+        1.16,
+        1.17,
+        1.17,
+        1.18,
+        1.19
+      ]
+    },
+    {
+      "fuel_type_id": 2,
+      "fuel_name": "Fuel Oil",
+      "rate": [
+        1,
+        1,
+        1.03,
+        1.05,
+        1.08,
+        1.1,
+        1.12,
+        1.12,
+        1.14,
+        1.15,
+        1.15,
+        1.16,
+        1.17,
+        1.19,
+        1.2,
+        1.21,
+        1.22,
+        1.23,
+        1.24,
+        1.25,
+        1.25,
+        1.26,
+        1.27,
+        1.28,
+        1.29,
+        1.3,
+        1.31,
+        1.32,
+        1.33,
+        1.34,
+        1.35
+      ]
+    },
+    {
+      "fuel_type_id": 3,
+      "fuel_name": "Electricity",
+      "rate": [
+        1,
+        1,
+        1,
+        1.01,
+        1.02,
+        1.03,
+        1.04,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.05,
+        1.04,
+        1.04,
+        1.04,
+        1.04,
+        1.03,
+        1.03,
+        1.03,
+        1.03,
+        1.02,
+        1.02,
+        1.02,
+        1.02,
+        1.02,
+        1.01,
+        1.01
+      ]
+    },
+    {
+      "fuel_type_id": 4,
+      "fuel_name": "Propane",
+      "rate": [
+        1,
+        1.01,
+        1.04,
+        1.07,
+        1.11,
+        1.15,
+        1.2,
+        1.24,
+        1.28,
+        1.3,
+        1.32,
+        1.33,
+        1.34,
+        1.35,
+        1.37,
+        1.38,
+        1.4,
+        1.42,
+        1.44,
+        1.47,
+        1.49,
+        1.5,
+        1.53,
+        1.55,
+        1.57,
+        1.59,
+        1.61,
+        1.63,
+        1.65,
+        1.67,
+        1.7
+      ]
+    },
+    {
+      "fuel_type_id": 5,
+      "fuel_name": "Wood",
+      "rate": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "fuel_type_id": 6,
+      "fuel_name": "Coal",
+      "rate": [
+        1,
+        1,
+        0.99,
+        0.99,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.99,
+        0.98,
+        0.98,
+        0.99,
+        0.99,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "fuel_type_id": 7,
+      "fuel_name": "Kerosene",
+      "rate": [
+        1,
+        1,
+        1.03,
+        1.05,
+        1.08,
+        1.1,
+        1.12,
+        1.12,
+        1.14,
+        1.15,
+        1.15,
+        1.16,
+        1.17,
+        1.19,
+        1.2,
+        1.21,
+        1.22,
+        1.23,
+        1.24,
+        1.25,
+        1.25,
+        1.26,
+        1.27,
+        1.28,
+        1.29,
+        1.3,
+        1.31,
+        1.32,
+        1.33,
+        1.34,
+        1.35
+      ]
+    },
+    {
+      "fuel_type_id": 8,
+      "fuel_name": "Other",
+      "rate": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "measure_active_flags": [
+    {
+      "id": 0,
+      "active": true,
+      "measure_name": "Attic Insulation R11"
+    },
+    {
+      "id": 1,
+      "active": true,
+      "measure_name": "Attic Insulation R19"
+    },
+    {
+      "id": 2,
+      "active": true,
+      "measure_name": "Attic Insulation R30"
+    },
+    {
+      "id": 3,
+      "active": true,
+      "measure_name": "Attic Insulation R38"
+    },
+    {
+      "id": 4,
+      "active": true,
+      "measure_name": "Fill Ceiling Cavity"
+    },
+    {
+      "id": 5,
+      "active": true,
+      "measure_name": "Sillbox Insulation"
+    },
+    {
+      "id": 6,
+      "active": true,
+      "measure_name": "Foundation Wall Insulation"
+    },
+    {
+      "id": 7,
+      "active": true,
+      "measure_name": "Floor Insulation R11"
+    },
+    {
+      "id": 8,
+      "active": true,
+      "measure_name": "Floor Insulation R19"
+    },
+    {
+      "id": 9,
+      "active": true,
+      "measure_name": "Floor Insulation R30"
+    },
+    {
+      "id": 10,
+      "active": true,
+      "measure_name": "Wall Insulation"
+    },
+    {
+      "id": 11,
+      "active": true,
+      "measure_name": "Kneewall Insulation"
+    },
+    {
+      "id": 12,
+      "active": true,
+      "measure_name": "Duct Insulation"
+    },
+    {
+      "id": 13,
+      "active": true,
+      "measure_name": "Window Sealing"
+    },
+    {
+      "id": 14,
+      "active": true,
+      "measure_name": "Storm Windows"
+    },
+    {
+      "id": 15,
+      "active": true,
+      "measure_name": "Window Replacement"
+    },
+    {
+      "id": 16,
+      "active": true,
+      "measure_name": "Low E Windows"
+    },
+    {
+      "id": 17,
+      "active": true,
+      "measure_name": "Window Shading (Awning)"
+    },
+    {
+      "id": 18,
+      "active": true,
+      "measure_name": "Sun Screen Fabric"
+    },
+    {
+      "id": 19,
+      "active": true,
+      "measure_name": "Sun Screen Louvered"
+    },
+    {
+      "id": 20,
+      "active": true,
+      "measure_name": "Window Film"
+    },
+    {
+      "id": 21,
+      "active": true,
+      "measure_name": "Thermal Vent Damper"
+    },
+    {
+      "id": 22,
+      "active": true,
+      "measure_name": "Electric Vent Damper"
+    },
+    {
+      "id": 23,
+      "active": true,
+      "measure_name": "IID"
+    },
+    {
+      "id": 24,
+      "active": true,
+      "measure_name": "Electric Vent Damper and IID"
+    },
+    {
+      "id": 25,
+      "active": true,
+      "measure_name": "Flame Retention Burner"
+    },
+    {
+      "id": 26,
+      "active": true,
+      "measure_name": "Furnace Tune-Up"
+    },
+    {
+      "id": 27,
+      "active": true,
+      "measure_name": "Replace Heating System"
+    },
+    {
+      "id": 28,
+      "active": true,
+      "measure_name": "High Efficiency Furnace"
+    },
+    {
+      "id": 29,
+      "active": true,
+      "measure_name": "High Efficiency Boiler"
+    },
+    {
+      "id": 30,
+      "active": true,
+      "measure_name": "Smart Thermostat"
+    },
+    {
+      "id": 31,
+      "active": true,
+      "measure_name": "Tune-Up AC"
+    },
+    {
+      "id": 32,
+      "active": true,
+      "measure_name": "Replace AC"
+    },
+    {
+      "id": 33,
+      "active": true,
+      "measure_name": "Evaporative Cooler"
+    },
+    {
+      "id": 34,
+      "active": true,
+      "measure_name": "Install or Replace Heatpump"
+    },
+    {
+      "id": 35,
+      "active": true,
+      "measure_name": "Lighting Retrofits"
+    },
+    {
+      "id": 36,
+      "active": true,
+      "measure_name": "Refrigerator Replacement"
+    },
+    {
+      "id": 37,
+      "active": true,
+      "measure_name": "Water Heater Tank Insulation"
+    },
+    {
+      "id": 38,
+      "active": true,
+      "measure_name": "Water Heater Pipe Insulation"
+    },
+    {
+      "id": 39,
+      "active": true,
+      "measure_name": "Low Flow Showerheads"
+    },
+    {
+      "id": 40,
+      "active": true,
+      "measure_name": "Water Heater Replacement"
+    },
+    {
+      "id": 41,
+      "active": true,
+      "measure_name": "Attic Insulation R49"
+    },
+    {
+      "id": 42,
+      "active": true,
+      "measure_name": "Floor Insulation R38"
+    },
+    {
+      "id": 43,
+      "active": true,
+      "measure_name": "Door Replacement"
+    },
+    {
+      "id": 44,
+      "active": true,
+      "measure_name": "White Roof Coating"
+    },
+    {
+      "id": 45,
+      "active": true,
+      "measure_name": "Fill Closed Floor Cavity"
+    }
+  ],
+  "measure_costs": [
+    {
+      "id": 0,
+      "material": "Attic Insulation R11",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.11,
+      "labor_cost": 0.22,
+      "other_cost": 0
+    },
+    {
+      "id": 1,
+      "material": "Attic Insulation R19",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.19,
+      "labor_cost": 0.38,
+      "other_cost": 0
+    },
+    {
+      "id": 2,
+      "material": "Attic Insulation R30",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.3,
+      "labor_cost": 0.6,
+      "other_cost": 0
+    },
+    {
+      "id": 3,
+      "material": "Attic Insulation R38",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.38,
+      "labor_cost": 0.76,
+      "other_cost": 0
+    },
+    {
+      "id": 4,
+      "material": "Attic Insulation R11",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.14,
+      "labor_cost": 0.22,
+      "other_cost": 0
+    },
+    {
+      "id": 5,
+      "material": "Attic Insulation R19",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.22,
+      "labor_cost": 0.38,
+      "other_cost": 0
+    },
+    {
+      "id": 6,
+      "material": "Attic Insulation R30",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.33,
+      "labor_cost": 0.6,
+      "other_cost": 0
+    },
+    {
+      "id": 7,
+      "material": "Attic Insulation R38",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.41,
+      "labor_cost": 0.76,
+      "other_cost": 0
+    },
+    {
+      "id": 8,
+      "material": "Attic Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 9,
+      "material": "Attic Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 10,
+      "material": "Attic Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 11,
+      "material": "Attic Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 12,
+      "material": "Attic Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 13,
+      "material": "Attic Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 14,
+      "material": "Attic Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 15,
+      "material": "Attic Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 16,
+      "material": "Wall Insulation",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.26,
+      "labor_cost": 0.75,
+      "other_cost": 0
+    },
+    {
+      "id": 17,
+      "material": "Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 18,
+      "material": "Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 19,
+      "material": "Kneewall Insulation",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.26,
+      "labor_cost": 0.5,
+      "other_cost": 0
+    },
+    {
+      "id": 20,
+      "material": "Sillbox Insulation",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.38,
+      "labor_cost": 0.3,
+      "other_cost": 0
+    },
+    {
+      "id": 21,
+      "material": "Floor Insulation R11",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.22,
+      "labor_cost": 0.5,
+      "other_cost": 0
+    },
+    {
+      "id": 22,
+      "material": "Floor Insulation R19",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.38,
+      "labor_cost": 0.5,
+      "other_cost": 0
+    },
+    {
+      "id": 23,
+      "material": "Floor Insulation R30",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.6,
+      "labor_cost": 0.5,
+      "other_cost": 0
+    },
+    {
+      "id": 24,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": "Rigid Foam Board",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.6,
+      "labor_cost": 0.6,
+      "other_cost": 0
+    },
+    {
+      "id": 25,
+      "material": "Duct Insulation",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.35,
+      "labor_cost": 0.75,
+      "other_cost": 0
+    },
+    {
+      "id": 26,
+      "material": "Thermal Vent Damper",
+      "retrofit_type": "Thermal Vent Damper",
+      "life": 10,
+      "units": "Each",
+      "material_cost": 60,
+      "labor_cost": 75,
+      "other_cost": 0
+    },
+    {
+      "id": 27,
+      "material": "Electric Vent Damper",
+      "retrofit_type": "Electric Vent Damper",
+      "life": 10,
+      "units": "Each",
+      "material_cost": 150,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 28,
+      "material": "IID",
+      "retrofit_type": "Intermittent Ignition Device",
+      "life": 10,
+      "units": "Each",
+      "material_cost": 150,
+      "labor_cost": 75,
+      "other_cost": 0
+    },
+    {
+      "id": 29,
+      "material": "Electric Vent Damper and IID",
+      "retrofit_type": "Electric Vent Damper and IID",
+      "life": 10,
+      "units": "Each",
+      "material_cost": 300,
+      "labor_cost": 175,
+      "other_cost": 0
+    },
+    {
+      "id": 30,
+      "material": "Flame Retention Burner",
+      "retrofit_type": "Flame Retention Head Burner",
+      "life": 10,
+      "units": "Each",
+      "material_cost": 500,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 31,
+      "material": "Furnace Tune-Up",
+      "retrofit_type": "Furnace Tune-Up",
+      "life": 3,
+      "units": "Each",
+      "material_cost": 25,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 32,
+      "material": "Standard Efficiency Furnace/Boiler",
+      "retrofit_type": null,
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 33,
+      "material": "High Efficiency Furnace",
+      "retrofit_type": null,
+      "life": 15,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 34,
+      "material": "Standard Efficiency Boiler",
+      "retrofit_type": "Standard Efficiency Boiler",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 35,
+      "material": "Space Heater",
+      "retrofit_type": "Gas - 8 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 36,
+      "material": "Space Heater",
+      "retrofit_type": "Gas - 55 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 37,
+      "material": "Space Heater",
+      "retrofit_type": "Oil - 40 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 38,
+      "material": "Space Heater",
+      "retrofit_type": "Oil - 75 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 39,
+      "material": "Space Heater",
+      "retrofit_type": "Kerosene - 10 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 40,
+      "material": "Space Heater",
+      "retrofit_type": "Kerosene - 40 kBtu/h",
+      "life": 18,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 41,
+      "material": "Smart Thermostat",
+      "retrofit_type": "Programmable Thermostat",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 50,
+      "labor_cost": 25,
+      "other_cost": 0
+    },
+    {
+      "id": 42,
+      "material": "Replace AC",
+      "retrofit_type": "5,000 Btuh Window Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 400,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 43,
+      "material": "Replace AC",
+      "retrofit_type": "15,000 Btuh Window Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 500,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 44,
+      "material": "Replace AC",
+      "retrofit_type": "25,000 Btuh Window Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 700,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 45,
+      "material": "Replace AC",
+      "retrofit_type": "2 ton Central Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 1400,
+      "labor_cost": 400,
+      "other_cost": 0
+    },
+    {
+      "id": 46,
+      "material": "Replace AC",
+      "retrofit_type": "3 ton Central Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 1700,
+      "labor_cost": 400,
+      "other_cost": 0
+    },
+    {
+      "id": 47,
+      "material": "Replace AC",
+      "retrofit_type": "4 ton Central Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 2000,
+      "labor_cost": 400,
+      "other_cost": 0
+    },
+    {
+      "id": 48,
+      "material": "Tune-Up AC",
+      "retrofit_type": "Air Conditioner Tune-Up",
+      "life": 3,
+      "units": "Each",
+      "material_cost": 25,
+      "labor_cost": 100,
+      "other_cost": 0
+    },
+    {
+      "id": 49,
+      "material": "Evaporative Cooler",
+      "retrofit_type": "Evaporative Cooler Air Conditioner",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 500,
+      "labor_cost": 400,
+      "other_cost": 0
+    },
+    {
+      "id": 50,
+      "material": "Heatpump",
+      "retrofit_type": "2 Ton / 24 KBtu/h",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 51,
+      "material": "Heatpump",
+      "retrofit_type": "3 Ton / 36 KBtu/h",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 52,
+      "material": "Heatpump",
+      "retrofit_type": "4 Ton / 48 KBtu/h",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 53,
+      "material": "Window Shading (Awning)",
+      "retrofit_type": "Window Awning",
+      "life": 10,
+      "units": "Linear Foot",
+      "material_cost": 25,
+      "labor_cost": 0,
+      "other_cost": 25
+    },
+    {
+      "id": 54,
+      "material": "Sun Screen Fabric",
+      "retrofit_type": "Fabric Mesh Sun Screen",
+      "life": 10,
+      "units": "SqFt",
+      "material_cost": 2,
+      "labor_cost": 1,
+      "other_cost": 0
+    },
+    {
+      "id": 55,
+      "material": "Sun Screen Louvered",
+      "retrofit_type": "Louvered Sun Screen",
+      "life": 15,
+      "units": "SqFt",
+      "material_cost": 5,
+      "labor_cost": 1,
+      "other_cost": 0
+    },
+    {
+      "id": 56,
+      "material": "Window Film",
+      "retrofit_type": "Window Film",
+      "life": 15,
+      "units": "SqFt",
+      "material_cost": 1,
+      "labor_cost": 3,
+      "other_cost": 0
+    },
+    {
+      "id": 57,
+      "material": "Window Sealing",
+      "retrofit_type": "Window Sealant Materials",
+      "life": 10,
+      "units": "Each Window",
+      "material_cost": 10,
+      "labor_cost": 20,
+      "other_cost": 0
+    },
+    {
+      "id": 58,
+      "material": "Storm Windows",
+      "retrofit_type": "Storm Window",
+      "life": 15,
+      "units": "SqFt",
+      "material_cost": 3,
+      "labor_cost": 2.5,
+      "other_cost": 75
+    },
+    {
+      "id": 59,
+      "material": "Window Replacement",
+      "retrofit_type": "Double-Pane Window",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 6,
+      "labor_cost": 0,
+      "other_cost": 125
+    },
+    {
+      "id": 60,
+      "material": "Low E Windows",
+      "retrofit_type": "Double-Pane Low-e Window",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 8,
+      "labor_cost": 0,
+      "other_cost": 125
+    },
+    {
+      "id": 72,
+      "material": "Water Heater Tank Insulation",
+      "retrofit_type": "Water Heater Tank Insulation Wrap",
+      "life": 13,
+      "units": "Each",
+      "material_cost": 15,
+      "labor_cost": 25,
+      "other_cost": 0
+    },
+    {
+      "id": 73,
+      "material": "Water Heater Pipe Insulation",
+      "retrofit_type": "R-1.85 (1/2\") Water Pipe Insulation",
+      "life": 13,
+      "units": "Each",
+      "material_cost": 5,
+      "labor_cost": 10,
+      "other_cost": 0
+    },
+    {
+      "id": 74,
+      "material": "Low Flow Showerheads",
+      "retrofit_type": "Low Flow Showerhead",
+      "life": 15,
+      "units": "Each",
+      "material_cost": 5,
+      "labor_cost": 15,
+      "other_cost": 0
+    },
+    {
+      "id": 75,
+      "material": "High Efficiency Boiler",
+      "retrofit_type": null,
+      "life": 15,
+      "units": "Each",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 76,
+      "material": "Attic Insulation R49",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.49,
+      "labor_cost": 0.98,
+      "other_cost": 0
+    },
+    {
+      "id": 77,
+      "material": "Attic Insulation R49",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.51,
+      "labor_cost": 0.98,
+      "other_cost": 0
+    },
+    {
+      "id": 78,
+      "material": "Attic Insulation R49",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 79,
+      "material": "Attic Insulation R49",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 80,
+      "material": "Attic Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 81,
+      "material": "Attic Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 82,
+      "material": "Attic Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 83,
+      "material": "Attic Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 84,
+      "material": "Attic Insulation R49",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 85,
+      "material": "Attic Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 86,
+      "material": "Attic Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 87,
+      "material": "Attic Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 88,
+      "material": "Attic Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 89,
+      "material": "Attic Insulation R49",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 90,
+      "material": "Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 91,
+      "material": "Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 92,
+      "material": "Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 93,
+      "material": "Kneewall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 94,
+      "material": "Kneewall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 95,
+      "material": "Kneewall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 96,
+      "material": "Kneewall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 97,
+      "material": "Kneewall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 98,
+      "material": "Sillbox Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 99,
+      "material": "Sillbox Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 100,
+      "material": "Sillbox Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 101,
+      "material": "Sillbox Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 102,
+      "material": "Sillbox Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 103,
+      "material": "Floor Insulation R38",
+      "retrofit_type": "Fiberglass Batts",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.76,
+      "labor_cost": 0.5,
+      "other_cost": 0
+    },
+    {
+      "id": 112,
+      "material": "Floor Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 113,
+      "material": "Floor Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 114,
+      "material": "Floor Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 115,
+      "material": "Floor Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 116,
+      "material": "Floor Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 117,
+      "material": "Floor Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 118,
+      "material": "Floor Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 119,
+      "material": "Floor Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 120,
+      "material": "Floor Insulation R11",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 121,
+      "material": "Floor Insulation R19",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 122,
+      "material": "Floor Insulation R30",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 123,
+      "material": "Floor Insulation R38",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 124,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 125,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 126,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 127,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 128,
+      "material": "Foundation Wall Insulation",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 129,
+      "material": "Door Replacement",
+      "retrofit_type": "Exterior Door",
+      "life": 20,
+      "units": "Each Door",
+      "material_cost": 125,
+      "labor_cost": 60,
+      "other_cost": 0
+    },
+    {
+      "id": 130,
+      "material": "White Roof Coating",
+      "retrofit_type": "Reflective Roof Paint or Coating",
+      "life": 7,
+      "units": "SqFt",
+      "material_cost": 0.3,
+      "labor_cost": 0.1,
+      "other_cost": 0
+    },
+    {
+      "id": 131,
+      "material": "Fill Closed Floor Cavity",
+      "retrofit_type": "Blown Cellulose",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.4,
+      "labor_cost": 0.75,
+      "other_cost": 0
+    },
+    {
+      "id": 132,
+      "material": "Fill Closed Floor Cavity",
+      "retrofit_type": "Blown Fiberglass",
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0.45,
+      "labor_cost": 0.75,
+      "other_cost": 0
+    },
+    {
+      "id": 133,
+      "material": "Fill Closed Floor Cavity",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 134,
+      "material": "Fill Closed Floor Cavity",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    },
+    {
+      "id": 135,
+      "material": "Fill Closed Floor Cavity",
+      "retrofit_type": null,
+      "life": 20,
+      "units": "SqFt",
+      "material_cost": 0,
+      "labor_cost": 0,
+      "other_cost": 0
+    }
+  ],
+  "neat_insulation_types": [
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 1,
+      "name": "Blown Cellulose",
+      "units": "R/in",
+      "value": 3.75
+    },
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 2,
+      "name": "Blown Fiberglass",
+      "units": "R/in",
+      "value": 3.09
+    },
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 3,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 1,
+      "usage": "Attic",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 1,
+      "name": "Fiberglass Batts",
+      "units": "R",
+      "value": 13
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 2,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 3,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 2,
+      "usage": "Knee Wall",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 1,
+      "name": "Blown Cellulose",
+      "units": "R/in",
+      "value": 3.71
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 2,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 3,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 3,
+      "usage": "Wall",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 1,
+      "name": "Fiberglass Batts",
+      "units": "R/in",
+      "value": 3.33
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 2,
+      "name": "Blown Cellulose",
+      "units": "R/in",
+      "value": 3.71
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 3,
+      "name": "Blown Fiberglass",
+      "units": "R/in",
+      "value": 3.05
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 4,
+      "usage": "Floor",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 1,
+      "name": "Fiberglass Batts",
+      "units": "R",
+      "value": 19
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 2,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 3,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 5,
+      "usage": "Sill",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 1,
+      "name": "Rigid Foam Board",
+      "units": "R",
+      "value": 12
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 2,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 3,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 4,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 5,
+      "name": "",
+      "units": "",
+      "value": null
+    },
+    {
+      "usage_id": 6,
+      "usage": "Foundation Wall",
+      "index": 6,
+      "name": "",
+      "units": "",
+      "value": null
+    }
+  ],
+  "key_parameters": {
+    "real_discount_rate": 3,
+    "minimum_acceptable_sir": 1,
+    "daytime_heating_setpoint": 68,
+    "nighttime_heating_setpoint": 68,
+    "daytime_cooling_setpoint": 78,
+    "nighttime_cooling_setpoint": 78,
+    "nighttime_heating_setback": 3,
+    "annual_outside_film_coeff": 2.25,
+    "base_free_heat_from_internals": 2600,
+    "r_value_uninsulated_other_wall": 4.42,
+    "r_value_exterior_siding_other": 0.6,
+    "new_window_ac_seer": 11,
+    "new_central_ac_seer": 13,
+    "new_heatpump_cooling_seer": 13,
+    "new_showerhead_gpm": 2.5,
+    "new_dwh_blanket_r_value": 7,
+    "single_defrost_kwh": 0.08,
+    "new_duct_insulation_r_value": 7,
+    "new_standard_window_u_value": 0.46,
+    "new_standard_window_shgc": 0.62,
+    "new_lowe_window_u_value": 0.42,
+    "new_lowe_window_shgc": 0.42,
+    "storm_window_inside_emittance": 0.82,
+    "storm_window_shgc": 0.89,
+    "window_film_shgc": 0.49,
+    "window_film_emittance": 0.84
+  }
+}

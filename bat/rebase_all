@@ -1,0 +1,15 @@
+#!/bin/bash
+echo ---If the baseline output is EXPECTED to change, this script recomputes all audits and re-baselines---
+echo ---Fail the check if any of the following commands fail, ie return non 0---
+set -e
+echo ---Start with clean slate both executable and all output gone---
+make clean
+echo ---Build the executable---
+make
+echo ---Run all audits without failing on regression of the output---
+FAIL_ON_REGRESS=0 make neat_test
+FAIL_ON_REGRESS=0 make mhea_test
+echo ---BE SURE TO CHECK output/x_output reports for differences, if satified ONLY THEN DO---
+echo ---make neat_baseline---
+echo ---make mhea_baseline---
+echo ---make clean---

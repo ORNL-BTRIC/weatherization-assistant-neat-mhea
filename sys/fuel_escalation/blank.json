@@ -1,0 +1,55 @@
+{
+    "baseyear": ,
+    "censusregion": ,
+    "fuel_escalation_rates": [{
+        "fuel_type_id": 1,
+        "fuel_name": "Natural Gas",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 2,
+        "fuel_name": "Fuel Oil",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 3,
+        "fuel_name": "Electricity",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 4,
+        "fuel_name": "Propane",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 5,
+        "fuel_name": "Wood",
+        "rate": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }, {
+        "fuel_type_id": 6,
+        "fuel_name": "Coal",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 7,
+        "fuel_name": "Kerosene",
+        "rate": [1,
+
+
+        ]
+    }, {
+        "fuel_type_id": 8,
+        "fuel_name": "Other",
+        "rate": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }]
+}

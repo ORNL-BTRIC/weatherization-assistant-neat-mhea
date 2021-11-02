@@ -1,0 +1,73 @@
+MHEA 
+MHEA Retrofit Measure Savings Report       Audit Identifier:  
+
+Weather Site: WILMINGTON, DE 
+  Job Number: 1216 
+--------------------------------------------------------------------------------- 
+                                        Annual Energy Savings             
+                      ----------------------------------------------------------- 
+Recommended               Heating       Cooling       BaseLoad         Total      
+Measures               (MMBtu)  ($)   (kWh)   ($)   (kWh)   ($)    (MMBtu) ($)    
+--------------------------------------------------------------------------------- 
+Roof Fiberglass Loose    18.9   182       0     0       0     0      18.9  182 
+Floor Fiberglass Loos    13.2   127       0     0       0     0      13.2  127 
+   Setback Thermostat     1.6    15       0     0       0     0       1.6   15 
+Tune-Up Heating Syste    -0.2    -2       0     0       0     0      -0.2   -2 
+-------------------------------------------------------- 
+
+                            Annual Consumption                
+                        Heating  Cooling  BaseLoad 
+                        (MMBtu)  (kWh)     (kWh) 
+                        -------------------------------- 
+Pre-Weatherization        93.4          0          0
+Post-Weatherization       59.8          0          0
+------------------------------------------------------------------ 
+
+ ---------------------------------------------------
+ Modified Manual-J Heating System Sizing Estimate ** 
+ ---------------------------------------------------
+
+                Pre-Weatherization  Post-Weatherization
+                   (Btu / Hour)         (Btu / Hour)
+                ------------------  --------------------
+
+    Wall                6494              6494 
+    Floor              10263              2825 
+    Roof               13570              1993 
+    Windows              999               999 
+    Doors                376               376 
+    Infiltration        5507              5456 
+    Duct Loss           3721              1814 
+
+    Total              40930             19958 
+
+    (Sizing Calculations for this analysis
+         based on the following parameters:
+         o    70 degree F indoor design temperature,
+         o    10 degree F outdoor design temperature,
+         o    10 Base case duct loss fraction,
+         o    10 Retrofit case duct loss fraction )
+
+    ** IMPORTANT: This sizing estimate is provided as a
+       general guideline and should be reviewed by a
+       qualified heating contractor.
+
+---------------------------------------------- MHEA ---- 
+-------------------------------------------------------------------- 
+                             Measure               Cumulative        
+                      ----------------------  ---------------------- 
+Recommended           Savings   Costs    SIR  Savings   Costs    SIR 
+Measures              ($/year)   ($)          ($/year)   ($)         
+-------------------------------------------------------------------- 
+Roof Fiberglass Loose    182     689     4.2     182     689     4.2 
+Floor Fiberglass Loos    127     776     2.6     309    1465     3.3 
+   Setback Thermostat     15      75     2.6     324    1540     3.3 
+Tune-Up Heating Syste     -2     125    -0.0     323    1665     0.0 
+---------------------------------------------------- 
+                                                     
+Material                             Quantity  Units  
+----------------------------------------------------- 
+    Roof Fiberglass Loose Insulation    17.0     Bag
+   Floor Fiberglass Loose Insulation    28.0     Bag
+                  Setback Thermostat     1.0    Each
+              Tune-Up Heating System     1.0    Each

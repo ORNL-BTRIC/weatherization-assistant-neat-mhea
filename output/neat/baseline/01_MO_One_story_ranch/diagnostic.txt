@@ -1,0 +1,273 @@
+
+NEAT Engine Run: 
+Input From     : input/neat/01_MO_One_story_ranch.json
+Output To      : output/neat/last/01_MO_One_story_ranch/output.json
+Validate JSON INPUT with:ajv -s ./sys/json_schema/neat_input_schema.json -d input/neat/01_MO_One_story_ranch.json --errors=text > ./sys/json_schema/validation.txt 2>&1
+NEAT Echo To          : output/neat/last/01_MO_One_story_ranch/input.json
+NEAT Compare Report To: output/neat/last/01_MO_One_story_ranch/report.txt
+NEAT Measure Report To: output/neat/last/01_MO_One_story_ranch/measures.txt
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating:0
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: cooling:0
+Delivered heating efficiency: 1.000 was used for heating system: HS1
+Aggregate heating delivered efficiency: 1.000
+SEER: 9.581 was used for cooling system: AC1
+Aggregate cooling SEER:   9.581
+
+Un-interacted values immediately after call to first_pass_measures()
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0  0  1  0  Attic Insulation R11        UAU01 A1,            4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31      
+ 1  0  1  1  0  Attic Insulation R19        UAU01 A1,            6.698   256.88    1.038    39.82   296.70   741.00     6.17  3828.67      
+ 2  0  2  1  0  Attic Insulation R30        UAU01 A1,            7.950   304.90    1.232    47.24   352.14  1170.00     4.64  4253.60      
+ 3  0  3  1  0  Attic Insulation R38        UAU01 A1,            8.493   325.72    1.316    50.45   376.18  1482.00     3.91  4311.84      
+ 4  0 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73      
+ 5  0 44  1  0  White Roof Coating                A1,           -1.459   -55.94    1.066    40.88   -15.06   548.13    -0.17  -643.85      
+ 6  0 13  1  0  Window Sealing                    WD1,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+ 7  0 13  1  0  Window Sealing                    WD2,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+ 8  0 13  1  0  Window Sealing                    WD3,           0.274    10.49    0.021     0.82    11.31    60.00     1.65    39.23      
+ 9  0 15  1  0  Window Replacement                WD1,           1.546    59.28    0.024     0.90    60.18   692.00     1.34   234.93      
+10  0 15  1  0  Window Replacement                WD2,           1.814    69.56   -0.027    -1.02    68.54   692.00     1.53   363.58      
+11  0 15  1  0  Window Replacement                WD3,           0.826    31.66   -0.017    -0.67    31.00   346.00     1.38   131.41      
+12  0 16  1  0  Low E Windows                     WD1,           1.570    60.23    0.150     5.75    65.98   756.00     1.34   260.20      
+13  0 16  1  0  Low E Windows                     WD2,           0.934    35.81    0.261    10.02    45.83   756.00     0.93   -50.08      
+14  0 16  1  0  Low E Windows                     WD3,           0.665    25.52    0.145     5.54    31.06   378.00     1.27   100.38      
+15  0 17  1  0  Window Shading (Awning)           WD2,WD3,      -0.742   -28.47    0.519    19.90    -8.58   450.00    -0.17  -525.25      
+16  0 18  1  0  Sun Screen Fabric                 WD2,WD3,      -2.420   -92.80    0.815    31.27   -61.53   144.00    -3.75  -683.77      
+17  0 19  1  0  Sun Screen Louvered               WD2,WD3,      -3.269  -125.36    1.096    42.04   -83.33   288.00    -3.57 -1317.11      
+18  0 20  1  0  Window Film                       WD2,WD3,      -0.136    -5.23    0.047     1.80    -3.43   192.00    -0.22  -234.34      
+19  0 43  1  0  Door Replacement                  DR1,           0.061     2.34    0.013     0.50     2.84   185.00     0.24  -141.24      
+20  0 43  1  0  Door Replacement                  DR2,           0.205     7.87   -0.012    -0.46     7.41   185.00     0.62   -70.85      
+21  0 31  1  0  Tune-Up AC                        AC1,           0.000     0.00    0.632    24.24    24.24   125.00     0.55   -56.22      
+22  0 46  4  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53      
+23  0 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51      
+24  0 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51      
+25  0 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75      
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34      
+
+
+
+Un-interacted values immediately after priority adjustment to first_pass_measures()
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0  0  1  0  Attic Insulation R11        UAU01 A1,            4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31      
+ 1  0  1  1  0  Attic Insulation R19        UAU01 A1,            6.698   256.88    1.038    39.82   296.70   741.00     6.17  3828.67      
+ 2  0  2  1  0  Attic Insulation R30        UAU01 A1,            7.950   304.90    1.232    47.24   352.14  1170.00     4.64  4253.60      
+ 3  0  3  1  0  Attic Insulation R38        UAU01 A1,            8.493   325.72    1.316    50.45   376.18  1482.00     3.91  4311.84      
+ 4  0 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73      
+ 5  0 44  1  0  White Roof Coating                A1,           -1.459   -55.94    1.066    40.88   -15.06   548.13    -0.17  -643.85      
+ 6  0 13  1  0  Window Sealing                    WD1,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+ 7  0 13  1  0  Window Sealing                    WD2,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+ 8  0 13  1  0  Window Sealing                    WD3,           0.274    10.49    0.021     0.82    11.31    60.00     1.65    39.23      
+ 9  0 15  1  0  Window Replacement                WD1,           1.546    59.28    0.024     0.90    60.18   692.00     1.34   234.93      
+10  0 15  1  0  Window Replacement                WD2,           1.814    69.56   -0.027    -1.02    68.54   692.00     1.53   363.58      
+11  0 15  1  0  Window Replacement                WD3,           0.826    31.66   -0.017    -0.67    31.00   346.00     1.38   131.41      
+12  0 16  1  0  Low E Windows                     WD1,           1.570    60.23    0.150     5.75    65.98   756.00     1.34   260.20      
+13  0 16  1  0  Low E Windows                     WD2,           0.934    35.81    0.261    10.02    45.83   756.00     0.93   -50.08      
+14  0 16  1  0  Low E Windows                     WD3,           0.665    25.52    0.145     5.54    31.06   378.00     1.27   100.38      
+15  0 17  1  0  Window Shading (Awning)           WD2,WD3,      -0.742   -28.47    0.519    19.90    -8.58   450.00    -0.17  -525.25      
+16  0 18  1  0  Sun Screen Fabric                 WD2,WD3,      -2.420   -92.80    0.815    31.27   -61.53   144.00    -3.75  -683.77      
+17  0 19  1  0  Sun Screen Louvered               WD2,WD3,      -3.269  -125.36    1.096    42.04   -83.33   288.00    -3.57 -1317.11      
+18  0 20  1  0  Window Film                       WD2,WD3,      -0.136    -5.23    0.047     1.80    -3.43   192.00    -0.22  -234.34      
+19  0 43  1  0  Door Replacement                  DR1,           0.061     2.34    0.013     0.50     2.84   185.00     0.24  -141.24      
+20  0 43  1  0  Door Replacement                  DR2,           0.205     7.87   -0.012    -0.46     7.41   185.00     0.62   -70.85      
+21  0 31  1  0  Tune-Up AC                        AC1,           0.000     0.00    0.632    24.24    24.24   125.00     0.55   -56.22      
+22  0 46  4  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53      
+23  0 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51      
+24  0 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51      
+25  0 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75      
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34      
+
+
+
+Un-interacted values after FIRST pass ranking of measures
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34      
+25  1 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75      
+22  2 46  4  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53      
+24  3 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51      
+ 0  4  0  1  0  Attic Insulation R11        UAU01 A1,            4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31      
+ 4  5 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73      
+ 1  6  1  1  0  Attic Insulation R19        UAU01 A1,            6.698   256.88    1.038    39.82   296.70   741.00     6.17  3828.67      
+ 2  7  2  1  0  Attic Insulation R30        UAU01 A1,            7.950   304.90    1.232    47.24   352.14  1170.00     4.64  4253.60      
+ 3  8  3  1  0  Attic Insulation R38        UAU01 A1,            8.493   325.72    1.316    50.45   376.18  1482.00     3.91  4311.84      
+23  9 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51      
+ 8 10 13  1  0  Window Sealing                    WD3,           0.274    10.49    0.021     0.82    11.31    60.00     1.65    39.23      
+ 6 11 13  1  0  Window Sealing                    WD1,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+ 7 12 13  1  0  Window Sealing                    WD2,           0.547    20.98    0.043     1.64    22.62   120.00     1.65    78.45      
+10 13 15  1  0  Window Replacement                WD2,           1.814    69.56   -0.027    -1.02    68.54   692.00     1.53   363.58      
+11 14 15  1  0  Window Replacement                WD3,           0.826    31.66   -0.017    -0.67    31.00   346.00     1.38   131.41      
+12 15 16  1  0  Low E Windows                     WD1,           1.570    60.23    0.150     5.75    65.98   756.00     1.34   260.20      
+ 9 16 15  1  0  Window Replacement                WD1,           1.546    59.28    0.024     0.90    60.18   692.00     1.34   234.93      
+14 17 16  1  0  Low E Windows                     WD3,           0.665    25.52    0.145     5.54    31.06   378.00     1.27   100.38      
+13 18 16  1  0  Low E Windows                     WD2,           0.934    35.81    0.261    10.02    45.83   756.00     0.93   -50.08      
+20 19 43  1  0  Door Replacement                  DR2,           0.205     7.87   -0.012    -0.46     7.41   185.00     0.62   -70.85      
+21 20 31  1  0  Tune-Up AC                        AC1,           0.000     0.00    0.632    24.24    24.24   125.00     0.55   -56.22      
+19 21 43  1  0  Door Replacement                  DR1,           0.061     2.34    0.013     0.50     2.84   185.00     0.24  -141.24      
+15 22 17  1  0  Window Shading (Awning)           WD2,WD3,      -0.742   -28.47    0.519    19.90    -8.58   450.00    -0.17  -525.25      
+ 5 23 44  1  0  White Roof Coating                A1,           -1.459   -55.94    1.066    40.88   -15.06   548.13    -0.17  -643.85      
+18 24 20  1  0  Window Film                       WD2,WD3,      -0.136    -5.23    0.047     1.80    -3.43   192.00    -0.22  -234.34      
+17 25 19  1  0  Sun Screen Louvered               WD2,WD3,      -3.269  -125.36    1.096    42.04   -83.33   288.00    -3.57 -1317.11      
+16 26 18  1  0  Sun Screen Fabric                 WD2,WD3,      -2.420   -92.80    0.815    31.27   -61.53   144.00    -3.75  -683.77      
+
+
+    Interacted values of:
+      htload   clload   htengy   clengy
+       48.30    27.13    48.30     9.66
+
+
+SECOND pass as accumulated
+
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34 CONT1
+25  1 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75 CONT1
+22  2 46  4  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53 CONT1
+24  3 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51 IMPL 
+ 0  4  0  0  0  Attic Insulation R11        UAU01 A1,            4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31 SKIP 
+ 4  5 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73 IMPL 
+ 1  6  1  0  0  Attic Insulation R19        UAU01 A1,            6.672   255.90    1.007    38.60   294.50   741.00     6.12  3828.67 SKIP 
+ 2  7  2  0  0  Attic Insulation R30        UAU01 A1,            7.919   303.72    1.195    45.83   349.55  1170.00     4.60  4253.60 SKIP 
+ 3  8  3  1  0  Attic Insulation R38        UAU01 A1,            8.459   324.44    1.276    48.96   373.40  1482.00     3.88  4269.08 IMPL 
+23  9 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51 CONT1
+ 8 10 13  0  0  Window Sealing                    WD3,           0.271    10.38    0.019     0.72    11.10    60.00     1.62    39.23 SKIP 
+ 6 11 13  0  0  Window Sealing                    WD1,           0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45 SKIP 
+ 7 12 13  0  0  Window Sealing                    WD2,           0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45 SKIP 
+10 13 15  1  0  Window Replacement                WD2,           1.779    68.23   -0.045    -1.72    66.51   692.00     1.48   332.31 IMPL 
+11 14 15  1  0  Window Replacement                WD3,           0.798    30.60   -0.030    -1.15    29.45   346.00     1.31   107.66 IMPL 
+12 15 16  1  0  Low E Windows                     WD1,           1.523    58.40    0.131     5.02    63.41   756.00     1.29   220.67 IMPL 
+ 9 16 15  0  0  Window Replacement                WD1,           1.464    56.15   -0.008    -0.30    55.86   692.00     1.24   234.93 CONT2
+14 17 16  0  0  Low E Windows                     WD3,           0.651    24.95    0.140     5.35    30.30   378.00     1.23   100.38 CONT2
+13 18 16  0  0  Low E Windows                     WD2,           0.942    36.14    0.259     9.93    46.07   756.00     0.94   -50.08 CONT2
+
+Measures list BEFORE sorting SECOND pass interacted measures, but after recombining window measures
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34      
+25  1 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75      
+22  2 46  4  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53      
+24  3 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51      
+ 0  4  0  0  0  Attic Insulation R11        UAU01 A1             4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31      
+ 4  5 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73      
+ 1  6  1  0  0  Attic Insulation R19        UAU01 A1             6.672   255.90    1.007    38.60   294.50   741.00     6.12  3828.67      
+ 2  7  2  0  0  Attic Insulation R30        UAU01 A1             7.919   303.72    1.195    45.83   349.55  1170.00     4.60  4253.60      
+ 3  8  3  1  0  Attic Insulation R38        UAU01 A1             8.459   324.44    1.276    48.96   373.40  1482.00     3.88  4269.08      
+23  9 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51      
+ 8 10 13  0  0  Window Sealing                    WD3            0.271    10.38    0.019     0.72    11.10    60.00     1.62    39.23      
+ 6 11 13  0  0  Window Sealing                    WD1            0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45      
+ 7 12 13  0  0  Window Sealing                    WD2            0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45      
+10 13 15  1  0  Window Replacement                WD2,WD3        2.577    98.83   -0.075    -2.87    95.96  1038.00     1.42   439.97      
+11 14 15  0  0  Window Replacement                WD3            0.000     0.00    0.000     0.00     0.00     0.00     0.00     0.00      
+12 15 16  1  0  Low E Windows                     WD1            1.523    58.40    0.131     5.02    63.41   756.00     1.29   220.67      
+ 9 16 15  0  0  Window Replacement                WD1            1.464    56.15   -0.008    -0.30    55.86   692.00     1.24   234.93      
+14 17 16  0  0  Low E Windows                     WD3            0.651    24.95    0.140     5.35    30.30   378.00     1.23   100.38      
+13 18 16  0  0  Low E Windows                     WD2            0.942    36.14    0.259     9.93    46.07   756.00     0.94   -50.08      
+20 19 43  0  0  Door Replacement                  DR2            0.186     7.15   -0.018    -0.68     6.47   185.00     0.54   -70.85      
+21 20 31  0  0  Tune-Up AC                        AC1            0.000     0.00    0.456    17.49    17.49   125.00     0.40   -56.22      
+19 21 43  0  0  Door Replacement                  DR1            0.058     2.22    0.012     0.45     2.67   185.00     0.22  -141.24      
+15 22 17  0  0  Window Shading (Awning)           WD2,WD3       -0.661   -25.37    0.557    21.36    -4.01   450.00    -0.08  -525.25      
+ 5 23 44  0  0  White Roof Coating                A1            -0.318   -12.18    0.283    10.87    -1.30   548.13    -0.02  -643.85      
+18 24 20  0  0  Window Film                       WD2,WD3       -0.123    -4.72    0.052     1.98    -2.74   192.00    -0.18  -234.34      
+17 25 19  0  0  Sun Screen Louvered               WD2,WD3       -3.105  -119.08    1.164    44.64   -74.44   288.00    -3.19 -1317.11      
+16 26 18  0  0  Sun Screen Fabric                 WD2,WD3       -2.273   -87.18    0.875    33.56   -53.62   144.00    -3.27  -683.77      
+
+
+
+Interacted Measures list after SECOND pass sorting
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+26  0 39  1  0  Low Flow Showerheads                             0.000     0.00    0.000     0.00    33.55    20.00    20.72   394.34      
+25  1 38  1  0  Water Heater Pipe Insula                         0.000     0.00    0.000     0.00    20.74    15.00    15.18   212.75      
+22  2 46  1  0  Infiltration Reduction                           5.759   220.88    0.377    14.47   235.35   200.00    10.32  1864.53      
+24  3 37  1  0  Water Heater Tank Insula                         0.000     0.00    0.000     0.00    36.56    40.00    10.04   361.51      
+ 4  4 10  1  0  Wall Insulation             WAL01 WL1-N,WL2-    11.971   459.12    1.357    52.03   511.15  1106.96     7.11  6765.73      
+ 3  5  3  1  0  Attic Insulation R38        UAU01 A1             8.459   324.44    1.276    48.96   373.40  1482.00     3.88  4269.08      
+23  6 36  1  0  Refrigerator Replacement                         0.000     0.00    0.000     0.00   105.30   725.00     1.79   575.51      
+10  7 15  1  0  Window Replacement                WD2,WD3        2.577    98.83   -0.075    -2.87    95.96  1038.00     1.42   439.97      
+12  8 16  1  0  Low E Windows                     WD1            1.523    58.40    0.131     5.02    63.41   756.00     1.29   220.67      
+ 0  9  0  0  0  Attic Insulation R11        UAU01 A1             4.833   185.38    0.750    28.77   214.15   429.00     7.69  2869.31      
+ 1 10  1  0  0  Attic Insulation R19        UAU01 A1             6.672   255.90    1.007    38.60   294.50   741.00     6.12  3828.67      
+ 2 11  2  0  0  Attic Insulation R30        UAU01 A1             7.919   303.72    1.195    45.83   349.55  1170.00     4.60  4253.60      
+ 8 12 13  0  0  Window Sealing                    WD3            0.271    10.38    0.019     0.72    11.10    60.00     1.62    39.23      
+ 6 13 13  0  0  Window Sealing                    WD1            0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45      
+ 7 14 13  0  0  Window Sealing                    WD2            0.541    20.75    0.037     1.44    22.19   120.00     1.62    78.45      
+ 9 15 15  0  0  Window Replacement                WD1            1.464    56.15   -0.008    -0.30    55.86   692.00     1.24   234.93      
+14 16 16  0  0  Low E Windows                     WD3            0.651    24.95    0.140     5.35    30.30   378.00     1.23   100.38      
+13 17 16  0  0  Low E Windows                     WD2            0.942    36.14    0.259     9.93    46.07   756.00     0.94   -50.08      
+20 18 43  0  0  Door Replacement                  DR2            0.186     7.15   -0.018    -0.68     6.47   185.00     0.54   -70.85      
+21 19 31  0  0  Tune-Up AC                        AC1            0.000     0.00    0.456    17.49    17.49   125.00     0.40   -56.22      
+19 20 43  0  0  Door Replacement                  DR1            0.058     2.22    0.012     0.45     2.67   185.00     0.22  -141.24      
+11 21 15  0  0  Window Replacement                WD3            0.000     0.00    0.000     0.00     0.00     0.00     0.00     0.00      
+ 5 22 44  0  0  White Roof Coating                A1            -0.318   -12.18    0.283    10.87    -1.30   548.13    -0.02  -643.85      
+15 23 17  0  0  Window Shading (Awning)           WD2,WD3       -0.661   -25.37    0.557    21.36    -4.01   450.00    -0.08  -525.25      
+18 24 20  0  0  Window Film                       WD2,WD3       -0.123    -4.72    0.052     1.98    -2.74   192.00    -0.18  -234.34      
+17 25 19  0  0  Sun Screen Louvered               WD2,WD3       -3.105  -119.08    1.164    44.64   -74.44   288.00    -3.19 -1317.11      
+16 26 18  0  0  Sun Screen Fabric                 WD2,WD3       -2.273   -87.18    0.875    33.56   -53.62   144.00    -3.27  -683.77      
+
+
+
+FINAL as reported
+
+      i  m  a  r                                                              dlsav     cost  life   sir
+ITC1  1 49 36  1 Install Dryer Vent                                           0.000  150.000     0  0.00
+ITC1  2 49 36  1 Install Sash Lock                                            0.000    9.500     0  0.00
+MAIN  3 39 28  0 Low Flow Showerheads                                        33.549   20.000    15 20.72
+MAIN  4 38 28  0 Water Heater Pipe Insula                                    20.738   15.000    13 15.18
+MAIN  5 46 24  0 Infiltration Reduction                                     235.351  200.000    10 10.32
+MAIN  6 37 28  0 Water Heater Tank Insula                                    36.560   40.000    13 10.04
+MAIN  7 10  1  0 Wall Insulation          Wall01               WL1-N,WL2-   511.152 1106.960    20  7.11
+MAIN  8  3  3  0 Attic Insulation R38     UnfinishedAtticUnres A1           373.402 1482.000    20  3.88
+MAIN  9 36 30  0 Refrigerator Replacement                                   105.303  725.000    15  1.79
+MAIN 10 15 60  0 Window Replacement                            WD2,WD3       95.960 1038.000    20  1.42
+MAIN 11 16 60  0 Low E Windows                                 WD1           63.412  756.000    20  1.29
+ITC2 12 49 36  1 Install Smoke Detector                                       0.000   20.000     0  0.00
+
+ECM Array on entry to report_materials
+
+ i Index   Mdx rmci
+ 0    0      0   0 Attic Insulation R11
+ 1    1      0   1 Attic Insulation R19
+ 2    2      0   2 Attic Insulation R30
+ 3    3      8   3 Attic Insulation R38
+ 4    4      7  16 Wall Insulation
+ 5    5      0 130 White Roof Coating
+ 6    6      0  57 Window Sealing
+ 7    7      0  57 Window Sealing
+ 8    8      0  57 Window Sealing
+ 9    9      0  59 Window Replacement
+10   10     10  59 Window Replacement
+11   11      0  59 Window Replacement
+12   12     11  60 Low E Windows
+13   13      0  60 Low E Windows
+14   14      0  60 Low E Windows
+15   15      0  53 Window Shading (Awning)
+16   16      0  54 Sun Screen Fabric
+17   17      0  55 Sun Screen Louvered
+18   18      0  56 Window Film
+19   19      0 129 Door Replacement
+20   20      0 129 Door Replacement
+21   21      0  48 Tune-Up AC
+22   22      5 138 Infiltration Reduction
+23   23      9 140 Refrigerator Replacement
+24   24      6  72 Water Heater Tank Insulation
+25   25      4  73 Water Heater Pipe Insulation
+26   26      3  74 Low Flow Showerheads
+
+Materials Array on entry to report_materials
+
+  i Mdx     qty
+  3   8 1300.000 Attic Insulation R38
+ 16   7 1096.000 Wall Insulation
+ 59  10   6.000 Window Replacement
+ 60  11   4.000 Low E Windows
+ 72   6   1.000 Water Heater Tank Insulation
+ 73   4   1.000 Water Heater Pipe Insulation
+ 74   3   1.000 Low Flow Showerheads
+138   5   0.000 
+
+ECMM Array on entry to report_measure_materials
+
+ ecm_index Mdx rmc           comp                  desc                                type            matid
+  3  8  3                             A1           Attic Insulation R38                Blown Cellulose  1
+  3  8  3                             A1           Attic Insulation R38                Blown Cellulose 10
+  4  7 16     WL1-N, WL2-S, WL3-E, WL4-W                Wall Insulation   Blown Cellulose - 2x4 Filled  1
+  4  7 16     WL1-N, WL2-S, WL3-E, WL4-W                Wall Insulation   Blown Cellulose - 2x4 Filled 10
+
+
+
+FUEL NAME USED:Electricity
+Validate JSON OUTPUT with:ajv -s ./sys/json_schema/neat_output_schema.json -d output/neat/last/01_MO_One_story_ranch/output.json --errors=text > ./sys/json_schema/validation.txt 2>&1

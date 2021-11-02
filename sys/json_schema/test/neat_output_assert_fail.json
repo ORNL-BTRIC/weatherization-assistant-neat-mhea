@@ -1,0 +1,10 @@
+{
+    "data": {
+        "audit_type": "NEAT",
+        "location": "src/common/wa_engine.c:39",
+        "message": "(0):This is a test assertion failure line",
+        "run_identifier": "20200222.113055826",
+        "run_timestamp": "Sat Feb 22 11:30:55 2020"
+    },
+    "success": false
+}

@@ -1,0 +1,25 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then
+    echo "Provide a version tag as first argument in the form vXX.YY.BBB"
+    echo "Where XX is two digit major version"
+    echo "Where YY is two digit minor version"
+    echo "Where BBB is the three digit build number"
+    echo "Current tag is:"
+    git describe --tags `git rev-list --tags --max-count=1`
+    exit 1
+fi
+# Make the new tag from first parameter
+git tag ${1}
+# Remove the old version header 
+rm src/common/version.h
+# and let Makefile rebuild it (and other version tagged files) using the current tag
+make
+# Then commit those changes with a standard message
+git add .
+git commit -m "Update the repository tag to ${1}"
+# Finally remove the old tag (points one back in commit history so does not see the above changes)
+git tag -d ${1}
+# and re-tag so it point to the current head WITH the version file updates
+git tag ${1}
+# push the new tag to the repository
+git push --tags

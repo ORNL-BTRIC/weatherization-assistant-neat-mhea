@@ -1,0 +1,19 @@
+{
+    "regions": 
+    [{
+        "states": "CT,MN,MA,NH,NJ,NY,PA,RI,VT,",
+        "censusregion": 1
+    }, {
+        "states": "(IL,IN,IA,KS,MI,MN,MO,NE,ND,OH,SD,WI,",
+        "censusregion": 2
+    }, {
+        "states": "AL,AR,DE,DC,FL,GA,KY,LA,MD,MS,NC,OK,SC,TN,TX,VA,WV,",
+        "censusregion": 3
+    }, {
+        "states": "AK,AZ,CA,CO,HI,ID,MT,NV,NM,OR,UT,WA,WY,",
+        "censusregion": 4
+    }, {
+        "states": "US,USA,ANY,",
+        "censusregion": 5
+     }]
+}

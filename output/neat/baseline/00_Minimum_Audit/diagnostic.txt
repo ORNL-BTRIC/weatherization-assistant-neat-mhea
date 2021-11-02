@@ -1,0 +1,85 @@
+
+NEAT Engine Run: 
+Input From     : input/neat/00_Minimum_Audit.json
+Output To      : output/neat/last/00_Minimum_Audit/output.json
+Validate JSON INPUT with:ajv -s ./sys/json_schema/neat_input_schema.json -d input/neat/00_Minimum_Audit.json --errors=text > ./sys/json_schema/validation.txt 2>&1
+NEAT Echo To          : output/neat/last/00_Minimum_Audit/input.json
+NEAT Compare Report To: output/neat/last/00_Minimum_Audit/report.txt
+NEAT Measure Report To: output/neat/last/00_Minimum_Audit/measures.txt
+Notice, Extra JSON field: conversion_comments FOUND IN SECTION: heating:0
+Delivered heating efficiency: 1.000 was used for heating system: HS1
+Aggregate heating delivered efficiency: 1.000
+Aggregate cooling SEER:   8.500
+
+Un-interacted values immediately after call to first_pass_measures()
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1,           0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17      
+ 1  0 30  1  0  Smart Thermostat                  HS1,           0.036     1.38    0.000     0.00     1.38    75.00     0.23   -57.93      
+
+
+
+Un-interacted values immediately after priority adjustment to first_pass_measures()
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1,           0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17      
+ 1  0 30  1  0  Smart Thermostat                  HS1,           0.036     1.38    0.000     0.00     1.38    75.00     0.23   -57.93      
+
+
+
+Un-interacted values after FIRST pass ranking of measures
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1,           0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17      
+ 1  1 30  1  0  Smart Thermostat                  HS1,           0.036     1.38    0.000     0.00     1.38    75.00     0.23   -57.93      
+
+
+    Interacted values of:
+      htload   clload   htengy   clengy
+        1.57    11.07     1.57     0.00
+
+
+SECOND pass as accumulated
+
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1,           0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17 IMPL 
+
+Measures list BEFORE sorting SECOND pass interacted measures, but after recombining window measures
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1            0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17      
+ 1  1 30  0  0  Smart Thermostat                  HS1            0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00      
+
+
+
+Interacted Measures list after SECOND pass sorting
+ i  s  m  p  r                                               htengysav  htdlsav clengysav  cldlsav   dlsav     cost     sir       npv
+ 0  0 10  1  0  Wall Insulation             WAL01 WL1            0.820    31.44    0.000     0.00    31.44   403.00     1.20    81.17      
+ 1  1 30  0  0  Smart Thermostat                  HS1            0.000     0.00    0.000     0.00     0.00    75.00     0.00   -75.00      
+
+
+
+FINAL as reported
+
+      i  m  a  r                                                              dlsav     cost  life   sir
+INFI  1 46 24  1 Infiltration Reduction                                       0.000  100.000     0  0.00
+MAIN  2 10  1  0 Wall Insulation          Wall01               WL1           31.436  403.000    20  1.20
+
+ECM Array on entry to report_materials
+
+ i Index   Mdx rmci
+ 0    0      2  16 Wall Insulation
+ 1    1      0  41 Smart Thermostat
+
+Materials Array on entry to report_materials
+
+  i Mdx     qty
+ 16   2 300.000 Wall Insulation
+
+ECMM Array on entry to report_measure_materials
+
+ ecm_index Mdx rmc           comp                  desc                                type            matid
+  0  2 16                            WL1                Wall Insulation   Blown Cellulose - 2x4 Filled  1
+  0  2 16                            WL1                Wall Insulation   Blown Cellulose - 2x4 Filled 10
+  0  2 -1                            WL1                Wall Insulation   Blown Cellulose - 2x4 Filled  2
+
+
+
+FUEL NAME USED:Electricity
+Validate JSON OUTPUT with:ajv -s ./sys/json_schema/neat_output_schema.json -d output/neat/last/00_Minimum_Audit/output.json --errors=text > ./sys/json_schema/validation.txt 2>&1

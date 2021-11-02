@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then
+    echo "get_json_input [neat|mhea]"
+    echo "All -input.json files in ../../Downloads processed as either NEAT or MHEA, NOT both"
+    exit 1
+fi
+FILES=../../Downloads/*-input.json
+for f in $FILES
+do
+  echo "Processing $f -> input/${1}/$(basename ${f% - *}.json)"
+  # https://formulae.brew.sh/formula/jsonlint
+  jsonlint "$f" -iq
+  cp "$f" "input/${1}/$(basename ${f% - *}.json)"
+done

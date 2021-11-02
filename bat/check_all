@@ -1,0 +1,18 @@
+#!/bin/bash
+echo ---Pre merge check script for wa_engine, both NEAT AND MHEA---
+echo ---Fail the check if any of the following commands fail. ie return non 0---
+set -e
+echo ---Start with clean slate both executable and all output gone---
+make clean
+echo ---Build the executable---
+make 
+echo ---Run all the regression tests with schema checks with x3 speed penalty---
+make neat_test RUN_FLAGS='-f -z -s -v -d1' FAIL_ON_REGRESS=1 ECHO_ALL_DIFF_FILES=0 RE_RUN_WITH_ECHOED_INPUTS=1 CLOSE_LOOP_TEST=0 CLOSE_LOOP_SITE=develop
+make mhea_test RUN_FLAGS='-f -z -s -v -d1' FAIL_ON_REGRESS=1 ECHO_ALL_DIFF_FILES=0 RE_RUN_WITH_ECHOED_INPUTS=1 CLOSE_LOOP_TEST=0 CLOSE_LOOP_SITE=develop
+echo ---Start over with no output to force another set of runs---
+make clean_output
+echo ---Run all the regression tests with the default for regression tests on server compile and deploy---
+make neat_test RUN_FLAGS='-f -z -d1' FAIL_ON_REGRESS=1 ECHO_ALL_DIFF_FILES=0 CLOSE_LOOP_TEST=0 CLOSE_LOOP_SITE=develop
+make mhea_test RUN_FLAGS='-f -z -d1' FAIL_ON_REGRESS=1 ECHO_ALL_DIFF_FILES=0 CLOSE_LOOP_TEST=0 CLOSE_LOOP_SITE=develop
+echo ---Finally clean up the repo making it---
+echo ---READY FOR CLEAN and MERGE---

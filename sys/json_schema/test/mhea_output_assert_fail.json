@@ -1,0 +1,10 @@
+{
+    "data": {
+        "audit_type": "MHEA",
+        "location": "src/common/wa_engine.c:39",
+        "message": "(0):This is a test assertion failure line",
+        "run_identifier": "20200222.112811780",
+        "run_timestamp": "Sat Feb 22 11:28:11 2020"
+    },
+    "success": false
+}

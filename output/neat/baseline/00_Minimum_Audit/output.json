@@ -1,0 +1,370 @@
+{
+	"audit_type":	"NEAT",
+	"audit_id":	311,
+	"audit_number":	1297,
+	"no_cond_stories":	1,
+	"floor_area":	1000,
+	"energy_calc_counter":	2,
+	"energy_delta_counter":	4,
+	"num_measure":	2,
+	"measures":	[{
+			"index":	1,
+			"measure_id":	46,
+			"component_id":	0,
+			"audit_section_id":	24,
+			"measure":	"Infiltration Reduction",
+			"components":	"",
+			"heating_mmbtu":	0,
+			"heating_sav":	0,
+			"cooling_kwh":	0,
+			"cooling_sav":	0,
+			"baseload_kwh":	0,
+			"baseload_sav":	0,
+			"total_mmbtu":	0,
+			"savings":	0,
+			"cost":	100,
+			"sir":	0,
+			"qtym":	0,
+			"qtyl":	0,
+			"qtyi":	0,
+			"costum":	0,
+			"costul":	0,
+			"costi1":	0,
+			"costi2":	100,
+			"desci2":	"Infiltration Reduction",
+			"typei2":	2,
+			"costi3":	0,
+			"desci3":	"",
+			"typei3":	0
+		}, {
+			"index":	2,
+			"measure_id":	10,
+			"component_id":	0,
+			"audit_section_id":	1,
+			"measure":	"Wall Insulation",
+			"comp_group":	"Wall01",
+			"components":	"WL1",
+			"heating_mmbtu":	0.82,
+			"heating_sav":	31.44,
+			"cooling_kwh":	0,
+			"cooling_sav":	0,
+			"baseload_kwh":	0,
+			"baseload_sav":	0,
+			"total_mmbtu":	0.82,
+			"savings":	31.44,
+			"cost":	403,
+			"sir":	1.201,
+			"lifetime":	20,
+			"qtym":	0,
+			"qtyl":	0,
+			"qtyi":	0,
+			"costum":	0,
+			"costul":	0,
+			"costi1":	0,
+			"costi2":	0,
+			"desci2":	"",
+			"typei2":	0,
+			"costi3":	0,
+			"desci3":	"",
+			"typei3":	0
+		}],
+	"num_measure_material":	3,
+	"mmaterial":	[{
+			"index":	1,
+			"measure_index":	2,
+			"material_id":	16,
+			"components":	"WL1",
+			"description":	"Wall Insulation - Blown Cellulose - 2x4 Filled",
+			"material_type_id":	1,
+			"units":	"SqFt",
+			"qty_est":	300,
+			"unit_cost_est":	0.26,
+			"comment":	""
+		}, {
+			"index":	2,
+			"measure_index":	2,
+			"material_id":	16,
+			"components":	"WL1",
+			"description":	"Wall Insulation - Blown Cellulose - 2x4 Filled",
+			"material_type_id":	10,
+			"units":	"SqFt",
+			"qty_est":	300,
+			"unit_cost_est":	0.75,
+			"comment":	""
+		}, {
+			"index":	3,
+			"measure_index":	2,
+			"material_id":	-1,
+			"components":	"WL1",
+			"description":	"Wall Insulation - Blown Cellulose - 2x4 Filled",
+			"material_type_id":	2,
+			"units":	"Each",
+			"qty_est":	1,
+			"unit_cost_est":	100,
+			"comment":	""
+		}],
+	"num_an_sav":	1,
+	"an_sav":	[{
+			"index":	1,
+			"measure_index":	2,
+			"measure":	"Wall Insulation",
+			"comp_group":	"Wall01",
+			"components":	"WL1",
+			"heating_mmbtu":	0.82,
+			"heating_sav":	31.44,
+			"cooling_kwh":	0,
+			"cooling_sav":	0,
+			"baseload_kwh":	0,
+			"baseload_sav":	0,
+			"total_mmbtu":	0.82
+		}],
+	"num_an_asav":	0,
+	"an_asav":	[],
+	"num_sir":	2,
+	"sir":	[{
+			"index":	1,
+			"measure_index":	1,
+			"group":	1,
+			"measure":	"Infiltration Reduction",
+			"components":	"",
+			"savings":	0,
+			"cost":	100,
+			"sir":	0,
+			"ccost":	100,
+			"csir":	0
+		}, {
+			"index":	2,
+			"measure_index":	2,
+			"group":	2,
+			"measure":	"Wall Insulation",
+			"comp_group":	"Wall01",
+			"components":	"WL1",
+			"savings":	31.44,
+			"cost":	403,
+			"sir":	1.201,
+			"ccost":	503,
+			"csir":	0.963
+		}],
+	"num_asir":	0,
+	"asir":	[],
+	"num_material":	1,
+	"material":	[{
+			"index":	1,
+			"measure_index":	2,
+			"material_id":	16,
+			"material":	"Wall Insulation",
+			"type":	"Blown Cellulose - 2x4 Filled",
+			"quantity":	300,
+			"units":	"SqFt",
+			"qtymat":	0,
+			"qtyhrs":	0,
+			"qtyeach":	0
+		}],
+	"num_amaterial":	0,
+	"amaterial":	[],
+	"num_an_load":	4,
+	"an_load":	[{
+			"index":	1,
+			"name":	"Annual Load (MMBtu/yr)",
+			"pre_heat":	1.569,
+			"pre_cool":	11.623,
+			"post_heat":	0.75,
+			"post_cool":	8.33
+		}, {
+			"index":	2,
+			"name":	"Annual Energy (MMBtu/yr)",
+			"pre_heat":	1.569,
+			"pre_cool":	0,
+			"post_heat":	0.75,
+			"post_cool":	0
+		}, {
+			"index":	3,
+			"name":	"Heat Loss/Gain (kBtu/hr)",
+			"pre_heat":	13.001,
+			"pre_cool":	4.004,
+			"post_heat":	3.325,
+			"post_cool":	2.9
+		}, {
+			"index":	4,
+			"name":	"Output Required (kBtu/hr)(ton)",
+			"pre_heat":	14.951,
+			"pre_cool":	0.415,
+			"post_heat":	3.824,
+			"post_cool":	0.323
+		}],
+	"num_message":	4,
+	"message":	[{
+			"index":	1,
+			"msg":	"NOTE: Heat loss and Output required are only guides to sizing equipment."
+		}, {
+			"index":	2,
+			"msg":	"NOTE: See NEAT User's Manual for further sizing details."
+		}, {
+			"index":	3,
+			"msg":	"NOTE: Read cautions in NEAT User's Manual related to sizing results."
+		}, {
+			"index":	4,
+			"msg":	"NOTE: (+) in the Materials list indicates there are more related User Defined Materials."
+		}],
+	"num_manj":	18,
+	"manj":	[{
+			"index":	0,
+			"heatcool":	"heat",
+			"type":	"Wall (Btu/h)",
+			"name":	"WL1",
+			"area_vol":	300,
+			"pre_load":	4640.94,
+			"post_load":	1429.827
+		}, {
+			"index":	1,
+			"heatcool":	"heat",
+			"type":	"Infiltration (Btu/h)",
+			"name":	"Inf",
+			"area_vol":	8000,
+			"pre_load":	8360,
+			"post_load":	1895.204
+		}, {
+			"index":	2,
+			"heatcool":	"heat",
+			"type":	"Total heat loss (Btu/h)",
+			"name":	"Tot",
+			"area_vol":	0,
+			"pre_load":	13000.941,
+			"post_load":	3325.031
+		}, {
+			"index":	3,
+			"heatcool":	"heat",
+			"type":	"Duct loss (Btu/h)",
+			"name":	"Duct",
+			"area_vol":	0,
+			"pre_load":	1950.141,
+			"post_load":	498.755
+		}, {
+			"index":	4,
+			"heatcool":	"heat",
+			"type":	"Output required (Btu/h)",
+			"name":	"Output",
+			"area_vol":	0,
+			"pre_load":	14951.082,
+			"post_load":	3823.786
+		}, {
+			"index":	5,
+			"heatcool":	"cool",
+			"type":	"Wall (Btu/h)",
+			"name":	"WL1",
+			"area_vol":	300,
+			"pre_load":	1595.832,
+			"post_load":	491.66
+		}, {
+			"index":	6,
+			"heatcool":	"cool",
+			"type":	"Infiltration (Btu/h)",
+			"name":	"Inf",
+			"area_vol":	8000,
+			"pre_load":	932.118,
+			"post_load":	932.118
+		}, {
+			"index":	7,
+			"heatcool":	"cool",
+			"type":	"People (Btu/h)",
+			"name":	"People",
+			"area_vol":	1,
+			"pre_load":	276,
+			"post_load":	276
+		}, {
+			"index":	8,
+			"heatcool":	"cool",
+			"type":	"Appliances (Btu/h)",
+			"name":	"Appl",
+			"area_vol":	1,
+			"pre_load":	1200,
+			"post_load":	1200
+		}, {
+			"index":	9,
+			"heatcool":	"cool",
+			"type":	"Total Sensible (Btu/h)",
+			"name":	"TotS",
+			"area_vol":	0,
+			"pre_load":	4003.95,
+			"post_load":	2899.778
+		}, {
+			"index":	10,
+			"heatcool":	"cool",
+			"type":	"Ducts (Btu/h)",
+			"name":	"Ducts",
+			"area_vol":	0,
+			"pre_load":	0,
+			"post_load":	0
+		}, {
+			"index":	11,
+			"heatcool":	"cool",
+			"type":	"Total (with ducts) (Btu/h)",
+			"name":	"TotW",
+			"area_vol":	0,
+			"pre_load":	4003.95,
+			"post_load":	2899.778
+		}, {
+			"index":	12,
+			"heatcool":	"cool",
+			"type":	"Size (tons)",
+			"name":	"Size",
+			"area_vol":	0,
+			"pre_load":	0.334,
+			"post_load":	0.242
+		}, {
+			"index":	13,
+			"heatcool":	"cool",
+			"type":	"Latent Load (inf) (Btu/h)",
+			"name":	"LatentI",
+			"area_vol":	0,
+			"pre_load":	743.506,
+			"post_load":	743.506
+		}, {
+			"index":	14,
+			"heatcool":	"cool",
+			"type":	"Latent Load (occ) (Btu/h)",
+			"name":	"LatentO",
+			"area_vol":	0,
+			"pre_load":	230,
+			"post_load":	230
+		}, {
+			"index":	15,
+			"heatcool":	"cool",
+			"type":	"Latent Load (tot) (Btu/h)",
+			"name":	"LatentT",
+			"area_vol":	0,
+			"pre_load":	973.506,
+			"post_load":	973.506
+		}, {
+			"index":	16,
+			"heatcool":	"cool",
+			"type":	"Total Load (Btu/h)",
+			"name":	"Total",
+			"area_vol":	0,
+			"pre_load":	4977.457,
+			"post_load":	3873.285
+		}, {
+			"index":	17,
+			"heatcool":	"cool",
+			"type":	"Size (tons)",
+			"name":	"Size",
+			"area_vol":	0,
+			"pre_load":	0.415,
+			"post_load":	0.323
+		}],
+	"heat_comp_units":	"",
+	"heat_dd_base":	0,
+	"num_heat_comp":	0,
+	"heat_comp":	[],
+	"cool_comp_units":	"",
+	"cool_dd_base":	0,
+	"num_cool_comp":	0,
+	"cool_comp":	[],
+	"num_used_fuel":	1,
+	"used_fuel":	[{
+			"fuel_name":	"Electricity",
+			"fuel_cost":	0.1309,
+			"fuel_cost_units":	"$/kWh",
+			"fuel_cost_per_mmbtu":	38.3534
+		}]
+}

@@ -1,0 +1,23 @@
+v10.0.10 5/22/2020
+
+1) Added "audit_section_id" as a required element to the "measures" array.  This element was already being printed for each "measures" record, but it was not listed as a required element.
+
+2) Added "component_id" to the "measures" array and included in the required list of elements.  This is a string identifier currently only used as a pass through for "itemized_costs" array input records.  It will be a zero length string for all other "measures" array records for now.
+
+v10.0.13 6/19/20
+
+1) Added "Null" as a possible output for heating and cooling degree day comparisons if the input degree_day fields are all Null.
+
+v10.02.017 11/20/2020
+
+1) Changed measures[].component_id to a 32 bit integer from a string.
+
+v10.02.020 11/15/2020
+
+1) Changed all *_mbtu output variables to *_mmbtu to clearly indicate the units are million Btu
+
+v10.03.002 02/18/2021
+
+1) The manj[].name and  and manj[].area have been noted as (UNUSED) NEAT only.  Those element will be zero and blank for now with MHEA output, but still required.
+
+2) The measures[].cooling_kwh and measures[].baseload_kwh prior to this version were reporting in units of MMBTU rather than kWH.

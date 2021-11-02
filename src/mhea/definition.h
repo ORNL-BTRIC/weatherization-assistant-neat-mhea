@@ -1,0 +1,210 @@
+/***************************************************************************
+* MODULE:       definition.h            CREATED:       9/7/01
+*
+* AUTHOR:       Mark Fishbaugher  2001-2020
+*
+****************************************************************************/
+#ifndef _M_DEFINITION_H
+#define _M_DEFINITION_H
+
+#define MHEA_INPUT_JSON_SCHEMA_FILE SCHEMA_DIR "mhea_input_schema.json"
+#define MHEA_OUTPUT_JSON_SCHEMA_FILE SCHEMA_DIR "mhea_output_schema.json"
+
+// Mhea audit_section_ids SYNC WITH WEB_UI e_audit_panel TABLE
+// this is a subset of that table for ids that may be associated with 
+// a measure. Order is roughly the order of appearance in audit dock of web_ui
+
+#define M_AUDIT 65
+#define M_WALL 2
+#define M_WINDOW 66
+#define M_DOOR 67
+#define M_CEILING 5
+#define M_FLOOR 7
+#define M_WALL_ADDITION 68
+#define M_WINDOW_ADDITION 69
+#define M_DOOR_ADDITION 70
+#define M_CEILING_ADDITION 71
+#define M_FLOOR_ADDITION 72
+#define M_HEATING 73
+#define M_COOLING 23
+#define M_DUCTS_AND_INFILTRATION 74
+#define M_WATER_HEATING 29
+#define M_REFRIGERATOR 31
+#define M_LIGHTING 33
+#define M_HEALTH_AND_SAFETY 35
+#define M_ITEMIZED_COST 37
+
+// Taken from v8.9.0.5 waf.mdb Public Sub InitializeRangeCheck() in basDataCheck, MJF 10/2018
+
+// IMPORTANT NOTE:  Make sure these maximums match the schema.json
+
+#define MHEA_MAX_WIN 18 // maximum number of windows
+#define MHEA_MIN_WIN 1
+#define MHEA_MIN_AWN 0
+
+#define MHEA_MAX_DOR 10 // maximum number of doors
+#define MHEA_MIN_DOR 1
+#define MHEA_MIN_ADR 0
+
+#define M_RETRO_NAME_LEN 51     // length of retrofit material name in costs table
+#define M_RETRO_UNITS_LEN 20    // length of units description in material costs table, increased to 20 MJF 6/19
+
+// Measure IDs
+
+#define M_CMS_REPLACE_HEATING_SYSTEM 0
+#define M_CMS_SEAL_DUCTS 1
+#define M_CMS_GENERAL_AIR_SEALING 2
+#define M_CMS_WALL_FIBERGLASS_BATT_INSL 3
+#define M_CMS_WALL_FIBERGLASS_BATT_INSL_ADD 4
+#define M_CMS_WALL_CELLULOSE_LOOSE_INSL 5
+#define M_CMS_WALL_CELLULOSE_LOOSE_INSL_ADD 6
+#define M_CMS_WALL_FIBERGLASS_LOOSE_INSL 7
+#define M_CMS_WALL_FIBERGLASS_LOOSE_INSL_ADD 8
+#define M_CMS_BELLY_CELLULOSE_LOOSE_INSL 9
+#define M_CMS_BELLY_CELLULOSE_LOOSE_INSL_ADD 10
+#define M_CMS_BELLY_FIBERGLASS_LOOSE_INSL 11
+#define M_CMS_BELLY_FIBERGLASS_LOOSE_INSL_ADD 12
+#define M_CMS_ROOF_CELLULOSE_LOOSE_INSL 13
+#define M_CMS_ROOF_CELLULOSE_LOOSE_INSL_ADD 14
+#define M_CMS_ROOF_FIBERGLASS_LOOSE_INSL 15
+#define M_CMS_ROOF_FIBERGLASS_LOOSE_INSL_ADD 16
+#define M_CMS_ADD_SKIRTING 17
+#define M_CMS_ADD_SKIRTING_ADD 18
+#define M_CMS_WHITE_ROOF_COATING 19
+#define M_CMS_WHITE_ROOF_COATING_ADD 20
+//#define M_CMS_REPLACE_DOORS_REQUIRED 21   #271
+//#define M_CMS_REPLACE_DOORS 22
+#define M_CMS_REPLACE_DOORS 21              // formerly 22  #271
+#define M_CMS_REPLACE_DOORS_ADD 23
+#define M_CMS_STORM_DOORS 24
+#define M_CMS_STORM_DOORS_ADD 25
+#define M_CMS_REPLACE_WINDOWS 26
+#define M_CMS_REPLACE_WINDOWS_ADD 27
+#define M_CMS_PLASTIC_STORM_WINDOWS 28
+#define M_CMS_PLASTIC_STORM_WINDOWS_ADD 29
+#define M_CMS_GLASS_STORM_WINDOWS 30
+#define M_CMS_GLASS_STORM_WINDOWS_ADD 31
+#define M_CMS_ADD_AWNINGMHEAS 32
+#define M_CMS_ADD_AWNINGMHEAS_ADD 33
+#define M_CMS_ADD_SHADE_SCREENS 34
+#define M_CMS_ADD_SHADE_SCREENS_ADD 35
+#define M_CMS_SETBACK_THERMOSTAT 36
+#define M_CMS_TUNE_HEATING_SYSTEM 37
+#define M_CMS_EVAPORATIVE_COOLING 38
+#define M_CMS_TUNE_COOLING_SYSTEM 39
+#define M_CMS_REPLACE_DX_COOLING_EQUIP 40
+#define M_CMS_LIGHTING_RETROFITS 41
+#define M_CMS_REFRIGERATOR_REPLACEMENT 42
+#define M_CMS_WATER_HEATER_TANK_INS 43
+#define M_CMS_WATER_HEATER_PIPE_INS 44
+#define M_CMS_LOW_FLOW_SHOWERHEADS 45
+#define M_CMS_WATER_HEATER_REPLACEMENT 46
+#define M_CMS_WINDOW_SEALING 47
+#define M_CMS_WINDOW_SEALING_ADD 48
+
+#define MHEA_MAX_CMS 49 // considered measures array size
+#define MHEA_MIN_CMS MHEA_MAX_CMS
+
+#define M_CMS_ITEMIZED_COST 50
+\
+// Material IDs
+// Added IDs 44-60 to support different material costs
+// for MHEA additions MJF 9/07
+
+#define M_MAT_WALL_FIBERGLASS_BATT_INSL 0
+#define M_MAT_WALL_CELLULOSE_LOOSE_INSL 1
+#define M_MAT_WALL_FIBERGLASS_LOOSE_INSL 2
+#define M_MAT_BELLY_CELLULOSE_LOOSE_INSL 3
+#define M_MAT_BELLY_FIBERGLASS_LOOSE_INSL 4
+#define M_MAT_ROOF_CELLULOSE_LOOSE_INSL 5
+#define M_MAT_ROOF_FIBERGLASS_LOOSE_INSL 6
+#define M_MAT_ADD_SKIRTING 7
+#define M_MAT_REPLACE_DOORS 8
+#define M_MAT_STORM_DOORS 9
+#define M_MAT_REPLACE_WINDOWS 10
+#define M_MAT_PLASTIC_STORM_WINDOWS 11
+#define M_MAT_GLASS_STORM_WINDOWS 12
+#define M_MAT_ADD_AWNINGMHEAS 13
+#define M_MAT_ADD_SHADE_SCREENS 14
+#define M_MAT_WHITE_ROOF_COATING 15
+#define M_MAT_SEAL_DUCTS 16
+#define M_MAT_GENERAL_AIR_SEALING 17
+#define M_MAT_SETBACK_THERMOSTAT 18
+#define M_MAT_TUNE_HEATING_SYSTEM 19
+#define M_MAT_REPLACE_ELEC_FURNACE 20
+#define M_MAT_REPLACE_GAS_FURNACE 21
+#define M_MAT_REPLACE_OIL_KERO_FURNACE 22
+#define M_MAT_REPLACE_PROPANE_FURNACE 23
+#define M_MAT_TUNE_COOLING_SYSTEM 24
+#define M_MAT_EVAPORATIVE_COOLING 25
+#define M_MAT_REPLACE_CLG_CENTRAL 26
+#define M_MAT_REPLACE_CLG_HT_PUMP 27
+#define M_MAT_REPLACE_CLG_ROOM_AC 28
+// #define M_MAT_COMPACT_FL_5_WATT 29
+// #define M_MAT_COMPACT_FL_7_WATT 30
+// #define M_MAT_COMPACT_FL_9_WATT 31
+// #define M_MAT_COMPACT_FL_13_WATT 32
+// #define M_MAT_COMPACT_FL_18_WATT 33
+// #define M_MAT_COMPACT_FL_25_WATT 34
+// #define M_MAT_COMPACT_FL_26_WATT 35
+// #define M_MAT_COMPACT_FL_38_WATT 36
+// #define M_MAT_COMPACT_FL_11_WATT_FLOOD 37
+// #define M_MAT_COMPACT_FL_15_WATT_FLOOD 38
+// #define M_MAT_COMPACT_FL_18_WATT_FLOOD 39
+#define M_MAT_DWH_TANK_WRAP 40
+#define M_MAT_DWH_PIPE_INS 41
+#define M_MAT_DWH_SHOWERHEAD 42
+#define M_MAT_WINDOW_SEALING 43
+#define M_MAT_WALL_FIBERGLASS_BATT_INSL_ADD 44
+#define M_MAT_WALL_CELLULOSE_LOOSE_INSL_ADD 45
+#define M_MAT_WALL_FIBERGLASS_LOOSE_INSL_ADD 46
+#define M_MAT_BELLY_CELLULOSE_LOOSE_INSL_ADD 47
+#define M_MAT_BELLY_FIBERGLASS_LOOSE_INSL_ADD 48
+#define M_MAT_ROOF_CELLULOSE_LOOSE_INSL_ADD 49
+#define M_MAT_ROOF_FIBERGLASS_LOOSE_INSL_ADD 50
+#define M_MAT_ADD_SKIRTING_ADD 51
+#define M_MAT_WHITE_ROOF_COATING_ADD 52
+#define M_MAT_REPLACE_DOORS_ADD 53
+#define M_MAT_STORM_DOORS_ADD 54
+#define M_MAT_WINDOW_SEALING_ADD 55
+#define M_MAT_REPLACE_WINDOWS_ADD 56
+#define M_MAT_PLASTIC_STORM_WINDOWS_ADD 57
+#define M_MAT_GLASS_STORM_WINDOWS_ADD 58
+#define M_MAT_ADD_AWNINGMHEAS_ADD 59
+#define M_MAT_ADD_SHADE_SCREENS_ADD 60
+
+#define MHEA_MAX_RMC 61 // retrofit material costs
+#define MHEA_MIN_RMC MHEA_MAX_RMC
+
+#define M_MAT_FROM_AUDIT 500
+
+#define SHORT_FILE_NAME 13
+#define M_FILENAME_LEN 255
+#define CLNTNAME_LEN 31 /* length of client name in the proj file */
+#define MAX_PROJECTS 20 /* maximum number of projects */
+#define OFF 0
+#define CLOSE 0
+#define ON 1
+#define OPEN 1
+
+// MHEA blower door reading classification
+#define M_PRE_RETROFIT 0
+#define M_POST_DUCT_SEAL 1
+#define M_POST_RETROFIT 2
+
+// DUCTS
+#define SUPPLY_DUCT 0
+#define RETURN_DUCT 1
+
+/* ERROR codes */
+#define RECORD_NOT_FOUND -2
+#define NO_PROJECT_SELECTED -4
+#define NO_FILES_FOUND -5
+#define NO_FILE_SELECTED -7
+#define COULD_NOT_CREATE_WIN -11
+
+#define MAX_INT 32767
+#define NULL_CHAR '\0'
+#define NULL_STR (char *)NULL
+
+#endif

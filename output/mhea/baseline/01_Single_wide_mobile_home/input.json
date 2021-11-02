@@ -1,0 +1,1200 @@
+{
+	"audit":	{
+		"audit_type":	"MHEA",
+		"audit_id":	216,
+		"audit_number":	1217,
+		"avg_no_occupants":	3,
+		"length":	60,
+		"width":	15,
+		"height":	7.5,
+		"wind_shielding":	2,
+		"leakiness":	2,
+		"water_heater_closet":	true,
+		"do_billing_adjust":	true
+	},
+	"walls":	{
+		"stud_size":	3,
+		"home_orientation":	2,
+		"wall_vent":	2,
+		"batt_insl":	1,
+		"loose_insl":	0,
+		"foam_insl":	0,
+		"uninsulatable_area":	0,
+		"porch_length":	18,
+		"porch_width":	12,
+		"porch_orientation":	1,
+		"add_cost":	0
+	},
+	"windows":	[{
+			"code":	"WD1",
+			"window_type":	3,
+			"frame_type":	2,
+			"glazing_type":	1,
+			"int_shading":	2,
+			"ext_shading":	5,
+			"leak":	5,
+			"width":	42,
+			"height":	36,
+			"num_n":	2,
+			"num_s":	2,
+			"num_e":	1,
+			"num_w":	0,
+			"retrofit_option":	2,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}, {
+			"code":	"WD2",
+			"window_type":	2,
+			"frame_type":	2,
+			"glazing_type":	1,
+			"int_shading":	4,
+			"ext_shading":	5,
+			"leak":	3,
+			"width":	42,
+			"height":	36,
+			"num_n":	2,
+			"num_s":	0,
+			"num_e":	0,
+			"num_w":	1,
+			"retrofit_option":	1,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}, {
+			"code":	"WD3",
+			"window_type":	3,
+			"frame_type":	2,
+			"glazing_type":	1,
+			"int_shading":	4,
+			"ext_shading":	4,
+			"leak":	5,
+			"width":	42,
+			"height":	36,
+			"num_n":	0,
+			"num_s":	1,
+			"num_e":	0,
+			"num_w":	0,
+			"retrofit_option":	1,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}, {
+			"code":	"WD4",
+			"window_type":	5,
+			"frame_type":	2,
+			"glazing_type":	1,
+			"int_shading":	4,
+			"ext_shading":	5,
+			"leak":	5,
+			"width":	24,
+			"height":	24,
+			"num_n":	0,
+			"num_s":	0,
+			"num_e":	1,
+			"num_w":	0,
+			"retrofit_option":	1,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}, {
+			"code":	"WD5",
+			"window_type":	4,
+			"frame_type":	2,
+			"glazing_type":	1,
+			"int_shading":	4,
+			"ext_shading":	5,
+			"leak":	2,
+			"width":	18,
+			"height":	7,
+			"num_n":	1,
+			"num_s":	0,
+			"num_e":	0,
+			"num_w":	0,
+			"retrofit_option":	1,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}],
+	"doors":	[{
+			"code":	"DR1",
+			"door_type":	3,
+			"leakiness":	2,
+			"storm":	true,
+			"width":	36,
+			"height":	82,
+			"num_n":	0,
+			"num_s":	1,
+			"num_e":	0,
+			"num_w":	0,
+			"replace":	false,
+			"inc_sir":	false,
+			"cost_replace":	0
+		}, {
+			"code":	"DR2",
+			"door_type":	2,
+			"leakiness":	2,
+			"storm":	false,
+			"width":	32,
+			"height":	80,
+			"num_n":	1,
+			"num_s":	0,
+			"num_e":	0,
+			"num_w":	0,
+			"replace":	true,
+			"inc_sir":	true,
+			"cost_replace":	25
+		}],
+	"ceiling":	{
+		"roof_type":	2,
+		"roof_color":	1,
+		"ceiling_height":	10,
+		"mineral_insl":	2,
+		"loose_insl":	0,
+		"rigid_insl":	0.5,
+		"cathedral_ceiling":	10,
+		"step_wall":	0,
+		"add_cost":	0
+	},
+	"floor":	{
+		"skirt":	true,
+		"wing_joist_size":	2,
+		"wing_mineral_insl":	2,
+		"wing_loose_insl":	0,
+		"wing_insl_location":	3,
+		"belly_joist_size":	2,
+		"belly_mineral_insl":	2,
+		"belly_loose_insl":	0,
+		"belly_insl_location":	4,
+		"belly_condition":	2,
+		"belly_cavity":	2,
+		"belly_depth":	9,
+		"add_cost":	0
+	},
+	"walls_addition":	{
+		"stud_size":	3,
+		"orientation":	1,
+		"wall_vent":	2,
+		"wall_config":	3,
+		"height_max":	8,
+		"height_min":	8,
+		"batt_insl":	3.5,
+		"loose_insl":	0,
+		"foam_insl":	0,
+		"add_cost":	0
+	},
+	"windows_addition":	[{
+			"code":	"AWD1",
+			"window_type":	1,
+			"glazing_type":	2,
+			"int_shading":	4,
+			"ext_shading":	5,
+			"leak":	2,
+			"width":	60,
+			"height":	24,
+			"num_n":	2,
+			"num_s":	0,
+			"num_e":	0,
+			"num_w":	0,
+			"retrofit_option":	1,
+			"inc_sir":	false,
+			"cost_seal":	0,
+			"cost_replace":	0,
+			"cost_add_glass_storm":	0,
+			"cost_add_plastic_storm":	0
+		}],
+	"doors_addition":	[{
+			"code":	"ADR1",
+			"door_type":	1,
+			"leakiness":	2,
+			"storm":	true,
+			"width":	36,
+			"height":	80,
+			"num_n":	1,
+			"num_s":	0,
+			"num_e":	0,
+			"num_w":	0,
+			"replace":	true,
+			"inc_sir":	true,
+			"cost_replace":	10
+		}],
+	"ceiling_addition":	{
+		"roof_color":	1,
+		"joist_size":	2,
+		"mineral_insl":	0,
+		"loose_insl":	0,
+		"rigid_insl":	0,
+		"add_cost":	0
+	},
+	"floor_addition":	{
+		"add_floor_type":	1,
+		"joist_size":	2,
+		"insl_location":	1,
+		"length":	10,
+		"width":	8,
+		"mineral_insl":	2,
+		"loose_insl":	0,
+		"avail_insl":	3.5
+	},
+	"heating_primary":	{
+		"equip_type":	1,
+		"fuel_type":	1,
+		"capacity":	80,
+		"eff_units":	1,
+		"efficiency_percent":	75,
+		"duct_location":	1,
+		"duct_insl":	2,
+		"percent_heated":	100,
+		"smart_thermostat":	false,
+		"tuneup":	false,
+		"inc_sir":	false
+	},
+	"cooling_primary":	{
+		"equip_type":	3,
+		"capacity":	18,
+		"eff_units":	2,
+		"efficiency_eer":	9,
+		"duct_location":	3,
+		"percent_area_room_ac":	50,
+		"tuneup":	false,
+		"inc_sir":	false
+	},
+	"cooling_secondary":	{
+		"equip_type":	3,
+		"capacity":	18,
+		"eff_units":	2,
+		"efficiency_eer":	9,
+		"percent_area_room_ac":	50
+	},
+	"ducts_and_infiltration":	{
+		"evaluate_duct_sealing":	false,
+		"duct_seal_method":	0,
+		"air_leak_red_cost":	250,
+		"pre_inf_cfm":	4200,
+		"pre_inf_pa":	50,
+		"post_inf_cfm":	2500,
+		"post_inf_pa":	50
+	},
+	"water_heating":	{
+		"exist_tank_location_id":	1,
+		"exist_fuel_type_id":	1,
+		"exist_type":	1,
+		"exist_gal":	40,
+		"exist_energy_factor":	0.63,
+		"exist_recovery_efficiency":	0.82,
+		"exist_input_units_id":	1,
+		"exist_input":	40,
+		"exist_insul_type_id":	1,
+		"exist_insul_thick":	1,
+		"exist_pipe_insul":	false,
+		"exist_tank_wrap":	false,
+		"replace_manufacturer":	"",
+		"replace_model":	"",
+		"replace_life":	13,
+		"replace_added_cost":	0,
+		"replace":	false,
+		"inc_sir":	false
+	},
+	"refrigerators":	{
+		"location_id":	1,
+		"label_year_id":	4,
+		"door_seal_condition_id":	1,
+		"label_kwh_per_year":	1488,
+		"meter_manual_defrost":	false,
+		"meter_includes_defrost":	false,
+		"replace_manufacturer":	"GENERAL ELECTRIC",
+		"replace_model":	"CA16SM",
+		"replace_kwh_per_year":	710,
+		"replace_life":	15,
+		"replace_install_cost":	500,
+		"replace_added_cost":	100
+	},
+	"lighting":	[{
+			"code":	"LT1",
+			"exist_lamp_type":	1,
+			"exist_lamp_count":	5,
+			"exist_lamp_watts":	60,
+			"exist_hours_per_day":	12,
+			"new_lamp_type":	4,
+			"new_lamp_count":	5,
+			"new_lamp_watts":	13,
+			"new_hours_per_day":	12,
+			"new_lifetime_hrs":	10000,
+			"install_cost_per_lamp":	6.5,
+			"added_cost_per_lamp":	3,
+			"added_cost":	0
+		}, {
+			"code":	"LT2",
+			"exist_lamp_type":	1,
+			"exist_lamp_count":	3,
+			"exist_lamp_watts":	100,
+			"exist_hours_per_day":	10,
+			"new_lamp_type":	4,
+			"new_lamp_count":	3,
+			"new_lamp_watts":	38,
+			"new_hours_per_day":	10,
+			"new_lifetime_hrs":	10000,
+			"install_cost_per_lamp":	10,
+			"added_cost_per_lamp":	3,
+			"added_cost":	0
+		}],
+	"itemized_costs":	[{
+			"measure":	"Repair door",
+			"component_id":	169,
+			"cost":	20,
+			"inc_sir":	true,
+			"material":	"",
+			"savings":	0
+		}, {
+			"measure":	"Repair flue",
+			"component_id":	170,
+			"cost":	30,
+			"inc_sir":	false,
+			"material":	"",
+			"savings":	0
+		}],
+	"utility_bills_pre_retrofit_heating":	{
+		"usage_units":	1,
+		"period_days":	31,
+		"base_temp":	65,
+		"base_load":	20
+	},
+	"utility_bills_pre_retrofit_heating_data":	[{
+			"year":	2018,
+			"month":	1,
+			"day":	25,
+			"usage":	239,
+			"degree_days":	944
+		}, {
+			"year":	2018,
+			"month":	2,
+			"day":	28,
+			"usage":	170,
+			"degree_days":	757
+		}, {
+			"year":	2018,
+			"month":	3,
+			"day":	27,
+			"usage":	119,
+			"degree_days":	590
+		}, {
+			"year":	2018,
+			"month":	4,
+			"day":	26,
+			"usage":	88,
+			"degree_days":	372
+		}, {
+			"year":	2018,
+			"month":	5,
+			"day":	30,
+			"usage":	69,
+			"degree_days":	143
+		}, {
+			"year":	2018,
+			"month":	6,
+			"day":	30,
+			"usage":	49,
+			"degree_days":	9
+		}, {
+			"year":	2018,
+			"month":	7,
+			"day":	30,
+			"usage":	20,
+			"degree_days":	0
+		}, {
+			"year":	2018,
+			"month":	8,
+			"day":	29,
+			"usage":	20,
+			"degree_days":	0
+		}, {
+			"year":	2018,
+			"month":	9,
+			"day":	28,
+			"usage":	49,
+			"degree_days":	34
+		}, {
+			"year":	2018,
+			"month":	10,
+			"day":	30,
+			"usage":	102,
+			"degree_days":	323
+		}, {
+			"year":	2018,
+			"month":	11,
+			"day":	29,
+			"usage":	156,
+			"degree_days":	699
+		}, {
+			"year":	2018,
+			"month":	12,
+			"day":	30,
+			"usage":	212,
+			"degree_days":	841
+		}],
+	"utility_bills_pre_retrofit_cooling":	{
+		"period_days":	30,
+		"base_temp":	65,
+		"base_load":	120
+	},
+	"utility_bills_pre_retrofit_cooling_data":	[{
+			"year":	2018,
+			"month":	4,
+			"day":	30,
+			"usage":	120,
+			"degree_days":	16
+		}, {
+			"year":	2018,
+			"month":	5,
+			"day":	31,
+			"usage":	181,
+			"degree_days":	128
+		}, {
+			"year":	2018,
+			"month":	6,
+			"day":	30,
+			"usage":	1269,
+			"degree_days":	306
+		}, {
+			"year":	2018,
+			"month":	7,
+			"day":	31,
+			"usage":	1418,
+			"degree_days":	421
+		}, {
+			"year":	2018,
+			"month":	8,
+			"day":	31,
+			"usage":	1204,
+			"degree_days":	378
+		}, {
+			"year":	2018,
+			"month":	9,
+			"day":	30,
+			"usage":	814,
+			"degree_days":	173
+		}],
+	"weather_location":	{
+		"state":	"MO",
+		"city":	"ST. LOUIS",
+		"file":	"STLOUIMO.WX"
+	},
+	"fuel_costs":	{
+		"natural_gas":	9.85,
+		"electric":	0.1309,
+		"natural_gas_heat":	1.025,
+		"electric_heat":	0.003413
+	},
+	"fuel_escalation_rates":	[{
+			"fuel_type_id":	1,
+			"fuel_name":	"Natural Gas",
+			"rate":	[1, 1, 1, 0.99, 0.99, 1, 1.02, 1.04, 1.05, 1.06, 1.08, 1.09, 1.09, 1.1, 1.11, 1.11, 1.12, 1.12, 1.13, 1.13, 1.13, 1.14, 1.14, 1.15, 1.15, 1.15, 1.16, 1.17, 1.17, 1.18, 1.19]
+		}, {
+			"fuel_type_id":	2,
+			"fuel_name":	"Fuel Oil",
+			"rate":	[1, 1, 1.03, 1.05, 1.08, 1.1, 1.12, 1.12, 1.14, 1.15, 1.15, 1.16, 1.17, 1.19, 1.2, 1.21, 1.22, 1.23, 1.24, 1.25, 1.25, 1.26, 1.27, 1.28, 1.29, 1.3, 1.31, 1.32, 1.33, 1.34, 1.35]
+		}, {
+			"fuel_type_id":	3,
+			"fuel_name":	"Electricity",
+			"rate":	[1, 1, 1, 1.01, 1.02, 1.03, 1.04, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.05, 1.04, 1.04, 1.04, 1.04, 1.03, 1.03, 1.03, 1.03, 1.02, 1.02, 1.02, 1.02, 1.02, 1.01, 1.01]
+		}, {
+			"fuel_type_id":	4,
+			"fuel_name":	"Propane",
+			"rate":	[1, 1.01, 1.04, 1.07, 1.11, 1.15, 1.2, 1.24, 1.28, 1.3, 1.32, 1.33, 1.34, 1.35, 1.37, 1.38, 1.4, 1.42, 1.44, 1.47, 1.49, 1.5, 1.53, 1.55, 1.57, 1.59, 1.61, 1.63, 1.65, 1.67, 1.7]
+		}, {
+			"fuel_type_id":	5,
+			"fuel_name":	"Wood",
+			"rate":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		}, {
+			"fuel_type_id":	6,
+			"fuel_name":	"Coal",
+			"rate":	[1, 1, 0.99, 0.99, 1, 1, 1, 1, 1, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.99, 0.98, 0.98, 0.99, 0.99, 1, 1, 1, 1, 1, 1, 1]
+		}, {
+			"fuel_type_id":	7,
+			"fuel_name":	"Kerosene",
+			"rate":	[1, 1, 1.03, 1.05, 1.08, 1.1, 1.12, 1.12, 1.14, 1.15, 1.15, 1.16, 1.17, 1.19, 1.2, 1.21, 1.22, 1.23, 1.24, 1.25, 1.25, 1.26, 1.27, 1.28, 1.29, 1.3, 1.31, 1.32, 1.33, 1.34, 1.35]
+		}, {
+			"fuel_type_id":	8,
+			"fuel_name":	"Other",
+			"rate":	[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+		}],
+	"measure_active_flags":	[{
+			"id":	0,
+			"active":	true,
+			"measure_name":	"Replace Heating System"
+		}, {
+			"id":	1,
+			"active":	true,
+			"measure_name":	"Seal Ducts"
+		}, {
+			"id":	2,
+			"active":	true,
+			"measure_name":	"General Air Sealing"
+		}, {
+			"id":	3,
+			"active":	true,
+			"measure_name":	"Wall Fiberglass Batt Insulation"
+		}, {
+			"id":	4,
+			"active":	true,
+			"measure_name":	"Wall Fiberglass Batt Insulation in Addition"
+		}, {
+			"id":	5,
+			"active":	true,
+			"measure_name":	"Wall Cellulose Loose Insulation"
+		}, {
+			"id":	6,
+			"active":	true,
+			"measure_name":	"Wall Cellulose Loose Insulation in Addition"
+		}, {
+			"id":	7,
+			"active":	true,
+			"measure_name":	"Wall Fiberglass Loose Insulation"
+		}, {
+			"id":	8,
+			"active":	true,
+			"measure_name":	"Wall Fiberglass Loose Insulation in Addition"
+		}, {
+			"id":	9,
+			"active":	true,
+			"measure_name":	"Floor Cellulose Loose Insulation"
+		}, {
+			"id":	10,
+			"active":	true,
+			"measure_name":	"Floor Cellulose Loose Insulation in Addition"
+		}, {
+			"id":	11,
+			"active":	true,
+			"measure_name":	"Floor Fiberglass Loose Insulation"
+		}, {
+			"id":	12,
+			"active":	true,
+			"measure_name":	"Floor Fiberglass Loose Insulation in Addition"
+		}, {
+			"id":	13,
+			"active":	true,
+			"measure_name":	"Roof Cellulose Loose Insulation"
+		}, {
+			"id":	14,
+			"active":	true,
+			"measure_name":	"Roof Cellulose Loose Insulation in Addition"
+		}, {
+			"id":	15,
+			"active":	true,
+			"measure_name":	"Roof Fiberglass Loose Insulation"
+		}, {
+			"id":	16,
+			"active":	true,
+			"measure_name":	"Roof Fiberglass Loose Insulation in Addition"
+		}, {
+			"id":	17,
+			"active":	true,
+			"measure_name":	"Add Skirting"
+		}, {
+			"id":	18,
+			"active":	true,
+			"measure_name":	"Add Skirting on Addition"
+		}, {
+			"id":	19,
+			"active":	true,
+			"measure_name":	"White Roof Coating"
+		}, {
+			"id":	20,
+			"active":	true,
+			"measure_name":	"White Roof Coating in Addition"
+		}, {
+			"id":	21,
+			"active":	true,
+			"measure_name":	"Door Replacement"
+		}, {
+			"id":	23,
+			"active":	true,
+			"measure_name":	"Door Replacement in Addition"
+		}, {
+			"id":	24,
+			"active":	true,
+			"measure_name":	"Storm Door"
+		}, {
+			"id":	25,
+			"active":	true,
+			"measure_name":	"Storm Door in Addition"
+		}, {
+			"id":	26,
+			"active":	true,
+			"measure_name":	"Replace Single Paned Windows"
+		}, {
+			"id":	27,
+			"active":	true,
+			"measure_name":	"Replace Single Paned Windows in Addition"
+		}, {
+			"id":	28,
+			"active":	true,
+			"measure_name":	"Plastic Storm Windows"
+		}, {
+			"id":	29,
+			"active":	true,
+			"measure_name":	"Plastic Storm Windows in Addition"
+		}, {
+			"id":	30,
+			"active":	true,
+			"measure_name":	"Glass Storm Windows"
+		}, {
+			"id":	31,
+			"active":	true,
+			"measure_name":	"Glass Storm Windows in Addition"
+		}, {
+			"id":	32,
+			"active":	true,
+			"measure_name":	"Add Awnings"
+		}, {
+			"id":	33,
+			"active":	true,
+			"measure_name":	"Add Awnings in Addition"
+		}, {
+			"id":	34,
+			"active":	true,
+			"measure_name":	"Add Shade Screens"
+		}, {
+			"id":	35,
+			"active":	true,
+			"measure_name":	"Add Shade Screens in Addition"
+		}, {
+			"id":	36,
+			"active":	true,
+			"measure_name":	"Setback Thermostat"
+		}, {
+			"id":	37,
+			"active":	true,
+			"measure_name":	"Tune-Up Heating System"
+		}, {
+			"id":	38,
+			"active":	true,
+			"measure_name":	"Evaporative Cooling"
+		}, {
+			"id":	39,
+			"active":	true,
+			"measure_name":	"Tune-Up Cooling System"
+		}, {
+			"id":	40,
+			"active":	true,
+			"measure_name":	"Replace DX Cooling Equipment"
+		}, {
+			"id":	41,
+			"active":	true,
+			"measure_name":	"Lighting Retrofits"
+		}, {
+			"id":	42,
+			"active":	true,
+			"measure_name":	"Refrigerator Replacement"
+		}, {
+			"id":	43,
+			"active":	true,
+			"measure_name":	"Water Heater Tank Insulation"
+		}, {
+			"id":	44,
+			"active":	true,
+			"measure_name":	"Water Heater Pipe Insulation"
+		}, {
+			"id":	45,
+			"active":	true,
+			"measure_name":	"Low Flow Showerheads"
+		}, {
+			"id":	46,
+			"active":	true,
+			"measure_name":	"Water Heater Replacement"
+		}, {
+			"id":	47,
+			"active":	true,
+			"measure_name":	"Window Sealing"
+		}, {
+			"id":	48,
+			"active":	true,
+			"measure_name":	"Window Sealing in Addition"
+		}],
+	"measure_costs":	[{
+			"id":	0,
+			"retro_name":	"Wall Fiberglass Batt Insulation",
+			"life":	20,
+			"units":	"SqFt",
+			"material":	0.26,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	1,
+			"retro_name":	"Wall Cellulose Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	2,
+			"retro_name":	"Wall Fiberglass Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	3,
+			"retro_name":	"Floor Cellulose Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	4,
+			"retro_name":	"Floor Fiberglass Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	5,
+			"retro_name":	"Roof Cellulose Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	6,
+			"retro_name":	"Roof Fiberglass Loose Insulation",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	7,
+			"retro_name":	"Add Skirting",
+			"life":	10,
+			"units":	"SqFt",
+			"material":	0.75,
+			"labor":	0.5,
+			"extra":	0
+		}, {
+			"id":	8,
+			"retro_name":	"Door Replacement",
+			"life":	15,
+			"units":	"Each Door",
+			"material":	125,
+			"labor":	60,
+			"extra":	0
+		}, {
+			"id":	9,
+			"retro_name":	"Storm Door",
+			"life":	10,
+			"units":	"Each Door",
+			"material":	100,
+			"labor":	30,
+			"extra":	0
+		}, {
+			"id":	10,
+			"retro_name":	"Replace Single Paned Windows",
+			"life":	20,
+			"units":	"United Inch",
+			"material":	1,
+			"labor":	1.5,
+			"extra":	0
+		}, {
+			"id":	11,
+			"retro_name":	"Plastic Storm Windows",
+			"life":	5,
+			"units":	"SqFt",
+			"material":	1.5,
+			"labor":	2.5,
+			"extra":	0
+		}, {
+			"id":	12,
+			"retro_name":	"Glass Storm Windows",
+			"life":	15,
+			"units":	"SqFt",
+			"material":	3,
+			"labor":	5,
+			"extra":	0
+		}, {
+			"id":	13,
+			"retro_name":	"Add Awnings",
+			"life":	10,
+			"units":	"Each Window",
+			"material":	75,
+			"labor":	25,
+			"extra":	0
+		}, {
+			"id":	14,
+			"retro_name":	"Add Shade Screens",
+			"life":	10,
+			"units":	"SqFt",
+			"material":	3,
+			"labor":	1,
+			"extra":	0
+		}, {
+			"id":	15,
+			"retro_name":	"White Roof Coating",
+			"life":	7,
+			"units":	"SqFt",
+			"material":	0.3,
+			"labor":	0.1,
+			"extra":	0
+		}, {
+			"id":	16,
+			"retro_name":	"Seal Ducts",
+			"life":	10,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	17,
+			"retro_name":	"General Air Sealing",
+			"life":	10,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	18,
+			"retro_name":	"Setback Thermostat",
+			"life":	15,
+			"units":	"Each",
+			"material":	50,
+			"labor":	25,
+			"extra":	0
+		}, {
+			"id":	19,
+			"retro_name":	"Tune-Up Heating System",
+			"life":	3,
+			"units":	"Each",
+			"material":	25,
+			"labor":	100,
+			"extra":	0
+		}, {
+			"id":	20,
+			"retro_name":	"Heating System (Electric)",
+			"life":	18,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	21,
+			"retro_name":	"Heating System (Gas)",
+			"life":	18,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	22,
+			"retro_name":	"Heating System (Oil/Kerosene)",
+			"life":	18,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	23,
+			"retro_name":	"Heating System (Propane)",
+			"life":	18,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	24,
+			"retro_name":	"Tune-Up Cooling System",
+			"life":	3,
+			"units":	"Each",
+			"material":	25,
+			"labor":	100,
+			"extra":	0
+		}, {
+			"id":	25,
+			"retro_name":	"Evaporative Cooling",
+			"life":	15,
+			"units":	"Each",
+			"material":	500,
+			"labor":	400,
+			"extra":	0
+		}, {
+			"id":	26,
+			"retro_name":	"DX Cooling Equipment (Central)",
+			"life":	15,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	27,
+			"retro_name":	"DX Cooling Equipment (Heat Pump)",
+			"life":	15,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	28,
+			"retro_name":	"DX Cooling Equipment (Room AC)",
+			"life":	15,
+			"units":	"Each",
+			"material":	0,
+			"labor":	0,
+			"extra":	0
+		}, {
+			"id":	40,
+			"retro_name":	"Water Heater Tank Insulation Wrap",
+			"life":	13,
+			"units":	"Each",
+			"material":	15,
+			"labor":	25,
+			"extra":	0
+		}, {
+			"id":	41,
+			"retro_name":	"Water Heater Pipe Insulation",
+			"life":	13,
+			"units":	"Each",
+			"material":	5,
+			"labor":	10,
+			"extra":	0
+		}, {
+			"id":	42,
+			"retro_name":	"Low Flow Showerheads",
+			"life":	15,
+			"units":	"Each",
+			"material":	5,
+			"labor":	15,
+			"extra":	0
+		}, {
+			"id":	43,
+			"retro_name":	"Window Sealing",
+			"life":	10,
+			"units":	"Each Window",
+			"material":	10,
+			"labor":	20,
+			"extra":	0
+		}, {
+			"id":	44,
+			"retro_name":	"Wall Fiberglass Batt Insulation in Addition",
+			"life":	20,
+			"units":	"SqFt",
+			"material":	0.26,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	45,
+			"retro_name":	"Wall Cellulose Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	46,
+			"retro_name":	"Wall Fiberglass Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	47,
+			"retro_name":	"Floor Cellulose Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	48,
+			"retro_name":	"Floor Fiberglass Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	300
+		}, {
+			"id":	49,
+			"retro_name":	"Roof Cellulose Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	7,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	50,
+			"retro_name":	"Roof Fiberglass Loose Insulation in Addition",
+			"life":	20,
+			"units":	"Bag",
+			"material":	17,
+			"labor":	0,
+			"extra":	400
+		}, {
+			"id":	51,
+			"retro_name":	"Add Skirting on Addition",
+			"life":	10,
+			"units":	"SqFt",
+			"material":	0.75,
+			"labor":	0.5,
+			"extra":	0
+		}, {
+			"id":	52,
+			"retro_name":	"White Roof Coating in Addition",
+			"life":	7,
+			"units":	"SqFt",
+			"material":	0.3,
+			"labor":	0.1,
+			"extra":	0
+		}, {
+			"id":	53,
+			"retro_name":	"Door Replacement in Addition",
+			"life":	15,
+			"units":	"Each Door",
+			"material":	125,
+			"labor":	60,
+			"extra":	0
+		}, {
+			"id":	54,
+			"retro_name":	"Storm Door in Addition",
+			"life":	10,
+			"units":	"Each Door",
+			"material":	100,
+			"labor":	30,
+			"extra":	0
+		}, {
+			"id":	55,
+			"retro_name":	"Window Sealing in Addition",
+			"life":	10,
+			"units":	"Each Window",
+			"material":	10,
+			"labor":	20,
+			"extra":	0
+		}, {
+			"id":	56,
+			"retro_name":	"Replace Single Paned Windows in Addition",
+			"life":	20,
+			"units":	"United Inch",
+			"material":	1,
+			"labor":	1.5,
+			"extra":	0
+		}, {
+			"id":	57,
+			"retro_name":	"Plastic Storm Windows in Addition",
+			"life":	5,
+			"units":	"SqFt",
+			"material":	1.5,
+			"labor":	2.5,
+			"extra":	0
+		}, {
+			"id":	58,
+			"retro_name":	"Glass Storm Windows in Addition",
+			"life":	15,
+			"units":	"SqFt",
+			"material":	3,
+			"labor":	5,
+			"extra":	0
+		}, {
+			"id":	59,
+			"retro_name":	"Add Awnings in Addition",
+			"life":	15,
+			"units":	"Each Window",
+			"material":	75,
+			"labor":	25,
+			"extra":	0
+		}, {
+			"id":	60,
+			"retro_name":	"Add Shade Screens in Addition",
+			"life":	10,
+			"units":	"SqFt",
+			"material":	3,
+			"labor":	1,
+			"extra":	0
+		}],
+	"key_parameters":	{
+		"real_discount_rate":	3,
+		"minimum_acceptable_sir":	1,
+		"spending_limit":	2500,
+		"heating_setpoint_day":	68,
+		"heating_setpoint_night":	68,
+		"cooling_setpoint_day":	78,
+		"cooling_setpoint_night":	78,
+		"thermostat_setback_amount":	3,
+		"length_of_night_thermostat_setback":	8,
+		"bag_size_for_loose_fiberglass_insulation":	25,
+		"density_of_loose_fiberglass_insulation":	1.5,
+		"bag_size_for_loose_cellulose_insulation":	25,
+		"density_of_loose_cellulose_insulation":	3,
+		"interior_ceiling_r_value_winter":	1.22,
+		"interior_ceiling_r_value_summer":	1.22,
+		"interior_floor_r_value_winter":	3.2,
+		"interior_floor_r_value_summer":	3.2,
+		"interior_wall_r_value_winter":	0.45,
+		"interior_wall_r_value_summer":	0.45,
+		"outside_wall_r_value_winter":	0.42,
+		"outside_wall_r_value_summer":	0.46,
+		"loose_insulation_r_value_per_inch":	2.5,
+		"batt_blanket_insulation_r_value_per_inch":	3.5,
+		"rigid_insulation_r_value_per_inch":	4.11,
+		"foamcore_insulation_r_value_per_inch":	5,
+		"home_leakiness_loose":	4000,
+		"home_leakiness_medium":	3000,
+		"home_leakiness_tight":	2000,
+		"free_heat_from_interior_sources_day":	1950,
+		"free_heat_from_interior_sources_night":	2350,
+		"duct_sealing_distribution_loss_reduction":	50,
+		"duct_insulation_dist_loss_reduction":	10,
+		"evaporative_cooler_actual_saturating_eff":	75,
+		"saturating_eff_for_evaporative_tune_up":	80,
+		"saturating_eff_for_evaporative_rplcmnt":	80,
+		"cooling_system_fan_power":	60,
+		"door_u_value_wood_with_solid_core":	0.4,
+		"door_u_value_wood_with_hollow_core":	0.46,
+		"door_u_value_standard_mfg_home_door":	0.4,
+		"u_value_of_replacement_door":	0.2,
+		"window_u_value_1_glazing_summer":	0.93,
+		"window_u_value_1_glazing_winter":	0.93,
+		"window_u_value_2_glazing_summer":	0.57,
+		"window_u_value_2_glazing_winter":	0.57,
+		"window_u_value_1_glass_storm_summer":	0.48,
+		"window_u_value_1_glass_storm_winter":	0.48,
+		"window_u_value_2_glass_storm_summer":	0.38,
+		"window_u_value_2_glass_storm_winter":	0.38,
+		"window_u_value_1_plastic_storm_summer":	0.53,
+		"window_u_value_1_plastic_storm_winter":	0.53,
+		"window_u_value_2_plastic_storm_summer":	0.43,
+		"window_u_value_2_plastic_storm_winter":	0.43,
+		"skylight_u_value_1_glazing_summer":	0.8,
+		"skylight_u_value_1_glazing_winter":	1.15,
+		"skylight_u_value_2_glazing_summer":	0.46,
+		"skylight_u_value_2_glazing_winter":	0.7,
+		"skylight_u_value_1_glass_storm_summer":	0.38,
+		"skylight_u_value_1_glass_storm_winter":	0.52,
+		"skylight_u_value_2_glass_storm_summer":	0.29,
+		"skylight_u_value_2_glass_storm_winter":	0.42,
+		"skylight_u_value_1_plstc_storm_summer":	0.36,
+		"skylight_u_value_1_plstc_storm_winter":	0.5,
+		"skylight_u_value_2_plstc_storm_summer":	0.28,
+		"skylight_u_value_2_plstc_storm_winter":	0.41,
+		"window_shading_r_value_drapes":	0.3,
+		"window_shading_r_value_blinds_shades":	0.3,
+		"window_shading_r_value_drapes_shades":	0.6,
+		"sun_screen_solar_trans_reduction_summer":	45,
+		"sun_screen_solar_trans_reduction_winter":	90,
+		"ratio_of_awning_depth_to_window_height":	0.5,
+		"low_flow_shower_head_flow_rate":	2.5,
+		"water_heater_wrap_added_r_value":	7,
+		"refrigerator_defrost_cycle_energy":	0.08
+	}
+}
