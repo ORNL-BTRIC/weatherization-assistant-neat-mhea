@@ -1,0 +1,122 @@
+---
+code_id: 66461
+open_source: true
+repository_link: "https://github.com/ORNL-BTRIC/weatherization-assistant-neat-mhea"
+landing_page: ""
+accessibility: "OS"
+software_type: "S"
+developers:
+- email: ""
+  orcid: ""
+  first_name: "Michael"
+  last_name: "Gettings"
+  middle_name: ""
+  affiliations:
+  - "Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States)"
+- email: ""
+  orcid: ""
+  first_name: "Mark"
+  last_name: "Fishbaugher"
+  middle_name: ""
+  affiliations: []
+- email: "accawigk@ornl.gov"
+  orcid: "0000-0002-7259-0105"
+  first_name: "Gina"
+  last_name: "Accawi"
+  middle_name: ""
+  affiliations:
+  - "Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States)"
+- email: ""
+  orcid: "0000-0002-1335-0515"
+  first_name: "Brandon"
+  last_name: "Langley"
+  middle_name: ""
+  affiliations:
+  - "Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States)"
+- email: "degrawjw@ornl.gov"
+  orcid: "0000-0001-6768-6017"
+  first_name: "Jason"
+  last_name: "DeGraw"
+  middle_name: ""
+  affiliations:
+  - "Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States). Building Technologies\
+    \ Research and Integration Center (BTRIC)"
+contributors:
+- email: "malhotram@ornl.gov"
+  orcid: "0000-0002-8461-4792"
+  first_name: "Mini"
+  last_name: "Malhotra"
+  middle_name: ""
+  contributor_type: "Researcher"
+  affiliations:
+  - "Oak Ridge National Lab. (ORNL), Oak Ridge, TN (United States). Building Technologies\
+    \ Research and Integration Center (BTRIC)"
+sponsoring_organizations:
+- organization_name: "USDOE Office of Energy Efficiency and Renewable Energy (EERE),\
+    \ Energy Efficiency Office. Weatherization and Intergovernmental Programs Office"
+  funding_identifiers:
+  - identifier_type: "BRCode"
+    identifier_value: "WI0701000"
+  primary_award: "AC05-00OR22725"
+  DOE: true
+contributing_organizations: []
+research_organizations:
+- organization_name: "Oak Ridge National Laboratory (ORNL), Oak Ridge, TN (United\
+    \ States)"
+  DOE: true
+related_identifiers: []
+award_dois: []
+release_date: "2021-11-04"
+software_title: "Weatherization Assistant NEAT/MHEA"
+doi: "10.11578/dc.20211101.1"
+description: "The software provides a measure selection technique indicating cost\
+  \ effective retrofit activities that can be applied to a home using a standard Savings\
+  \ to Investment Ratio (SIR). Users must provide an input file describing the characteristics\
+  \ of the home to be evaluated. The software takes the input data provided and calculates\
+  \ energy savings and cost savings predicted for a standard set of measures given\
+  \ the input parameters. The Weatherization Assistant computes estimates of pre-retrofit\
+  \ whole building space heating and cooling energy consumptions based on the house\
+  \ description data supplied by the user. The consumptions are computed using a monthly\
+  \ heating and cooling variable base degree-day method by algorithms similar to those\
+  \ developed for the CIRA program [LBL, 1982]. The building consumptions are needed\
+  \ in computing the energy savings from measures affecting the efficiencies of the\
+  \ heating and cooling equipment. Weatherization Assistant then computes the energy\
+  \ savings and costs for each individual measure applicable to the building described\
+  \ as if it were the only measure installed in the house. From these energy savings,\
+  \ a discounted dollar savings over the life of each measure is computed. The ratio\
+  \ of this dollar savings to the cost of installing the measure, the \"savings-to-investment\
+  \ ratio\" (SIR), is used in an initial ranking of the measures' effectiveness. The\
+  \ \"interacted\" savings and SIR of measures are then determined assuming the measures\
+  \ are added to the house collectively, in order of their ranking, e.g., the second\
+  \ ranked measure is installed in the house initially described by the user after\
+  \ having been modified by the first ranked measure. If this second-ranked measure's\
+  \ updated SIR is greater than a user-defined limit, the measure is left implemented,\
+  \ else it is removed so that the next measure's effectiveness is not dependent on\
+  \ it. The choice between two mutually exclusive measures (such as different levels\
+  \ of insulation) is made on the basis of their \"net present value\" (NPV), the\
+  \ difference of life-time savings and installation cost, rather than their SIR.\
+  \ This has been shown to be the more correct criterion on which to base the selection\
+  \ between two measures, both of which cannot be installed. The audit computes and\
+  \ reports to the user the energy savings, discounted dollar savings, installation\
+  \ cost, and SIR for each measure considered cost-effective. For those with SIR greater\
+  \ than the user-designated cutoff, a materials list gives the material name, type,\
+  \ and quantity required for installation of the measure. Weatherization Assistant\
+  \ permits entry of pre-retrofit billing data for gas or electrically heated homes\
+  \ or homes with electric air-conditioning. The user may then make the decision to\
+  \ have the savings of the measures adjusted to reflect the difference in billed\
+  \ consumption and that predicted by the program."
+programming_languages:
+- "C"
+- "C++"
+version_number: "v11.00.000"
+country_of_origin: "United States"
+licenses:
+- "Other"
+proprietary_url: "https://github.com/ORNL-BTRIC/weatherization-assistant-neat-mhea/blob/main/license"
+recipient_org: "Oak Ridge National Laboratory"
+date_record_added: "2021-11-01"
+date_record_updated: "2021-11-03"
+links:
+- rel: "citation"
+  href: "https://www.osti.gov/doecode/biblio/66461"
+is_migration: false
